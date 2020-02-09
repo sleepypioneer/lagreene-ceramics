@@ -4,10 +4,6 @@
 # Editor settings
 .vscode/
 
-# Media files
-img/
-media/
-
 # Terraform files
 *tfplan
 .terraform
