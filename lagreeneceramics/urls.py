@@ -20,6 +20,10 @@ from django.conf import settings
 from django.contrib.sitemaps.views import sitemap
 from photologue.sitemaps import GallerySitemap, PhotoSitemap
 
+sitemaps = {
+    'photologue_galleries': GallerySitemap,
+    'photologue_photos': PhotoSitemap,
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
