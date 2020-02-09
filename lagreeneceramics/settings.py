@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
+    'photologue',
+    'sortedm2m',
     'homepage.apps.HomepageConfig',
 ]
 
