@@ -8,6 +8,8 @@ django = "*"
 gunicorn = "*"
 django-heroku = "*"
 pillow = "*"
+django-photologue = "*"
+pytz = "*"
 
 [dev-packages]
 
