@@ -1,0 +1,45 @@
+/*
+Headings and navbar:            #88A0A8
+Paragraph/ text:                #66666E
+Background:                     #EFEEEA
+Contrast background:            #EEE3AB
+
+Fonts:
+Main:                          Archivo Narrow
+
+*/
+
+body {
+    background-color: #EFEEEA;
+    color: #66666E;
+}
+
+#main-nav {
+    background-color: #88A0A8!important;
+}
+
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    color: white;
+    font-weight: bold;
+    background-color: #88A0A8;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+.sticky-top {
+    background-color: #88A0A8;
+    margin-bottom: 2em;
+}
+
+@media screen and (min-width: 991px) {
+    .sticky-top {
+        background-color: #EFEEEA!important;
+    }
+
+    #main-nav {
+        margin: 20px 0px 0px;
+    }
+}
+

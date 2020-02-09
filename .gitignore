@@ -4,8 +4,7 @@
 # Editor settings
 .vscode/
 
-# Static & media files
-staticfiles/
+# Media files
 img/
 media/
 
