@@ -2,7 +2,133 @@
 {% load static %}
 {% block page_content %}
 <div class="row">
-    <div>HEELLLLLOOo</div>
-    <img alt="Bootstrap Image Preview" src="{% static "images/tree.png" %}" class="img-thumbnail" />
+    <div class="col-md-12" id="abId0.1921916090196436">
+        <div class="row page">
+            <div class="col-md-12" id="abId0.013323824564732467">
+                <div class="row">
+                    <div class="col-md-12" id="abId0.028373669007306646">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 displayCenter" id="abId0.4251624831781713">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1 class="text-center">
+                                    Lesley Anne Greene Ceramics
+                                </h1>
+                                <p class="text-center">
+                                    Lorem ipsum dolor sit amet liquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <div class="carousel slide" id="carousel-868042">
+                            <div class="carousel-inner">
+                                {% for item in slideshow %}
+                                    <div class="carousel-item {% if forloop.first %} active {% endif %}">
+                                        <img class="d-block w-100" alt="Carousel Bootstrap" src="{{ item.image.url  }}" />
+                                        <!-- <div class="carousel-caption">
+                                            <h4>
+                                                {{ item.title }}
+                                            </h4>
+                                        </div> -->
+                                    </div>
+                                    {% endfor %}
+                            </div> <a class="carousel-control-prev" href="#carousel-868042" data-slide="prev"><span class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span></a> <a class="carousel-control-next" href="#carousel-868042" data-slide="next"><span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row page">
+            <div class="col-md-12" id="abId0.6705007031212171">
+                <div class="row">
+                    <div class="col-md-12">
+                    </div>
+                </div>
+                <div class="row">
+                    {% for category in categories %}
+                    <div class="col-md-2">
+                        <img alt="Bootstrap Image Preview" src="{{ category.image.url }}" class="img-thumbnail" />
+                        <h3 class="text-info text-center">
+                            {{ category.name }}
+                        </h3>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="row page">
+            <div class="col-md-12" id="abId0.6547029226758361">
+                <div class="row">
+                    <div class="col-md-12">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" id="abId0.7773693883923949">
+                        <div class="row">
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-8">
+                                <p class="text-center">
+                                    Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
+                                </p>
+                                <h3 class="text-center">
+                                    h3. Lorem ipsum dolor sit amet.
+                                </h3>
+                            </div>
+                            <div class="col-md-2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" id="abId0.6979473060785626">
+                        <div class="row">
+                            <div class="col-md-12">
+                            </div>
+                        </div>
+                        <div class="row" style="
+                            background-color: #88A0A8;
+                            padding: 32px 8px;
+                            color: white;
+                        " >
+                            <div class="col-md-4">
+
+                                <address>
+                                        <strong>Twitter, Inc.</strong><br /> 795 Folsom Ave, Suite 600<br /> San Francisco, CA 94107<br /> <abbr title="Phone">P:</abbr> (123) 456-7890
+                                </address>
+                            </div>
+                            <div class="col-md-8" id="abId0.6014137509079738">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img alt="Bootstrap Image Preview" src="static/img/categories/bears.jpg" class="img-thumbnail" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img alt="Bootstrap Image Preview" src="static/img/categories/birds.jpg" class="img-thumbnail" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img alt="Bootstrap Image Preview" src="static/img/categories/cats.jpg" class="img-thumbnail" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img alt="Bootstrap Image Preview" src="static/img/categories/bears.jpg" class="img-thumbnail" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12" style="
+                                padding: 12px 0px;
+                            ">
+                                    <span class="badge badge-default">Copyright 2019 Lesley Anne Greene </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-{% endblock %} 
+
+{% endblock %}
