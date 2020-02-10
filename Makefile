@@ -1,0 +1,33 @@
+.PHONY: docker-build run-in-docker createsuperuser
+
+DOCKER_BUILD_CONTEXT='./'
+DOCKER_NAME='lagreeneceramics'
+DOCKER_TAG='alpha'
+
+create-requirements: SHELL:=bash
+create-requirements:
+	pip freeze > requirements.txt
+
+docker-build:
+	docker build \
+		-f $(DOCKER_BUILD_CONTEXT)/Dockerfile \
+		--build-arg  SECRET_KEY='${SECRET_KEY}' \
+		--build-arg  DATABASE_NAME='${DATABASE_NAME}' \
+		--build-arg  DATABASE_USER='${DATABASE_USER}' \
+		--build-arg  DATABASE_URL='${DATABASE_URL}' \
+		--build-arg  DATABASE_PASSWORD='${DATABASE_PASSWORD}' \
+		--build-arg  DATABASE_HOST='${DATABASE_HOST}' \
+		--build-arg  DATABASE_PORT='${DATABASE_PORT}' \
+		--build-arg  DJANGO_DEBUG='${DJANGO_DEBUG}' \
+		-t $(DOCKER_NAME):$(DOCKER_TAG) \
+		$(DOCKER_BUILD_CONTEXT)
+
+run-in-docker:
+	docker run --rm \
+	-p 8000:8000 \
+	--name $(DOCKER_NAME) \
+	$(DOCKER_NAME):$(DOCKER_TAG)
+
+create-super-user:
+	docker exec -it $(DOCKER_NAME) python manage.py createsuperuser
+
