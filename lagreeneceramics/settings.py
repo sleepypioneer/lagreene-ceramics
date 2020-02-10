@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'photologue',
     'sortedm2m',
+    'sorl.thumbnail', # required for thumbnail support
+    'django_instagram',
     'homepage.apps.HomepageConfig',
 ]
 

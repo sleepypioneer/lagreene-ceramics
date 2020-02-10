@@ -30,5 +30,5 @@ urlpatterns = [
     path('homepage/', include('homepage.urls')),
     path('photologue/', include('photologue.urls', namespace='photologue')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
-         name='django.contrib.sitemaps.views.sitemap')
+         name='django.contrib.sitemaps.views.sitemap'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

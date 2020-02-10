@@ -1,0 +1,13 @@
+{% load instagram_client %}
+{% block instagramfeed %}
+<div id='jessica'>
+    <div id="django_recent_media_wall">
+        {% instagram_user_recent_media instagram_profile_name %}
+        {% for media in recent_media|slice:":4" %}
+            <a href="//instagram.com/p/{{ media.shortcode }}" target="_blank">
+                <img src="{{ media.thumbnail_resources.0.src }}"/>
+            </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -101,20 +101,9 @@
                                 </address>
                             </div>
                             <div class="col-md-8" id="abId0.6014137509079738">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <img alt="Bootstrap Image Preview" src="static/img/categories/bears.jpg" class="img-thumbnail" />
-                                    </div>
-                                    <div class="col-md-3">
-                                        <img alt="Bootstrap Image Preview" src="static/img/categories/birds.jpg" class="img-thumbnail" />
-                                    </div>
-                                    <div class="col-md-3">
-                                        <img alt="Bootstrap Image Preview" src="static/img/categories/cats.jpg" class="img-thumbnail" />
-                                    </div>
-                                    <div class="col-md-3">
-                                        <img alt="Bootstrap Image Preview" src="static/img/categories/bears.jpg" class="img-thumbnail" />
-                                    </div>
-                                </div>
+                                {% block instagram %}
+                                    {% include 'instagram.html' %}
+                                {% endblock %}
                             </div>
                         </div>
                         <div class="row">

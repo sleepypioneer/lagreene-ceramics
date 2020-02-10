@@ -9,6 +9,5 @@ def index(request):
     context = {
         'slideshow': slideshow,
         'categories': categories,
-
     }
     return render(request, 'index.html', context)
