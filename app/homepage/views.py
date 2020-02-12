@@ -3,7 +3,7 @@ from homepage.models import SlideShowItem, GalleryCategory
 
 
 # Create your views here.
-def index(request):
+def homepage(request):
     slideshow = SlideShowItem.objects.all()
     categories = GalleryCategory.objects.all()
     context = {
