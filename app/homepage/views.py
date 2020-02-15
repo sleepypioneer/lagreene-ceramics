@@ -9,5 +9,6 @@ def homepage(request):
     context = {
         'slideshow': slideshow,
         'categories': categories,
+        'instagram_profile_name': 'lesleyannegreene',
     }
     return render(request, 'index.html', context)
