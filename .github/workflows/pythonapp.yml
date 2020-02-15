@@ -16,15 +16,11 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
-    - name: Lint with black
+        pip install -r app/requirements.txt
+    - name: Lint with pycodestyle
       run: |
-        pip install black
-        # Runs Black linter on all files,
-        # if changes are necessary it returns 
-        # what requires changing
-        black ./ --check --diff
-    - name: Test with pytest
-      run: |
-        pip install pytest
-        python -m pytest tests/
+        pip install pycodestyle
+        pycodestyle .
+    # - name: Test Django Files
+    #   run: |
+    #     app/manage.py test
