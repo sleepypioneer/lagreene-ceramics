@@ -7,7 +7,7 @@
 # Terraform files
 *tfplan
 .terraform
-*.tfstate
+*.tfstate*
 
 # Pycache files
 *.pyc
