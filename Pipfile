@@ -12,6 +12,7 @@ django-photologue = "*"
 pytz = "*"
 django-instagram = "*"
 sorl-thumbnail = "*"
+whitenoise = "*"
 
 [dev-packages]
 pycodestyle = "*"

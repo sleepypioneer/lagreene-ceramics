@@ -26,7 +26,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['https://aqueous-river-70990.herokuapp.com', 'http://127.0.0.1:8000']
+ALLOWED_HOSTS = ['https://lagreene-ceramics.herokuapp.com', 'http://127.0.0.1:8000']
 
 
 # Application definition
