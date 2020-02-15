@@ -4,10 +4,6 @@ DOCKER_BUILD_CONTEXT='./'
 DOCKER_NAME='lagreeneceramics'
 DOCKER_TAG='alpha'
 
-create-requirements: SHELL:=bash
-create-requirements:
-	pip freeze > requirements.txt
-
 docker-build:
 	docker build \
 		-f $(DOCKER_BUILD_CONTEXT)/Dockerfile \
@@ -27,6 +23,10 @@ run-in-docker:
 	-p 8000:8000 \
 	--name $(DOCKER_NAME) \
 	$(DOCKER_NAME):$(DOCKER_TAG)
+
+docker-clean:
+	docker rm -f $(DOCKER_NAME) || true
+	docker image rm $(DOCKER_NAME):$(DOCKER_TAG) || true
 
 create-super-user:
 	docker exec -it $(DOCKER_NAME) python manage.py createsuperuser

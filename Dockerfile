@@ -28,11 +28,11 @@ EXPOSE 8000
 RUN pip install "django==3.0.2"
 
 # Install other requirements
-COPY requirements.txt .
+COPY app/requirements.txt .
 RUN pip install -r requirements.txt
 
 # Copy application code.
-COPY . .
+COPY app/. .
 
 # Create a group and user to run our app
 ARG APP_USER=appuser
