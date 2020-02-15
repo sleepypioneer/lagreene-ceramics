@@ -4,16 +4,19 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
+Django = "*"
 gunicorn = "*"
 django-heroku = "*"
-pillow = "*"
+Pillow = "*"
 django-photologue = "*"
 pytz = "*"
 django-instagram = "*"
 sorl-thumbnail = "*"
 
 [dev-packages]
+pycodestyle = "*"
+pytest = "*"
+autopep8 = "*"
 
 [requires]
 python_version = "3.8"
