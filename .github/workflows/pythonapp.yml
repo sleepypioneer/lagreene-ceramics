@@ -21,7 +21,6 @@ jobs:
       run: |
         pip install pycodestyle
         pycodestyle .
-    - name: Test with pytest
-      run: |
-        pip install pytest
-        python -m pytest tests/
+    # - name: Test Django Files
+    #   run: |
+    #     app/manage.py test
