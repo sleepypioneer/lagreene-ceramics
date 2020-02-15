@@ -45,3 +45,17 @@ Run with Docker via Makefile, first build the image:
 then run the image:
 
 `make run-in-docker`
+
+
+Style settings:
+
+``` css
+Headings and navbar:            #88A0A8
+Paragraph/ text:                #66666E
+Background:                     #EFEEEA
+Contrast background:            #EEE3AB
+
+Fonts:
+Main:                          Archivo Narrow
+
+```
