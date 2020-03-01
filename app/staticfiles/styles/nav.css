@@ -22,7 +22,7 @@ body {
     margin-bottom: 2em;
 }
 
-@media screen and (min-width: 991px) {
+@media screen and (min-width: 767px) {
     .sticky-top {
         background-color: #EFEEEA!important;
     }

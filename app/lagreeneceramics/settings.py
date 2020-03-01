@@ -48,6 +48,9 @@ INSTALLED_APPS = [
     'sorl.thumbnail',  # required for thumbnail support
     'django_instagram',
     'homepage.apps.HomepageConfig',
+    'pages.apps.PagesConfig',
+    'news.apps.NewsConfig',
+    # 'stockists.apps.StockistsConfig',
 ]
 
 MIDDLEWARE = [
