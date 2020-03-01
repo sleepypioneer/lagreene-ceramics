@@ -1,0 +1,12 @@
+{% load thumbnail %}
+<div class="carousel slide" id="carousel-868042">
+    <div class="carousel-inner">
+        {% for item in slideshow %}
+            <div class="carousel-item {% if forloop.first %} active {% endif %}">
+                {% thumbnail item.image "512x683" crop="center" as im %}
+                    <img class="d-block w-100" alt="Carousel Bootstrap" src="{{ im.url }}" />
+                {% endthumbnail %}
+            </div>
+            {% endfor %}
+    </div> <a class="carousel-control-prev" href="#carousel-868042" data-slide="prev"><span class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span></a> <a class="carousel-control-next" href="#carousel-868042" data-slide="next"><span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span></a>
+</div>

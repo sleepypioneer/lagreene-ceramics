@@ -1,33 +1,35 @@
-/*
-Headings and navbar:            #88A0A8
-Paragraph/ text:                #66666E
-Background:                     #EFEEEA
-Contrast background:            #EEE3AB
-
-Fonts:
-Main:                          Archivo Narrow
-
-*/
-
 body {
     background-color: #EFEEEA;
 }
 
-h1 {
-    color: #88A0A8;
-    margin-bottom: 3rem;
-}
-
-.displayCenter {
+.display-center {
     display: flex;
     align-items: center;
     padding-left: 0px;
     padding-right: 8rem;
 }
 
-.page {
-    height: 100vh;
+#copyright {
+    padding: 12px 0px;
+}
 
+#slideshow {
+    order: 1;
+}
+
+#categories {
+    display: flex;
+}
+
+#social-media {
+    background-color: #88A0A8;
+    padding: 32px 8px;
+    color: white;
+}
+
+h1 {
+    color: #88A0A8;
+    margin-bottom: 2rem;
 }
 
 .carousel-control-prev {
@@ -44,4 +46,24 @@ h1 {
 
 .carousel-control-next-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2388A0A8' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+            
+
+@media screen and (min-width: 767px) {
+    .displayCenter {
+        display: flex;
+        align-items: center;
+        padding-left: 0px;
+        padding-right: 8rem;
+    }
+
+    .page {
+        height: 100vh;
+        
+    }
+
+    #slideshow {
+        order: 1;
+    }
+    
 }

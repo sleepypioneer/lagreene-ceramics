@@ -25,8 +25,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DJANGO_DEBUG', '') != 'False'
+DEBUG_PROPAGATE_EXCEPTIONS = True
 
-ALLOWED_HOSTS = ['https://aqueous-river-70990.herokuapp.com', 'http://127.0.0.1:8000']
+ALLOWED_HOSTS = ['https://lagreene-ceramics.herokuapp.com', 'http://127.0.0.1:8000']
 
 
 # Application definition
@@ -47,6 +48,9 @@ INSTALLED_APPS = [
     'sorl.thumbnail',  # required for thumbnail support
     'django_instagram',
     'homepage.apps.HomepageConfig',
+    'pages.apps.PagesConfig',
+    'news.apps.NewsConfig',
+    # 'stockists.apps.StockistsConfig',
 ]
 
 MIDDLEWARE = [
@@ -133,12 +137,15 @@ SITE_ID = 1
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_HOST = os.environ.get('DJANGO_STATIC_HOST', '')
 STATIC_URL = STATIC_HOST + '/static/'
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -148,33 +155,27 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
-            'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
-            'datefmt': "%d/%b/%Y %H:%M:%S"
-        },
+            'format': (
+                '%(asctime)s [%(process)d] [%(levelname)s] '
+                + 'pathname=%(pathname)s lineno=%(lineno)s '
+                + 'funcname=%(funcName)s %(message)s'),
+            'datefmt': '%Y-%m-%d %H:%M:%S'},
         'simple': {
-            'format': '%(levelname)s %(message)s'
-        },
-    },
+            'format': '%(levelname)s %(message)s'}},
     'handlers': {
-        'file': {
+        'null': {
             'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': 'mysite.log',
-            'formatter': 'verbose'
+            'class': 'logging.NullHandler',
         },
-    },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'}},
     'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'propagate': True,
-            'level': 'DEBUG',
-        },
-        'MYAPP': {
-            'handlers': ['file'],
-            'level': 'DEBUG',
-        },
-    }
-}
+        'testlogger': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        }}}
 
 
 # Activate Django-Heroku.

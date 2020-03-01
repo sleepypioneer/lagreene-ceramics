@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<div class="row">
+    <div class="col-md-8 col-lg-7">
+        <p class="text-center">
+            <blockquote>
+                Behind the making of every piece there is story, an idea, brought into being in my Yorkshire workshop and made permanent by firing in an electric kiln. 
+                I enjoy creating something a bit different every time and each piece is really either a one off or part of a small group. My imagination is triggered using observation and experiences from my daily life and travels. 
+                I research my ideas in books and on the internet for detail and background material and I find it enriching to discuss my work with the public even using some anecdotes to inspire new pieces.
+            </blockquote>
+            
+            Please visit the online <a href="{% url 'photologue:gallery-list' %}"><b>gallery</b></a> to view further examples of a growing menagerie and dramatic sculptures.
+        </p>
+    </div>
+    <div class="col-sm-8 col-md-4 col-lg-5" id="slideshow">
+        {% block slideshow %}
+            {% include './slideshow.html' %}
+        {% endblock %}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        {% block news %}
+            {# {% include '' %} #}
+        {% endblock %}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-8">
+        {% block materials %}
+            {# {% include '' %} #}
+        {% endblock %}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        {% block galleries %}
+            {# {% include '' %} #}
+        {% endblock %}
+    </div>
+</div>
+<div class="row" id="social-media">
+    <div class="col-sm-12 col-md-4 col-lg-2" id="social-media-links">
+        <span>
+            <a href="https://www.instagram.com/lesleyannegreene/" target="blank">
+                <img src="{% static 'images/icons/instagram-32.png' %}" alt="Instagram icon"/>
+            </a>
+        </span>
+        <span>
+            <a href="https://twitter.com/lagreene54" tagret="blank">
+                <img src="{% static 'images/icons/twitter-32.png' %}" alt="Twitter icon"/>
+            </a>
+        </span>
+        <span>
+            <a href="https://www.facebook.com/tellingtalesinclay/" target="blank">
+                <img src="{% static 'images/icons/facebook-32.png' %}" alt="Facebook icon"/>
+            </a>
+        </span>
+    </div>
+    <div class="col-sm-12 col-md-8 col-lg-10" id="instagram">
+        {% block instagram %}
+            {% include './instagram.html' %}
+        {% endblock %}
+    </div>
+</div>
+{% endblock %}

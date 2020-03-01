@@ -7,7 +7,15 @@
 # Terraform files
 *tfplan
 .terraform
-*.tfstate
+*.tfstate*
 
 # Pycache files
 *.pyc
+
+# static files & media files
+**/staticfiles/*
+**/staticfiles/**
+*/media/
+
+# migrations
+**/migrations/*

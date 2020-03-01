@@ -1,7 +1,6 @@
 from django.contrib import admin
 
-from .models import SlideShowItem, GalleryCategory
+from .models import SlideShowItem
 
 # Register your models here.
 admin.site.register(SlideShowItem)
-admin.site.register(GalleryCategory)
