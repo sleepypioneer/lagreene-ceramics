@@ -1,6 +1,6 @@
 from django.db import models
 
-class Exhibition(models.Model):
+class Show(models.Model):
     title = models.CharField(max_length=75)
     description = models.CharField(max_length=200)
     link = models.URLField(max_length=100)

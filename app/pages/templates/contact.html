@@ -1,25 +1,33 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_content %}
-<div class="row">
-  <form action="/action_page.php">
-    <label for="fname">First Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+<div class="row" id="contact-page">
+  <div class="col-md-12">
+    <p> 
+      If you would like any further information about any of the pieces on this site or more of my work, please use the form below.
+    </p>
+  </div>
+  <div class="no-border row">
+    <div class="col-md-7" style="padding-right: 10px;">
+      <form action="/action_page.php">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name..">
 
-    <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
 
-    <label for="country">Country</label>
-    <select id="country" name="country">
-      <option value="australia">Australia</option>
-      <option value="canada">Canada</option>
-      <option value="usa">USA</option>
-    </select>
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="Email subject">
 
-    <label for="subject">Subject</label>
-    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+        <label for="message">Email body</label>
+        <textarea id="message" name="message" placeholder="Your message..."></textarea>
 
-    <input type="submit" value="Submit">
-  </form>
+        <input type="submit" value="Send">
+      </form>
+    </div>
+    <div class="col-md-5" id="contact-page-picture">
+      <img src="{% static 'images/meharistes.jpg' %}" alt="Meharistes, camel with rider"> 
+    </div>
+  </div>
 </div>
 {% endblock %}

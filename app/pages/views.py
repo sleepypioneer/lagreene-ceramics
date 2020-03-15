@@ -1,14 +1,17 @@
 from django.shortcuts import render
+from news.models import Show
 
 def about(request):
     context = {
     }
     return render(request, 'about.html', context)
 
-def exhibitions(request):
+def stockists(request):
+    shows = Show.objects.all()
     context = {
+        'curent_shows': shows,
     }
-    return render(request, 'exhibitions.html', context)
+    return render(request, 'stockists.html', context)
 
 def cv(request):
     context = {

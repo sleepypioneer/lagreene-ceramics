@@ -2,6 +2,35 @@ body {
     background-color: #EFEEEA;
 }
 
+#content .row .no-border {
+    border: none;
+    padding: 10px;
+    margin-bottom: 40px;
+}
+
+#navigation .row {
+    margin-right: 0px;
+    margin-left: 0px;
+    border-right: solid 3px;
+    border-top: solid 3px;
+}
+
+#content .row {
+    margin-right: 0px;
+    margin-left: 0px;
+    border-left: solid 3px;
+    border-right: solid 3px;
+    border-color:#88A0A8;
+}
+
+#content {
+    padding-top: 20px;
+}
+
+#page-header {
+    padding-top: 2em;
+}
+
 .display-center {
     display: flex;
     align-items: center;
@@ -10,11 +39,24 @@ body {
 }
 
 #copyright {
+    border: none !important;
+}
+
+#copyright div span {
     padding: 12px 0px;
 }
 
 #slideshow {
     order: -1;
+}
+
+#main-text p {
+    margin: 20px;
+}
+
+#main-text blockquote {
+    margin: 20px;
+    margin-top: 40px;
 }
 
 #categories {
@@ -27,7 +69,8 @@ body {
     color: white;
     width: 100%;
     margin: 0px;
-    margin-top: 20px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 h1 {
@@ -65,8 +108,22 @@ h1 {
     margin-right: 0;
 }
 
-@media screen and (min-width: 424px) {
+#newsfeed {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px;
+}
 
+.news-item {
+    margin-top: 20px;
+    min-width: min-content;
+}
+
+@media screen and (min-width: 425px) {
+    #django_recent_media_wall a img {
+        margin-right: 30px;
+        margin-left: 30px;
+    }
 }
             
 /* Tablet */
@@ -87,25 +144,48 @@ h1 {
         
     }
 
+    #main-text blockquote {
+        margin: 0px;
+    }
+
+    #main-text p {
+        margin: 0px;
+        margin-top: 20px;
+    }
+
+
     #slideshow {
         order: 1;
         display: flex;
-        align-items: center;
+        align-items: start;
+        padding-right: 20px;
+        padding-left: 20px;
     }
 
     #instagram {
-        order: 1;
         margin: auto;
         max-width: max-content;
     }
 
-    .container-fluid {
-        padding-left: 50px;
-        padding-right: 50px;
+    #django_recent_media_wall a img {
+        margin-right: 2px;
+        margin-left: 2px;
     }
 
+    .container-fluid {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
     #social-media-links {
-        margin-top: auto;
+        margin-top: 30px;
+        margin: auto;
+    }
+
+    #newsfeed {
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 
     /* Ensure nav bar is space-between */
@@ -115,11 +195,11 @@ h1 {
     }
 
     .carousel-control-prev {
-        left: -30px;
+        left: -35px;
     }
     
     .carousel-control-next {
-        right: -30px;
+        right: -35px;
     }
 
     .carousel-control-prev-icon {
@@ -141,16 +221,29 @@ h1 {
     }
 
     .container-fluid {
-        padding-left: 50px;
-        padding-right: 50px;
+        padding-left: 40px;
+        padding-right: 40px;
     }
 
-    .carousel-control-prev {
-        left: -50px;
+    #instagram {
+        order: 1;
     }
-    
-    .carousel-control-next {
-        right: -50px;
+
+    #social-media-links {
+        flex-direction: column;
+    }
+
+    #social-media-links span {
+        margin-bottom: 10px;
+    }
+
+    #django_recent_media_wall a img {
+        margin-right: 6px;
+        margin-left: 6px;
+    }
+
+    #newsfeed {
+        justify-content: space-evenly;
     }
 
 }

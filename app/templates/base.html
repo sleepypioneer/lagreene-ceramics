@@ -12,11 +12,12 @@
     <!-- Own CSS -->
     <link rel="stylesheet" type="text/css"  href="{% static 'styles/nav.css' %}">
     <link rel="stylesheet" type="text/css"  href="{% static 'styles/main.css' %}">
+    <link rel="stylesheet" type="text/css"  href="{% static 'styles/pages.css' %}">
 
     <title>Lesley Anne Greene Ceramics</title>
   </head>
   <body>
-    <div class="container-fluid">
+    <div class="container-fluid" id="content">
       <div class="row sticky-top">
         <div class="col-md-10 col-lg-7">
           <nav class="navbar navbar-expand-md navbar-light bg-light" id="main-nav">
@@ -32,9 +33,6 @@
           </nav>
         </div>
       </div>
-
-    </div>
-    <div class="container-fluid">
       <div class="row" id="page-header">
         <div class="col-md-12">
           <div class="page-header">
@@ -47,9 +45,9 @@
       {% block page_content %}{% endblock %}
       {# For Photologue we use this content block #}
       {% block content %}{% endblock %}
-      <div class="row">
+      <div class="row" id="copyright">
         <div class="col-md-3">
-          <span id="copyright" class="badge badge-default">Copyright 2019 Lesley Anne Greene </span>
+          <span class="badge badge-default">Copyright 2019 Lesley Anne Greene </span>
         </div>
         <div class="col-md-9">
         </div>

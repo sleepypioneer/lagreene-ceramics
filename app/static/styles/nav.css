@@ -7,6 +7,10 @@ body {
     background-color: #88A0A8!important;
 }
 
+.navbar {
+    padding-left: 0;
+}
+
 .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
     color: white;
     font-weight: bold;
@@ -19,16 +23,23 @@ body {
 
 .sticky-top {
     background-color: #88A0A8;
-    margin-bottom: 2em;
+    border-top: solid 3px;
+    border-left: solid 3px;
 }
 
 @media screen and (min-width: 767px) {
     .sticky-top {
         background-color: #EFEEEA!important;
+        border-top-right-radius: 3em;
+        position: relative;
+    }
+
+    .sticky-top .col-md-10.col-lg-7 {
+        padding-left: 0px;
     }
 
     #main-nav {
-        margin: 20px 0px 0px;
+        margin: 0px;
     }
 }
 

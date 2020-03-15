@@ -1,0 +1,121 @@
+/* About page */
+
+#about {
+    border-bottom: solid 3px;
+    border-color: #88A0A8;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#portrait {
+    margin-bottom: 30px;
+}
+
+#portrait img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+
+/* Stockists */
+
+#stockists {
+    border-bottom: solid 3px;
+    border-color: #88A0A8;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    min-height: 80vh;
+    flex-direction: column;
+}
+
+#stockists .title {
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+#curent-stockists {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+#shows {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+/* Links */
+
+#links {
+    border-bottom: solid 3px;
+    border-color: #88A0A8;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    min-height: 80vh;
+}
+
+#links .col-md-3 {
+    margin-bottom: 20px;
+}
+
+/* Contact */
+
+#contact-page {
+    border-bottom: solid 3px;
+    border-color: #88A0A8;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    min-height: 80vh;
+    flex-direction: column;
+}
+#contact-page p {
+    color: #88A0A8;
+    margin: auto;
+    margin-left: 10px;
+    padding-bottom: 10px;
+}
+
+#contact-page form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-bottom: 30px;
+    color: #88A0A8;
+    font-weight: bolder;
+    padding: 20px;
+    border: solid 1px;
+    border-color: #88A0A8;
+    border-radius: 5px;
+    height: 100%;
+}
+
+#contact-page form input {
+    margin-bottom: 15px;
+}
+
+#contact-page form #message {
+    height: 50%;
+}
+
+#contact-page form input[type="submit"] {
+    background: #88A0A8;
+    border: none;
+    color: white;
+    font-weight: bolder;
+}
+
+#contact-page-picture {
+    margin: auto;
+    padding-left: 0px;
+}
+
+#contact-page-picture img {
+    height: 100%;
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 767px) {
+}
