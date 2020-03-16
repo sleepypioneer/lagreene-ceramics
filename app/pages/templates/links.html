@@ -1,7 +1,24 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_content %}
-<div class="row">
+<div class="row" id="links">
+    {% for show in curent_shows %}
+        <div class="col-md-3 news-item">
+                <div class="card">
+                    <h5 class="card-header">
+                        {{ show.title }}
+                    </h5>
+                    <div class="card-body">
+                        <p class="card-text">
+                        {{ show.description }}
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        {{ show.link }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     <div class="col-md-3">
         <div class="card">
             <h5 class="card-header">
@@ -65,8 +82,6 @@ You may have to type lesley anne greene into the search box
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-md-3">
         <div class="card">
             <h5 class="card-header">
@@ -127,8 +142,6 @@ You may have to type lesley anne greene into the search box
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-md-3">
         <div class="card">
             <h5 class="card-header">
@@ -158,10 +171,6 @@ You may have to type lesley anne greene into the search box
                 www.eastyorkshireopenstudios.org
             </div>
         </div>
-    </div>
-    <div class="col-md-3">
-    </div>
-    <div class="col-md-3">
     </div>
 </div>
 {% endblock %}
