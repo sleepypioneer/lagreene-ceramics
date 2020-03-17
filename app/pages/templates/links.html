@@ -1,176 +1,27 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_content %}
+<div class="row title">
+    <p>
+        A selection of companies and organisations I partner with and/or reccomend.
+    </p>
+</div>
 <div class="row" id="links">
-    {% for show in curent_shows %}
-        <div class="col-md-3 news-item">
-                <div class="card">
-                    <h5 class="card-header">
-                        {{ show.title }}
-                    </h5>
-                    <div class="card-body">
-                        <p class="card-text">
-                        {{ show.description }}
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        {{ show.link }}
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    <div class="col-md-3">
+    {% for link in links %}
         <div class="card">
             <h5 class="card-header">
-                East Yorkshire open studios
+                {{ link.title }}
             </h5>
             <div class="card-body">
                 <p class="card-text">
-                    Northern Potters
-Website for the Northern Potters Association with a gallery, links and events
+                {{ link.description }}
                 </p>
-            </div>
-            <div class="card-footer">
-                www.northern-potters.com
+                <a href="{{ link.link }}" class="btn btn-primary">
+                    {{ link.link }}
+                </a>
             </div>
         </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card">
-            <h5 class="card-header">
-                East Riding Artists
-            </h5>
-            <div class="card-body">
-                <p class="card-text">
-                    Card content
-                </p>
-            </div>
-            <div class="card-footer">
-                www.eastridingartists.co.uk
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card">
-            <h5 class="card-header">
-                Potfest
-            </h5>
-            <div class="card-body">
-                <p class="card-text">
-                    Putting public and potters together in large numbers, events, images archive and more.
-                </p>
-            </div>
-            <div class="card-footer">
-                www.potfest.co.uk
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card">
-            <h5 class="card-header">
-                Saatchi Online
-            </h5>
-            <div class="card-body">
-                <p class="card-text">
-                    link to some images of my work on the Saatchi website
-
-You may have to type lesley anne greene into the search box
-                </p>
-            </div>
-            <div class="card-footer">
-                www.saatchionline.com/lesleyannegreene
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card">
-            <h5 class="card-header">
-                Valentine Clays
-            </h5>
-            <div class="card-body">
-                <p class="card-text">
-                    Friendly, family run manufacturer and supplier of clay bodies and raw materials.Great web site with a gallery of potters and ceramic artists including me.
-                </p>
-            </div>
-            <div class="card-footer">
-                valentineclays.co.uk
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card">
-            <h5 class="card-header">
-                British Craft Trade Fair
-            </h5>
-            <div class="card-body">
-                <p class="card-text">
-                    bctf represents the best of British talent, an exhibition where buyers are inspired by the variety, quality and originality of products, exhibitor listing etc
-                </p>
-            </div>
-            <div class="card-footer">
-                www.bctf.co.uk
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card">
-            <h5 class="card-header">
-                UK Potters
-            </h5>
-            <div class="card-body">
-                <p class="card-text">
-                    Information and links for UK based potters and those interested in pottery.
-                </p>
-            </div>
-            <div class="card-footer">
-                www.ukpotters.co.uk
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card">
-            <h5 class="card-header">
-                Beyond the North Wind
-            </h5>
-            <div class="card-body">
-                <p class="card-text">
-                    Website design, a professional service providing friendly helpful advice and a tailormade product.This designer has recently made a fabulous job of remodelling my site which speaks for itself.
-                </p>
-            </div>
-            <div class="card-footer">
-                www.btnw.co.uk
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card">
-            <h5 class="card-header">
-                Venice Clay Artists
-            </h5>
-            <div class="card-body">
-                <p class="card-text">
-                    Really nice website with lots of images,global overview of ceramics. Links to artists and organisations
-                </p>
-            </div>
-            <div class="card-footer">
-                www.veniceclayartists.com
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card">
-            <h5 class="card-header">
-                East Yorkshire open studios
-            </h5>
-            <div class="card-body">
-                <p class="card-text">
-                    Annual event artists inviting visitors into their studios in East Yorkshire over two weekends
-                </p>
-            </div>
-            <div class="card-footer">
-                www.eastyorkshireopenstudios.org
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 </div>
 {% endblock %}
+{# EEE3AB #}

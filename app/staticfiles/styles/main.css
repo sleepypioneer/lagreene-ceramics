@@ -1,5 +1,13 @@
 body {
     background-color: #EFEEEA;
+    /* font-family: "Roboto",sans-serifbody; */
+
+}
+
+#content .row .no-border {
+    border: none;
+    padding: 10px;
+    margin-bottom: 40px;
 }
 
 #navigation .row {
