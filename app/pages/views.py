@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from news.models import Show
+from pages.models import Link
 
 def about(request):
     context = {
@@ -19,7 +20,9 @@ def cv(request):
     return render(request, 'cv.html', context)
 
 def links(request):
+    links = Link.objects.all()
     context = {
+        'links': links,
     }
     return render(request, 'links.html', context)
 

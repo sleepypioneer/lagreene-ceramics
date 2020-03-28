@@ -2,32 +2,31 @@
 {% load static %}
 {% block page_content %}
 <div class="row" id="contact-page">
-  <div class="col-md-12">
-    <p> 
-      If you would like any further information about any of the pieces on this site or more of my work, please use the form below.
-    </p>
-  </div>
-  <div class="no-border row">
-    <div class="col-md-7" style="padding-right: 10px;">
+  <div class="col-sm-12 col-md-12 col-lg-7" id="form-container">
+      <h4 class="align-left mbr-fonts-style display-2">
+          Get in touch
+      </h4>
+      <p class="align-left mbr-fonts-style display-7">
+        If you would like any further information about any of the pieces on this site or more of my work, please use the form below.
+       </p>
       <form action="/action_page.php">
-        <label for="fname">First Name</label>
-        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+        <label for="fname">Name</label>
+        <input type="text" id="fname" class="form-control input" name="firstname" placeholder="Your name..">
 
-        <label for="lname">Last Name</label>
-        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+        <label for="email">Email Address</label>
+        <input type="text" id="email" class="form-control input" name="lastname" placeholder="Your email address..">
 
         <label for="subject">Subject</label>
-        <input type="text" id="subject" name="subject" placeholder="Email subject">
+        <input type="text" id="subject" class="form-control input" name="subject" placeholder="Email subject">
 
         <label for="message">Email body</label>
-        <textarea id="message" name="message" placeholder="Your message..."></textarea>
+        <textarea id="message" class="form-control input" name="message" placeholder="Your message..."></textarea>
 
         <input type="submit" value="Send">
       </form>
-    </div>
-    <div class="col-md-5" id="contact-page-picture">
-      <img src="{% static 'images/meharistes.jpg' %}" alt="Meharistes, camel with rider"> 
-    </div>
+  </div>
+  <div class="col-sm-12 col-md-12 col-lg-5" id="contact-page-picture">
+    <img src="{% static 'images/meharistes.jpg' %}" alt="Meharistes, camel with rider"> 
   </div>
 </div>
 {% endblock %}
