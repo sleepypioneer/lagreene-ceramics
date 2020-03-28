@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+
+<!-- Grid row -->
+<div class="row">
+
+  <!-- Grid column -->
+  <div class="col-md-12 d-flex justify-content-center mb-5" id="categories">
+
+    <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="all">All</button>
+    <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="cats">Cats</button>
+    <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="bears">Bears</button>
+    <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="camels">Camels</button>
+    <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="figures">Figures</button>
+    <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="other-animals">Other animals</button>
+
+  </div>
+  <!-- Grid column -->
+
+</div>
+<!-- Grid row -->
+<div id="gallery-container">
+    <!-- Grid row -->
+    <div class="gallery mdb-lightbox" id="gallery">
+        {% for item in gallery %}
+            <!-- Grid column -->
+            <div class="mb-3 pics animation all {{ item.category }}">
+                <a href="{{ item.image.url }}" data-size="1600x1067">
+                    <img alt="picture" src="{{ item.image.url }}" class="img-fluid" />
+                </a>
+            </div>
+            <!-- Grid column -->
+        {% endfor %}
+
+    </div>
+    <!-- Grid row -->
+</div>
+{% endblock %}

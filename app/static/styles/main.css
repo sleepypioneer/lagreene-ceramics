@@ -1,5 +1,7 @@
 body {
     background-color: #EFEEEA;
+    /* font-family: "Roboto",sans-serifbody; */
+
 }
 
 #content .row .no-border {
@@ -57,10 +59,6 @@ body {
 #main-text blockquote {
     margin: 20px;
     margin-top: 40px;
-}
-
-#categories {
-    display: flex;
 }
 
 #social-media {
