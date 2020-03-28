@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'homepage.apps.HomepageConfig',
     'pages.apps.PagesConfig',
     'news.apps.NewsConfig',
+    'gallery.apps.GalleryConfig',
     # 'stockists.apps.StockistsConfig',
 ]
 
