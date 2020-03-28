@@ -156,8 +156,9 @@ AWS_S3_OBJECT_PARAMETERS = {
 
 STATIC_ROOT = 'static'
 MEDIA_ROOT = 'media'
-STATIC_URL = f"https://{AWS_S3_ENDPOINT_URL}/{STATIC_ROOT}/"
-MEDIA_URL = f"https://{AWS_S3_ENDPOINT_URL}/{MEDIA_ROOT}/"
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_ENDPOINT_URL, STATIC_ROOT)
+STATICFILES_DIRS = [str(os.path.join(BASE_DIR, "static"))]
+MEDIA_URL = 'https://%s/%s/' % (AWS_S3_ENDPOINT_URL, MEDIA_ROOT)
 
 LOGGING = {
     'version': 1,
