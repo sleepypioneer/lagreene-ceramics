@@ -32,8 +32,6 @@ gunicorn hello:app --max-requests 1200
 ## Links for depencies documentation
 
 * [Pillow](https://pillow.readthedocs.io/en/latest/installation.html)
-* [Whitenoise for static files](http://whitenoise.evans.io/en/stable/)
-* [Photologue photo gallery](https://django-photologue.readthedocs.io/en/latest/pages/installation.html#)
 
 ## Links for useful tutorials
 

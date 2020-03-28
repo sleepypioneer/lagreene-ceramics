@@ -33,8 +33,6 @@ ALLOWED_HOSTS = ['https://lagreene-ceramics.herokuapp.com', 'http://127.0.0.1:80
 # Application definition
 
 INSTALLED_APPS = [
-    # Means that whitenoise runs in development also
-    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.sites',
     'django.contrib.sitemaps',
-    'photologue',
+    'storages',
     'sortedm2m',
     'sorl.thumbnail',  # required for thumbnail support
     'django_instagram',
@@ -55,7 +53,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
