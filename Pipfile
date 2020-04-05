@@ -6,13 +6,13 @@ name = "pypi"
 [packages]
 Django = "*"
 gunicorn = "*"
-django-heroku = "*"
 Pillow = "*"
 pytz = "*"
 django-instagram = "*"
 sorl-thumbnail = "*"
 boto3 = "*"
 django-storages = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 pycodestyle = "*"
