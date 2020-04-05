@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +26,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DJANGO_DEBUG', '') != 'False'
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
-ALLOWED_HOSTS = ['https://lagreeneceramics.herokuapp.com', 'http://127.0.0.1:8000']
+ALLOWED_HOSTS = ['https://lagreeneceramics.herokuapp.com', 'http://127.0.0.1:8000', 'localhost']
 
 
 # Application definition
@@ -42,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'storages',
-    'sortedm2m',
+    # 'sortedm2m',
     'sorl.thumbnail',  # required for thumbnail support
     'django_instagram',
     'homepage.apps.HomepageConfig',
@@ -188,4 +187,4 @@ LOGGING = {
 
 
 # Activate Django-Heroku.
-django_heroku.settings(locals(), staticfiles=False)
+# django_heroku.settings(locals(), staticfiles=False)
