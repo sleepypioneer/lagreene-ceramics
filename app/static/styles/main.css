@@ -4,6 +4,17 @@ body {
 
 }
 
+a {
+    color: #88A0A8;
+}
+
+.potters-mark {
+    height: 60px;
+    text-align: center;
+    margin-top: 2%;
+    padding-bottom: 4%;
+}
+
 #content .row .no-border {
     border: none;
     padding: 10px;
@@ -38,6 +49,10 @@ body {
     align-items: center;
     padding-left: 0px;
     padding-right: 8rem;
+}
+
+.display-right {
+    text-align: right;
 }
 
 #copyright {
