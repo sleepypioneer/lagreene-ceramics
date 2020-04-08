@@ -116,3 +116,15 @@ heroku config:set <CONFIG-NAME>=<CONFIG-VALUE> --app $APP_NAME
 ```
 
 You will also want to add the secret key and django debug config to heroku, though the debug will now be set to false for the production environment.
+
+Now each time the code is updated you can run:
+
+```sh
+terraform plan -out=current.tfplan # enter App Name
+# and then
+terraform apply "current.tfplan"
+```
+
+This will deploy the changes in the app to heroku. If you have added new packages do not forget to update the `requirements.txt` there is a make target to do this inside `./app` (you will still have to remove `pkg-resources==0.0.0` manually after running this command)
+
+*** The first time you may have to run some of the `python manage.py` commands in the console of your Heroku app including creating a super user to be able to access the admin panel.
