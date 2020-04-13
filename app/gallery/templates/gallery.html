@@ -26,8 +26,11 @@
         {% for item in gallery %}
             <!-- Grid column -->
             <div class="mb-3 pics animation all {{ item.category }}">
-                <a href="{{ item.image.url }}" data-size="1600x1067">
+                <a href="{{ item.image.url }}" data-size="1600x1067" class="glightbox">
                     <img alt="picture" src="{{ item.image.url }}" class="img-fluid" />
+                    <div class="glightbox-desc">
+                        <p>{{ item.description }}</p>
+                    </div>                        
                 </a>
             </div>
             <!-- Grid column -->
