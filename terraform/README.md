@@ -115,7 +115,7 @@ We will need to get the database credentials via the resources tab in the heroku
 heroku config:set <CONFIG-NAME>=<CONFIG-VALUE> --app $APP_NAME
 ```
 
-You will also want to add the secret key and django debug config to heroku, though the debug will now be set to false for the production environment.
+You will also want to add the secret key and django debug config to heroku, though the debug will now be set to false for the production environment. You can enter the console of the app in Heroku to make sure the migrations have run and create an admin user with the command `python manage.py createsuperuser`.
 
 Now each time the code is updated you can run:
 
