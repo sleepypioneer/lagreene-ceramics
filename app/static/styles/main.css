@@ -9,11 +9,18 @@ a {
 }
 
 .potters-mark {
-    height: 60px;
+    height: 80px;
     text-align: center;
     margin-top: 2%;
     padding-bottom: 4%;
 }
+
+.potters-mark-nav-bar {
+    height: 30px;
+    text-align: center;
+    margin-top: 1%;
+}
+
 
 #content .row .no-border {
     border: none;
@@ -130,6 +137,12 @@ h1 {
 .news-item {
     margin-top: 20px;
     min-width: min-content;
+}
+
+
+/* Gallery background color */
+.goverlay {
+    background: #495057;
 }
 
 @media screen and (min-width: 425px) {
