@@ -7,3 +7,7 @@ class GalleryItem(models.Model):
     description = models.CharField(max_length=150)
     category = models.CharField(max_length=50)
     date_created = models.DateTimeField(auto_now_add=True)
+    my_order = models.PositiveIntegerField(default=0, blank=False, null=False)
+
+    class Meta(object):
+        ordering = ['my_order']

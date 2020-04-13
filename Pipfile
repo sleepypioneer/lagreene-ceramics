@@ -13,6 +13,8 @@ sorl-thumbnail = "*"
 boto3 = "*"
 django-storages = "*"
 psycopg2-binary = "*"
+django-admin-sortable2 = "*"
+django-tags-input = "*"
 
 [dev-packages]
 pycodestyle = "*"
