@@ -26,7 +26,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DJANGO_DEBUG', '') != 'False'
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
-ALLOWED_HOSTS = ['https://lagreeneceramics.herokuapp.com', 'http://127.0.0.1:8000', 'localhost']
+ALLOWED_HOSTS = ['lagreene-ceramics.herokuapp.com', 'http://127.0.0.1:8000', 'localhost']
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'storages',
+    'adminsortable2',
     # 'sortedm2m',
     'sorl.thumbnail',  # required for thumbnail support
     'django_instagram',
@@ -185,6 +186,3 @@ LOGGING = {
             'level': 'INFO',
         }}}
 
-
-# Activate Django-Heroku.
-# django_heroku.settings(locals(), staticfiles=False)
