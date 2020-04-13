@@ -2,7 +2,7 @@
 {% block newsfeed %}
 <div id="newsfeed" class="col-md-12">
     {% for show in curent_shows|slice:":4" %}
-        <div class="col-md-3 news-item">
+        <div class="news-item">
                 <div class="card">
                     <h5 class="card-header">
                         {{ show.title }}

@@ -20,9 +20,7 @@
 
 .card {
     border: 1px solid #88a0a8;
-    width: min-content;
     margin-bottom: 20px;
-    margin-right: auto;
     background-color: #EFEEEA;
 }
 
@@ -34,8 +32,6 @@
 .card-body {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: fit-content;
 }
 
 .card-text {
@@ -49,6 +45,12 @@
     border-color: #88A0A8;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+}
+
+#about div .link {
+    display: flex;
+    justify-content: start;
+    font-weight: bold;
 }
 
 #portrait {
