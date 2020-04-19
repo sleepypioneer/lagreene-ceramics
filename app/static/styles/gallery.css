@@ -17,11 +17,12 @@
 #categories button {
     border: solid 2px;
     margin: 0px 8px 0px 8px;
-    border-color: #ffc107;
+    border-color: #88A0A8;
 }
 
 #categories button:hover {
-    background-color: wheat;
+    background-color: #87a0a8;
+    color: white;
 }
 
 
