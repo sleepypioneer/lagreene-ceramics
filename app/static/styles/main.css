@@ -9,14 +9,20 @@ a {
 }
 
 .potters-mark {
-    height: 80px;
     text-align: center;
-    margin-top: 2%;
-    padding-bottom: 4%;
+}
+
+img.potters-mark {
+    background-color: #87a0a8;
+    height: 40px;
+    width: 40px;
+    border-radius: 4px;
+    border: solid 4px #87a0a8;
 }
 
 .potters-mark-nav-bar {
     height: 30px;
+    width: 30px;
     text-align: center;
     margin-top: 1%;
 }
@@ -236,7 +242,9 @@ h1 {
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2388A0A8' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
     }
 
-
+    .website-details {
+        text-align: right;
+    }
     
 }
 
