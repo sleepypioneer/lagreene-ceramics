@@ -3,8 +3,8 @@ from adminsortable2.admin import SortableAdminMixin
 from .models import Link
 
 class LinkAdmin(SortableAdminMixin, admin.ModelAdmin):
-    list_display = ('title')
-    list_display_links = ('title')
+    list_display = ['title']
+    list_display_links = ['title']
     search_fields = ['title']
     list_per_page = 15
 
