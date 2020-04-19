@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'news.apps.NewsConfig',
     'gallery.apps.GalleryConfig',
-    # 'stockists.apps.StockistsConfig',
 ]
 
 MIDDLEWARE = [
@@ -184,5 +183,6 @@ LOGGING = {
         'testlogger': {
             'handlers': ['console'],
             'level': 'INFO',
-        }}}
-
+        }
+    }
+}
