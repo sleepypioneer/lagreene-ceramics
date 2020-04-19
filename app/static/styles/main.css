@@ -20,14 +20,6 @@ img.potters-mark {
     border: solid 4px #87a0a8;
 }
 
-.potters-mark-nav-bar {
-    height: 30px;
-    width: 30px;
-    text-align: center;
-    margin-top: 1%;
-}
-
-
 #content .row .no-border {
     border: none;
     padding: 10px;
