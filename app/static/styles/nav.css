@@ -4,7 +4,6 @@ body {
 }
 
 #main-nav {
-    padding-left: 15px;
     background-color: #88A0A8!important;
 }
 
@@ -20,6 +19,17 @@ body {
 
 .navbar-light .navbar-nav .nav-link {
     color: white;
+}
+
+div#navbarSupportedContent {
+    margin-top: 15px;
+}
+
+.potters-mark-nav-bar {
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    margin: 0% 2%;
 }
 
 .sticky-top {
@@ -40,7 +50,7 @@ body {
     }
 
     #main-nav {
-        margin: 0px;
+        padding-left: 15px;
     }
 }
 
