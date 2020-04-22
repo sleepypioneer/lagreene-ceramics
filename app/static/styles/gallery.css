@@ -35,6 +35,16 @@
     border-color: #88A0A8;
     padding: 15px;
 }
+
+/* Gallery background color */
+.glightbox-mobile .goverlay {
+    background: #495057;
+}
+
+.goverlay {
+    background: #495057;
+}
+
     
 @media (max-width: 450px) {
     .gallery {

@@ -137,12 +137,6 @@ h1 {
     min-width: min-content;
 }
 
-
-/* Gallery background color */
-.goverlay {
-    background: #495057;
-}
-
 @media screen and (min-width: 425px) {
     #django_recent_media_wall a img {
         margin-right: 30px;
