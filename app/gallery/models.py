@@ -21,6 +21,8 @@ class GalleryItem(models.Model):
         class_string = ""
         for tag in self.categories.all():
             class_string += str(tag.word) + " "
+        if self.archive:
+            class_string += ' archive'
         return class_string
 
     class Meta(object):
