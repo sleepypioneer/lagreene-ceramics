@@ -4,9 +4,9 @@ from .models import GalleryItem, Tag
 # Create your views here.
 def gallery(request):
     gallery = GalleryItem.objects.all()
-    categories = Tag.objects.all()
+    tags = Tag.objects.all().order_by('word')
     context = {
         'gallery': gallery,
-        'categories': categories,
+        'categories': tags,
     }
     return render(request, 'gallery.html', context)
