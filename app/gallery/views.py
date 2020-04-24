@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from .models import GalleryItem, Tag
+from .models import GalleryItem, Category
 
 # Create your views here.
 def gallery(request):
     gallery = GalleryItem.objects.all()
-    tags = Tag.objects.all().order_by('word')
+    categories = Category.objects.all().order_by('word')
     context = {
         'gallery': gallery,
-        'categories': tags,
+        'categories': categories,
     }
     return render(request, 'gallery.html', context)

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from adminsortable2.admin import SortableAdminMixin
-from .models import GalleryItem, Tag
+from .models import GalleryItem, Category
 
 class Gallery(SortableAdminMixin, admin.ModelAdmin):
     list_display = ['title']
@@ -11,4 +11,4 @@ class Gallery(SortableAdminMixin, admin.ModelAdmin):
 
 # Register your models here.
 admin.site.register(GalleryItem, Gallery)
-admin.site.register(Tag)
+admin.site.register(Category)
