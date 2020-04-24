@@ -51,7 +51,7 @@
                     </button>
                     <div class="dropdown-menu" role="menu" aria-labelledby="exhibited-venues">
                         {% for venue in venues %}
-                        <button class="dropdown-item" type="button" id="{{ venue.id }}" onclick="call(this.id)">{{ venue.name|capfirst }}</button>
+                        <button class="dropdown-item" type="button" id="{{ venue.name.split|join:'_' }}" onclick="call(this.id)">{{ venue.name|capfirst }}</button>
                         {% endfor %}
                     </div>
                 </div>
@@ -60,7 +60,7 @@
         </div>
         <div id="shows" class="d-flex">
             {% for show in past_shows %}
-            <div class="news-item filter animation {{ show.end_date|date:'Y' }} {{ show.venue.id }}">
+            <div class="news-item filter animation {{ show.end_date|date:'Y' }} test {{ show.venue.name.split|join:'_' }}">
                     <div class="card">
                         <h5 class="card-header">
                             {{ show.title }}
