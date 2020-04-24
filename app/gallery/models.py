@@ -1,7 +1,7 @@
 from django.db import models
 
 class Tag(models.Model):
-    word = models.CharField(max_length=35)
+    word = models.CharField(max_length=35, primary_key=True)
 
     def __unicode__(self):
         return self.word
@@ -10,7 +10,7 @@ class Tag(models.Model):
 # Create your models here.
 class GalleryItem(models.Model):
     image = models.ImageField(upload_to="img/gallery")
-    title = models.CharField(max_length=75)
+    title = models.CharField(max_length=75,  primary_key=True)
     description = models.CharField(max_length=150)
     categories = models.ManyToManyField(Tag, related_name='photos')
     archive = models.BooleanField()
