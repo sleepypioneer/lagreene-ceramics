@@ -42,12 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'storages',
     'adminsortable2',
-    # 'sortedm2m',
     'sorl.thumbnail',  # required for thumbnail support
     'django_instagram',
     'homepage.apps.HomepageConfig',
     'pages.apps.PagesConfig',
-    'news.apps.NewsConfig',
     'gallery.apps.GalleryConfig',
 ]
 
