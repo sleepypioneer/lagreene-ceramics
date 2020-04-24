@@ -8,19 +8,19 @@
             </h2>
         </div>
         <div id="current-stockists">
-            {% for show in current_shows %}
+            {% for stockist in current_stockists %}
             <div class="col-sm-12 col-md-6 col-lg-4 news-item">
                     <div class="card">
                         <h5 class="card-header">
-                            {{ show.title }}
+                            {{ stockist.title }}
                         </h5>
                         <div class="card-body">
                             <p class="card-text">
-                            {{ show.description }}
+                            {{ stockist.description }}
                             </p>
                         </div>
                         <div class="card-footer">
-                            {{ show.link }}
+                            {{ stockist.link }}
                         </div>
                     </div>
                 </div>
@@ -58,25 +58,25 @@
                 <!-- dropdown navigation -->
             </div>
         </div>
-        <div id="shows" class="d-flex">
-            {% for show in past_shows %}
-            <div class="news-item filter animation {{ show.end_date|date:'Y' }} test {{ show.venue.name.split|join:'_' }}">
+        <div id="stockists" class="d-flex">
+            {% for stockist in past_stockists %}
+            <div class="news-item filter animation {{ stockist.end_date|date:'Y' }} test {{ stockist.venue.name.split|join:'_' }}">
                     <div class="card">
                         <h5 class="card-header">
-                            {{ show.title }}
+                            {{ stockist.title }}
                         </h5>
                         <div class="card-body">
-                            <h6>{{ show.venue.name|capfirst }}</h6>
+                            <h6>{{ stockist.venue.name|capfirst }}</h6>
                             <p>
                                 <!-- TODO display year for both if they are different -->
-                                {{show.start_date|date:"d M"}} to {{ show.end_date|date:"d M y"}}
+                                {{stockist.start_date|date:"d M"}} to {{ stockist.end_date|date:"d M y"}}
                             </p>
                             <p class="card-text">
-                            {{ show.description }}
+                            {{ stockist.description }}
                             </p>
                         </div>
                         <div class="card-footer">
-                            {{ show.link }}
+                            {{ stockist.link }}
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from adminsortable2.admin import SortableAdminMixin
-from .models import Link, Show, Venue
+from .models import Link, Stockist, Venue
 
 class LinkAdmin(SortableAdminMixin, admin.ModelAdmin):
     list_display = ['title']
@@ -20,5 +20,5 @@ class VenueAdmin(admin.ModelAdmin):
 
 # Register your models here.
 admin.site.register(Link, LinkAdmin)
-admin.site.register(Show, StockistAdmin)
+admin.site.register(Stockist, StockistAdmin)
 admin.site.register(Venue, VenueAdmin)
