@@ -4,14 +4,11 @@
     <div class="row" id="stockists">
         <div class="title">
             <h2>
-               Current stockists
+               Current stockists, exhibitions and shows
             </h2>
-            <p>
-                The following galleries have a selection of my work on show and in the window.
-            </p>
         </div>
-        <div id="curent-stockists">
-            {% for show in curent_shows %}
+        <div id="current-stockists">
+            {% for show in current_shows %}
             <div class="col-sm-12 col-md-6 col-lg-4 news-item">
                     <div class="card">
                         <h5 class="card-header">
@@ -31,20 +28,49 @@
         </div>
         <div class="title">
             <h2>
-               Exhibitions
+                Past stockists, exhibitions and shows
             </h2>
-            <p>
-                Past and present Exhibitions.
-            </p>
+            <div class="d-flex">
+                <h5> Sort by </h3>
+                <!-- dropdown navigation sort by Year-->
+                <div class="col-sm-12 col-md-1 dropdown" id="exhibited-year-dropdown">
+                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="exhibited-year" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                        Year
+                    </button>
+                    <div class="dropdown-menu" role="menu" aria-labelledby="exhibited-years">
+                        {% for year in exhibition_years %}
+                        <button class="dropdown-item" type="button" id="{{ year }}" onclick="call(this.id)">{{ year }}</button>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- dropdown navigation -->
+                <!-- dropdown navigation sort by Venue-->
+                <div class="col-sm-12 col-md-1 dropdown" id="exhibited-venue-dropdown">
+                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="exhibited-venue" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                        Venue
+                    </button>
+                    <div class="dropdown-menu" role="menu" aria-labelledby="exhibited-venues">
+                        {% for venue in venues %}
+                        <button class="dropdown-item" type="button" id="{{ venue.id }}" onclick="call(this.id)">{{ venue.name|capfirst }}</button>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- dropdown navigation -->
+            </div>
         </div>
-        <div id="shows">
-            {% for show in curent_shows %}
-            <div class="col-md-3 news-item">
+        <div id="shows" class="d-flex">
+            {% for show in past_shows %}
+            <div class="news-item filter animation {{ show.end_date|date:'Y' }} {{ show.venue.id }}">
                     <div class="card">
                         <h5 class="card-header">
                             {{ show.title }}
                         </h5>
                         <div class="card-body">
+                            <h6>{{ show.venue.name|capfirst }}</h6>
+                            <p>
+                                <!-- TODO display year for both if they are different -->
+                                {{show.start_date|date:"d M"}} to {{ show.end_date|date:"d M y"}}
+                            </p>
                             <p class="card-text">
                             {{ show.description }}
                             </p>

@@ -65,6 +65,12 @@
 
 /* Stockists */
 
+.news-item {
+    margin-top: 20px;
+    margin: 20px 15px 20px 15px;
+    min-width: min-content;
+}
+
 #stockists {
     border-bottom: solid 3px;
     border-color: #88A0A8;
@@ -83,7 +89,6 @@
 
 #shows {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
     margin-bottom: 50px;
 }

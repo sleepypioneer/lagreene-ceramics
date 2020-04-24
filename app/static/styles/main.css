@@ -126,17 +126,6 @@ h1 {
     margin-right: 0;
 }
 
-#newsfeed {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 50px;
-}
-
-.news-item {
-    margin-top: 20px;
-    min-width: min-content;
-}
-
 @media screen and (min-width: 425px) {
     #django_recent_media_wall a img {
         margin-right: 30px;
