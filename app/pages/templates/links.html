@@ -1,28 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_content %}
-<div class="row title">
-    <p>
-        A selection of companies and organisations I partner with and/or reccomend.
-    </p>
-</div>
 <div class="row" id="links">
     {% for link in links %}
-        <div class="col-sm-12 col-md-6 col-lg-4">
-            <div class="card">
-                <h5 class="card-header">
-                    {{ link.title }}
-                </h5>
-                <div class="card-body">
-                    <p class="card-text">
-                    {{ link.description }}
-                    </p>
-                    <a href="{{ link.link }}" class="btn btn-primary">
-                        {{ link.link }}
-                    </a>
-                </div>
-            </div>
-        </div>
+    <div class="card link">
+        <h5 class="card-header">
+            {{ link.title }}
+        </h5>
+        <a href="{{ link.link }}" class="btn btn-primary">
+            {{ link.link }}
+        </a>
+    </div>
     {% endfor %}
 </div>
 {% endblock %}

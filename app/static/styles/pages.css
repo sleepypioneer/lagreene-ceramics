@@ -100,13 +100,26 @@
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
     min-height: 80vh;
-    justify-content: flex-start;
+    flex-direction: column;
     padding: 15px;
 }
 
-#links .col-md-4 {
+.link {
     margin-bottom: 20px;
 }
+
+.link h5 {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+
+.link a {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+#links
 
 /* Contact */
 
