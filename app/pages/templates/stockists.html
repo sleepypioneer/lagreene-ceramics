@@ -4,26 +4,23 @@
     <div class="row" id="stockists">
         <div class="title">
             <h2>
-               Current stockists
+               Current stockists, exhibitions and shows
             </h2>
-            <p>
-                The following galleries have a selection of my work on show and in the window.
-            </p>
         </div>
-        <div id="curent-stockists">
-            {% for show in curent_shows %}
-            <div class="col-md-3 news-item">
+        <div id="current-stockists">
+            {% for stockist in current_stockists %}
+            <div class="col-sm-12 col-md-6 col-lg-4 news-item">
                     <div class="card">
                         <h5 class="card-header">
-                            {{ show.title }}
+                            {{ stockist.title }}
                         </h5>
                         <div class="card-body">
                             <p class="card-text">
-                            {{ show.description }}
+                            {{ stockist.description }}
                             </p>
                         </div>
                         <div class="card-footer">
-                            {{ show.link }}
+                            {{ stockist.link }}
                         </div>
                     </div>
                 </div>
@@ -31,26 +28,55 @@
         </div>
         <div class="title">
             <h2>
-               Exhibitions
+                Past stockists, exhibitions and shows
             </h2>
-            <p>
-                Past and present Exhibitions.
-            </p>
+            <div class="d-flex">
+                <h5> Sort by </h3>
+                <!-- dropdown navigation sort by Year-->
+                <div class="col-sm-12 col-md-1 dropdown" id="exhibited-year-dropdown">
+                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="exhibited-year" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                        Year
+                    </button>
+                    <div class="dropdown-menu" role="menu" aria-labelledby="exhibited-years">
+                        {% for year in exhibition_years %}
+                        <button class="dropdown-item" type="button" id="{{ year }}" onclick="call(this.id)">{{ year }}</button>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- dropdown navigation -->
+                <!-- dropdown navigation sort by Venue-->
+                <div class="col-sm-12 col-md-1 dropdown" id="exhibited-venue-dropdown">
+                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="exhibited-venue" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                        Venue
+                    </button>
+                    <div class="dropdown-menu" role="menu" aria-labelledby="exhibited-venues">
+                        {% for venue in venues %}
+                        <button class="dropdown-item" type="button" id="{{ venue.name.split|join:'_' }}" onclick="call(this.id)">{{ venue.name|capfirst }}</button>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- dropdown navigation -->
+            </div>
         </div>
-        <div id="shows">
-            {% for show in curent_shows %}
-            <div class="col-md-3 news-item">
+        <div id="stockists" class="d-flex">
+            {% for stockist in past_stockists %}
+            <div class="news-item filter animation {{ stockist.end_date|date:'Y' }} test {{ stockist.venue.name.split|join:'_' }}">
                     <div class="card">
                         <h5 class="card-header">
-                            {{ show.title }}
+                            {{ stockist.title }}
                         </h5>
                         <div class="card-body">
+                            <h6>{{ stockist.venue.name|capfirst }}</h6>
+                            <p>
+                                <!-- TODO display year for both if they are different -->
+                                {{stockist.start_date|date:"d M"}} to {{ stockist.end_date|date:"d M y"}}
+                            </p>
                             <p class="card-text">
-                            {{ show.description }}
+                            {{ stockist.description }}
                             </p>
                         </div>
                         <div class="card-footer">
-                            {{ show.link }}
+                            {{ stockist.link }}
                         </div>
                     </div>
                 </div>

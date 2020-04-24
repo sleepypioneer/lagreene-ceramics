@@ -26,7 +26,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DJANGO_DEBUG', '') != 'False'
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
-ALLOWED_HOSTS = ['https://lagreeneceramics.herokuapp.com', 'http://127.0.0.1:8000', 'localhost']
+ALLOWED_HOSTS = ['lagreene-ceramics.herokuapp.com', 'http://127.0.0.1:8000', 'localhost']
 
 
 # Application definition
@@ -41,14 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'storages',
-    # 'sortedm2m',
+    'adminsortable2',
     'sorl.thumbnail',  # required for thumbnail support
     'django_instagram',
     'homepage.apps.HomepageConfig',
     'pages.apps.PagesConfig',
-    'news.apps.NewsConfig',
     'gallery.apps.GalleryConfig',
-    # 'stockists.apps.StockistsConfig',
 ]
 
 MIDDLEWARE = [
@@ -149,7 +147,7 @@ if USE_S3:
     # s3 public media settings
     PUBLIC_MEDIA_LOCATION = 'media'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
-    DEFAULT_FILE_STORAGE = 'lagreenceramics.storage_backends.PublicMediaStorage'
+    DEFAULT_FILE_STORAGE = 'lagreeneceramics.storage_backends.PublicMediaStorage'
 else:
     STATIC_URL = '/staticfiles/'
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -183,8 +181,6 @@ LOGGING = {
         'testlogger': {
             'handlers': ['console'],
             'level': 'INFO',
-        }}}
-
-
-# Activate Django-Heroku.
-# django_heroku.settings(locals(), staticfiles=False)
+        }
+    }
+}

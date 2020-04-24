@@ -4,6 +4,22 @@ body {
 
 }
 
+a {
+    color: #88A0A8;
+}
+
+.potters-mark {
+    text-align: center;
+}
+
+img.potters-mark {
+    background-color: #87a0a8;
+    height: 40px;
+    width: 40px;
+    border-radius: 4px;
+    border: solid 4px #87a0a8;
+}
+
 #content .row .no-border {
     border: none;
     padding: 10px;
@@ -38,6 +54,10 @@ body {
     align-items: center;
     padding-left: 0px;
     padding-right: 8rem;
+}
+
+.display-right {
+    text-align: right;
 }
 
 #copyright {
@@ -104,17 +124,6 @@ h1 {
     margin: auto;
     margin-top: 50px;
     margin-right: 0;
-}
-
-#newsfeed {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 50px;
-}
-
-.news-item {
-    margin-top: 20px;
-    min-width: min-content;
 }
 
 @media screen and (min-width: 425px) {
@@ -208,7 +217,9 @@ h1 {
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2388A0A8' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
     }
 
-
+    .website-details {
+        text-align: right;
+    }
     
 }
 

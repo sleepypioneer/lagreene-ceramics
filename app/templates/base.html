@@ -6,8 +6,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Favicon -->
+    <link rel="icon" 
+      type="image/png" 
+      href="{% static 'images/icons/PottersMark_grey.png' %}">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Glightbox gallery -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
 
     <!-- Own CSS -->
     <link rel="stylesheet" type="text/css"  href="{% static 'styles/nav.css' %}">
@@ -45,10 +53,11 @@
       </div>
       {% block page_content %}{% endblock %}
       <div class="row" id="copyright">
-        <div class="col-md-3">
+        <div class="col-sm-12 col-md-3">
           <span class="badge badge-default">Copyright 2019 Lesley Anne Greene </span>
         </div>
-        <div class="col-md-9">
+        <div class="website-details col-sm-12 col-md-9">
+          <span class="badge badge-default">Sustainably hosted by <a href="https://www.34sp.com/" target="_blank">34sp.com</a> & built by <a href="#">Jessica Greene</a> </span>
         </div>
       </div>
     </div>
@@ -59,29 +68,15 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
     <!-- Bootstrap core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/js/mdb.min.js"></script>
-    
+    <!-- Glightbox gallery -->
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>    
     <!-- gallery filtering -->
-    <script>
-      $(function() {
-        var selectedClass = "";
-        $(".filter").click(function(){
-          selectedClass = $(this).attr("data-rel");
-          $("#gallery").fadeTo(100, 0.1);
-          $("#gallery div").not("."+selectedClass).fadeOut().removeClass('animation');
-          setTimeout(function() {
-            $("."+selectedClass).fadeIn().addClass('animation');
-            $("#gallery").fadeTo(300, 1);
-          }, 300);
-        });
-      });
-    </script>
+    <script type="text/javascript" src="{% static 'scripts/lightbox.js' %}"></script>
+
     <!-- gallery lightbox -->
     <script>
-      // MDB Lightbox Init
-      $(function () {
-        $("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");
+      var myLightbox = GLightbox({
+        'selector': 'glightbox'
       });
     </script>
   </body>

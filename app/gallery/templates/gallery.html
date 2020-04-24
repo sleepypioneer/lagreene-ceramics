@@ -5,18 +5,34 @@
 <!-- Grid row -->
 <div class="row">
 
-  <!-- Grid column -->
-  <div class="col-md-12 d-flex justify-content-center mb-5" id="categories">
+    <!-- buttons navigation -->
+    <div class="d-none d-sm-none d-md-flex col-md-12 justify-content-center mb-5" id="categories">
+        <button class="btn btn-default filter-button active" id="all" onclick="call(this.id)">All</button>
 
-    <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="all">All</button>
-    <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="cats">Cats</button>
-    <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="bears">Bears</button>
-    <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="camels">Camels</button>
-    <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="figures">Figures</button>
-    <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="other-animals">Other animals</button>
+        {% for category in categories %}
+            <button class="btn btn-default filter-button" id="{{ category.name }}" onclick="call(this.id)">{{ category.name|capfirst }}</button>
+        {% endfor %}
 
-  </div>
-  <!-- Grid column -->
+        <button class="btn btn-default filter-button" id="archive" onclick="call(this.id)">Archive</button>
+
+    </div>
+    <!-- buttons navigation -->
+
+    <!-- dropdown navigation -->
+    <div class="d-md-none d-lg-none d-xl-none dropdown" id="categories-dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="gallery-categories" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+            Categories
+        </button>
+        <div class="dropdown-menu" role="menu" aria-labelledby="gallery-categories">
+            <button class="dropdown-item" type="button" id="all" onclick="call(this.id)">All</button>
+            {% for category in categories %}
+            <button class="dropdown-item" type="button" id="{{ category.name }}" onclick="call(this.id)">{{ category.name|capfirst }}</button>
+            {% endfor %}
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item" type="button" id="archive" onclick="call(this.id)">Archive</button>
+        </div>
+    </div>
+    <!-- dropdown navigation -->
 
 </div>
 <!-- Grid row -->
@@ -25,9 +41,13 @@
     <div class="gallery mdb-lightbox" id="gallery">
         {% for item in gallery %}
             <!-- Grid column -->
-            <div class="mb-3 pics animation all {{ item.category }}">
-                <a href="{{ item.image.url }}" data-size="1600x1067">
+            <div class="mb-3 pics animation">
+                <a href="{{ item.image.url }}"
+                    class="glightbox gallery_product col-6 col-lg-4 col-md-4 col-sm-4 col-xs-6 filter all {{ item.class_string }}">
                     <img alt="picture" src="{{ item.image.url }}" class="img-fluid" />
+                        <div class="glightbox-desc">
+                            <p>{{ item.title }}</p>
+                        </div>                        
                 </a>
             </div>
             <!-- Grid column -->

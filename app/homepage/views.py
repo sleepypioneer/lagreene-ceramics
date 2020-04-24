@@ -1,15 +1,14 @@
 from django.shortcuts import render
-from homepage.models import SlideShowItem
-from news.models import Show
+from homepage.models import SlideShowItem, Announcement
 
 
 # Create your views here.
 def homepage(request):
     slideshow = SlideShowItem.objects.all()
-    shows = Show.objects.all()
+    announcements = Announcement.objects.all()
     context = {
         'slideshow': slideshow,
-        'curent_shows': shows,
+        'announcements': announcements,
         'instagram_profile_name': 'lesleyannegreene',
     }
     return render(request, 'homepage/index.html', context)

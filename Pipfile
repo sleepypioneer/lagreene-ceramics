@@ -13,11 +13,13 @@ sorl-thumbnail = "*"
 boto3 = "*"
 django-storages = "*"
 psycopg2-binary = "*"
+django-admin-sortable2 = "*"
 
 [dev-packages]
 pycodestyle = "*"
 pytest = "*"
 autopep8 = "*"
+pylint = "*"
 
 [requires]
 python_version = "3.8"
