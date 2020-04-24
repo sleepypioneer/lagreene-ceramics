@@ -10,7 +10,7 @@
         <button class="btn btn-default filter-button active" id="all" onclick="call(this.id)">All</button>
 
         {% for category in categories %}
-            <button class="btn btn-default filter-button" id="{{ category.word }}" onclick="call(this.id)">{{ category.word|capfirst }}</button>
+            <button class="btn btn-default filter-button" id="{{ category.name }}" onclick="call(this.id)">{{ category.name|capfirst }}</button>
         {% endfor %}
 
         <button class="btn btn-default filter-button" id="archive" onclick="call(this.id)">Archive</button>
@@ -26,7 +26,7 @@
         <div class="dropdown-menu" role="menu" aria-labelledby="gallery-categories">
             <button class="dropdown-item" type="button" id="all" onclick="call(this.id)">All</button>
             {% for category in categories %}
-            <button class="dropdown-item" type="button" id="{{ category.word }}" onclick="call(this.id)">{{ category.word|capfirst }}</button>
+            <button class="dropdown-item" type="button" id="{{ category.name }}" onclick="call(this.id)">{{ category.name|capfirst }}</button>
             {% endfor %}
             <div class="dropdown-divider"></div>
             <button class="dropdown-item" type="button" id="archive" onclick="call(this.id)">Archive</button>

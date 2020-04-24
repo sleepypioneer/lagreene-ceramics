@@ -9,7 +9,7 @@ class Category(models.Model):
     name = models.CharField(max_length=35, primary_key=True)
 
     def __unicode__(self):
-        return self.word
+        return self.name
 
 
 # Create your models here.
@@ -24,7 +24,7 @@ class GalleryItem(models.Model):
     def class_string(self):
         class_string = ""
         for category in self.categories.all():
-            class_string += str(category.word) + " "
+            class_string += str(category.name) + " "
         if self.archive:
             class_string += ' archive'
         return class_string

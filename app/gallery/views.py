@@ -4,7 +4,7 @@ from .models import GalleryItem, Category
 # Create your views here.
 def gallery(request):
     gallery = GalleryItem.objects.all()
-    categories = Category.objects.all().order_by('word')
+    categories = Category.objects.all().order_by('name')
     context = {
         'gallery': gallery,
         'categories': categories,
