@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from homepage.models import SlideShowItem
-from news.models import Show
+from pages.models import Show
 
 
 # Create your views here.

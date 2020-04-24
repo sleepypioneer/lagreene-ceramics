@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from news.models import Show, Venue
-from pages.models import Link
+from pages.models import Link, Show, Venue
 from django.utils import timezone
 
 def today():
