@@ -12,10 +12,15 @@ def about(request):
 
 def stockists(request):
     context = {
-        'current_stockists': Stockist.objects.filter(end_date__gte=timezone.now()).order_by('-end_date'),
-        'past_stockists': Stockist.objects.filter(end_date__lt=timezone.now()).order_by('-end_date'),
+        'current_stockists': Stockist.objects.filter(
+            end_date__gte=timezone.now()).order_by('-end_date'),
+        'past_stockists': Stockist.objects.filter(
+            end_date__lt=timezone.now()).order_by('-end_date'),
         'venues': Venue.objects.all().order_by('name'),
-        'exhibition_years': sorted(Stockist.objects.all().values_list('end_date__year', flat=True).distinct()),
+        'exhibition_years': sorted(
+                Stockist.objects.all().values_list(
+                    'end_date__year',
+                    flat=True).distinct()),
     }
     return render(request, 'stockists.html', context)
 

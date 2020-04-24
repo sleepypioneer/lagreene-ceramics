@@ -3,7 +3,7 @@ import datetime
 
 YEAR_CHOICES = []
 for r in range(1980, (datetime.datetime.now().year+1)):
-    YEAR_CHOICES.append((r,r))
+    YEAR_CHOICES.append((r, r))
 
 class Category(models.Model):
     name = models.CharField(max_length=35, primary_key=True)
@@ -15,7 +15,7 @@ class Category(models.Model):
 # Create your models here.
 class GalleryItem(models.Model):
     image = models.ImageField(upload_to="img/gallery")
-    title = models.CharField(max_length=75,  primary_key=True)
+    title = models.CharField(max_length=75, primary_key=True)
     description = models.CharField(max_length=150)
     categories = models.ManyToManyField(Category, related_name='photos')
     archive = models.BooleanField()
@@ -32,8 +32,8 @@ class GalleryItem(models.Model):
     def year_created(self):
         YEAR_CHOICES = []
         for r in range(1980, (datetime.datetime.now().year+1)):
-            YEAR_CHOICES.append((r,r))
+            YEAR_CHOICES.append((r, r))
         return YEAR_CHOICES
-    
+
     class Meta(object):
         ordering = ['my_order']

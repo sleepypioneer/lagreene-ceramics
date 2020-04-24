@@ -9,7 +9,7 @@ class SlideShowItem(models.Model):
         ordering = ['itemOrder']
 
 class Announcement(models.Model):
-    subject = models.CharField(max_length=75,  primary_key=True)
+    subject = models.CharField(max_length=75, primary_key=True)
     body = models.CharField(max_length=250)
     image = models.ImageField(upload_to="img/announcement")
     link = models.URLField(max_length=100)
