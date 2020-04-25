@@ -1,9 +1,14 @@
-# Heroku & Terraform infrastructure
+# Heroku & Terraform infrastructure 🔩
 
 ## Setup
 
+### 1. Initilise the workspace
+
 After running `pipenv install` and `pipenv shell` `cd` into the `heroku_resources` directory and run `terraform init`.
-Next run the command below and when prompted enter the name for your app ie `lagreeneceramics`.
+
+### 2. Create inital plan
+
+Next run the command below and when prompted enter the name for your app ie `lagreene-ceramics`.
 
 ```sh
 terraform plan -out=current.tfplan
@@ -79,13 +84,17 @@ Terraform will perform the following actions:
 Plan: 5 to add, 0 to change, 0 to destroy.
 ```
 
-and create the file t`current.tfplan` in the current directory. To apply these changes run:
+and create the file `current.tfplan` in the current directory. To apply these changes run:
 
 ```sh
 terraform apply "current.tfplan"
 ```
 
-This will error as it will be unable to complete the process, you will first need to set up the `$DATABASE_URL`. To do so run the following commands:
+---
+
+### 3. Set the Database URL
+
+The above will error as it will be unable to complete the process, you will first need to set up the `$DATABASE_URL`. To do so run the following commands:
 
 ```sh
 export APP_NAME=<YOUR-APP-NAME>
@@ -103,19 +112,30 @@ terraform {
 }
 ```
 
-You should also now copy the `DATABASE_URL` to the `.env` file in the root directory.
+You should also now copy the `DATABASE_URL` to the `.env` file in the root directory ~(see section below)
 
-We will also stop the app from collecting its static files at the moment by running: `heroku config:set DISABLE_COLLECTSTATIC=1 --app $APP_NAME`
+You now can run `terraform init` again to reinitialise the workspace with the new backend, be sure to use the same value for the `APP NAME` when prompted about copying the existing state respond `yes`.
 
-You now can run `terraform init` again, be sure to use the same value for the `APP NAME` when prompted about copying the existing state respond `yes`. You can now rerun `terraform plan -out=current.tfplan` (again giving the same APP NAME) and finally to apply the changes `terraform apply "current.tfplan"`.
+---
 
-We will need to get the database credentials via the resources tab in the heroku dashboard for the app, then click on settings and credentials in the datastores view. From there you can copy the values for host, database name, user, and password into the `.env` file and also set them as config variables for your heroku app with the following command:
+
+### 4. Add config variables to Heroku
+
+We will also need to update the rest of our config variables both in Heroku and locally. We can retrieve the database credentials via the resources tab in the heroku dashboard for the app, then click on settings and credentials in the datastores view. From there you can copy the values for host, database name, user, and password into the `.env` file and also set them as config variables for your heroku app with the following command:
 
 ```sh
 heroku config:set <CONFIG-NAME>=<CONFIG-VALUE> --app $APP_NAME
 ```
 
-You will also want to add the secret key and django debug config to heroku, though the debug will now be set to false for the production environment. You can enter the console of the app in Heroku to make sure the migrations have run and create an admin user with the command `python manage.py createsuperuser`.
+You will also want to add the rest of the local environment variables (inside the .env file) including secret key, django debug and aws details to heroku. Note the debug will now be set to false for the production environment. 
+
+You can enter the console of the app in Heroku to make sure the migrations have run and create an admin user with the command `python manage.py createsuperuser`.
+
+Then rerun `terraform plan -out=current.tfplan` (again giving the same APP NAME) and finally to apply the changes `terraform apply "current.tfplan"`.
+
+---
+
+### Updating Code
 
 Now each time the code is updated you can run:
 
@@ -125,6 +145,12 @@ terraform plan -out=current.tfplan # enter App Name
 terraform apply "current.tfplan"
 ```
 
-This will deploy the changes in the app to heroku. If you have added new packages do not forget to update the `requirements.txt` there is a make target to do this inside `./app` (you will still have to remove `pkg-resources==0.0.0` manually after running this command)
+This will deploy the changes in the app to heroku. 
 
-*** The first time you may have to run some of the `python manage.py` commands in the console of your Heroku app including creating a super user to be able to access the admin panel.
+#### Addning new requirement
+
+If you have added new packages do not forget to update the `requirements.txt` there is a make target to do this inside `./app` (you will still have to remove `pkg-resources==0.0.0` manually after running this command)
+
+#### Adding a super user **Important for the first time**
+
+The first time you may have to run some of the `python manage.py` commands in the console of your Heroku app including creating a super user to be able to access the admin panel.

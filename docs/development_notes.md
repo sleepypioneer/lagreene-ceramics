@@ -1,19 +1,23 @@
-# Development notes and links for resources
+# Development notes and links for resources 🗒️
 
-Some notes while developing which may help debug or futuer development work.
+Some notes taken while developing which may help debug or futuer development work.
+
+## Useful Commands ⌨️
+
+### SQL
 
 ```sql
 ALTER USER user_name WITH PASSWORD 'new_password';
+
+DROP USER name;
 ```
+
+### PSQL
 
 List users:
 
 ```psql
  \du
-```
-
-```sql
-DROP USER name;
 ```
 
 Make migrations for certain app (in example for `index` app):
@@ -22,22 +26,25 @@ Make migrations for certain app (in example for `index` app):
 python manage.py makemigrations index
 ```
 
-
-deploying
+### When Deploying to Heroku 🌐
 
 heroku config:set WEB_CONCURRENCY=3
 gunicorn hello:app --timeout 10
 gunicorn hello:app --max-requests 1200
 
-## Links for depencies documentation
+
+## Useful Links 🔗
+
+### Depencies documentation 📖
 
 * [Pillow](https://pillow.readthedocs.io/en/latest/installation.html)
 
-## Links for useful tutorials
+
+### Revelant Tutorials 👩‍🎓
 
 * [Adding postgres to Django project](https://tutorial-extensions.djangogirls.org/en/optional_postgresql_installation/)
 * [Building Django project](https://docs.djangoproject.com/en/3.0/intro/tutorial02/)
 * [Deployment Checklist](https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/)
 * [Dockerize Django App](https://semaphoreci.com/community/tutorials/dockerizing-a-python-django-web-application)
 
-Invaluable help! https://stackoverflow.com/questions/49742714/collecstatic-does-not-push-to-files-s3
+💰 Invaluable help! https://stackoverflow.com/questions/49742714/collecstatic-does-not-push-to-files-s3
