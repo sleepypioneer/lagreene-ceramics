@@ -20,8 +20,8 @@ class Venue(models.Model):
 class Stockist(models.Model):
     title = models.CharField(max_length=75)
     venue = models.ForeignKey(Venue, on_delete=models.CASCADE, blank=True, null=True)
-    description = models.CharField(max_length=200)
-    link = models.URLField(max_length=100)
+    description = models.CharField(max_length=200, blank=True, null=True)
+    link = models.URLField(max_length=100, blank=True, null=True)
     start_date = models.DateField(blank=True, null=True)
     end_date = models.DateField(blank=True, null=True)
     image = models.ImageField(upload_to="img/stockists", blank=True, null=True)
