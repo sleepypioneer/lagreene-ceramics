@@ -17,5 +17,5 @@
 **/staticfiles/**
 */media/
 
-# migrations
-**/migrations/*
+# main.tf with pg uri
+terraform/heroku_resources/main.tf
