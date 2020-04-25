@@ -46,6 +46,12 @@ then run the image:
 
 `make run-in-docker`
 
+Run linter
+
+`pycodestyle .`
+
+'autopep8 --in-place --aggressive --aggressive ./<file-path>`
+
 
 Style settings:
 
