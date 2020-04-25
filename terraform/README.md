@@ -153,4 +153,4 @@ If you have added new packages do not forget to update the `requirements.txt` th
 
 #### Adding a super user **Important for the first time**
 
-The first time you may have to run some of the `python manage.py` commands in the console of your Heroku app including creating a super user to be able to access the admin panel.
+The first time you may have to run some of the `python manage.py` commands in the console of your Heroku app including creating a super user to be able to access the admin panel. `python manage.py createsuperuser`
