@@ -16,6 +16,7 @@
 **/staticfiles/*
 **/staticfiles/**
 */media/
+**/mediafiles/**
 
 # main.tf with pg uri
 terraform/heroku_resources/main.tf

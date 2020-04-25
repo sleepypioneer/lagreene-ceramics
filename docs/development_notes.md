@@ -46,5 +46,7 @@ gunicorn hello:app --max-requests 1200
 * [Building Django project](https://docs.djangoproject.com/en/3.0/intro/tutorial02/)
 * [Deployment Checklist](https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/)
 * [Dockerize Django App](https://semaphoreci.com/community/tutorials/dockerizing-a-python-django-web-application)
+* [Postgres 12 for Ubuntu 19](https://www.osradar.com/how-to-install-postgresql-on-ubuntu-19-04/)
+* [Local copy of postgres database](https://medium.com/@johngrant/django-and-heroku-postgres-databases-6c22ffd71081)
 
 💰 Invaluable help! https://stackoverflow.com/questions/49742714/collecstatic-does-not-push-to-files-s3

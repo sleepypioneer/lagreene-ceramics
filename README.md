@@ -46,12 +46,35 @@ python manage.py migrate
 
 # You can also add the app name at the end to apply migrations only from that app.
 
-#Collect Static files
+#Collect Static files - if $USE_S3 is set to TRUE then files will be saved to S3 Bucket
 python manage.py collectstatic
 
 #Run the server default port is 8000
 python manage.py runserver
 ```
+
+#### Creating a local database for local development
+
+For development you may want to have your own local database and save static files locally instead of using Amazon S3.
+
+A local copy of the Heroku postgres can be made with the following command:
+
+``` sh
+PGUSER=postgres PGPASSWORD=password heroku pg:pull DATABASE_URL nameforlocaldb
+```
+
+*Note that PGUSER and PGPASSWORD set the authentication credentials for the local db, and the Django app has the database URL saved as an environment variable.*
+
+[DJ-Database-URL](https://github.com/kennethreitz/dj-database-url) utility is used to configure the enbironment variable of the database so all that is now needed is to update the `$DATABASE_URL` value to the new local database:
+
+``` sh
+DATABASE_URL=postgres://postgres:password@localhost:5432/nameforlocaldb
+```
+You will have to run the migrations on the local database and also create a super user `python3 manage.py createsuperuser`.
+
+
+To stop using S3 for static and media files set the environment variable `$USE_S3` to `FALSE`. 
+
 
 #### Starting the app with Gunicorn 🦄
 
