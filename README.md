@@ -1,6 +1,6 @@
 # Portfolio Site for Lesley Anne Greene Ceramics <img src="docs/images/PottersMark_cyan.png" width="30" alt-text="potters mark of Lesley Anne Greene">
 
-This is the portfolio site for Lesley Anne Greene a ceramics artists based in North Yorkshire, United Kingdom.
+This is the portfolio site for Lesley Anne Greene a ceramic artists based in East Yorkshire, United Kingdom.
 
 
 ## Development 🐍🖥️
