@@ -1,0 +1,34 @@
+{% load static %}
+{% block stockist %}
+<div class="col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch card {{ stockist.end_date|date:'Y' }} {{ stockist.venue.name.split|join:'_' }}">
+    <h5 class="card-header">
+        {{ stockist.title }}
+    </h5>
+    <div class="card-body">
+        {% if stockist.venue %}
+            <h6>{{ stockist.venue.name|capfirst }}</h6>
+        {% endif %}
+        <p>
+            {% if stockist.start_date|date:"d M" == "01 Jan" %}
+                {{ stockist.end_date|date:"Y"}}
+            {% elif stockist.start_date|date:"M" == stockist.end_date|date:"M" %}
+                {{stockist.start_date|date:"d"}} to {{ stockist.end_date|date:"d M y"}}
+            {% elif stockist.start_date|date:"y" == stockist.end_date|date:"y" %}
+                {{stockist.start_date|date:"d M"}} to {{ stockist.end_date|date:"d M y"}}
+            {% else %}
+                {{stockist.start_date|date:"d M y"}} to {{ stockist.end_date|date:"d M y"}}
+            {% endif %}
+        </p>
+        {% if stockist.description %}
+            <p class="card-text">
+            {{ stockist.description }}
+            </p>
+        {% endif %}
+    </div>
+    {% if stockist.link %}
+        <div class="card-footer">
+            {{ stockist.link }}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

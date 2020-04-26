@@ -17,9 +17,13 @@
 
 /* Gallery categories menu */
 
+div#categories {
+    flex-wrap: wrap;
+}
+
 #categories button {
     border: solid 2px;
-    margin: 0px 8px 0px 8px;
+    margin: 0px 8px 15px 8px;
     border-color: #88A0A8;
 }
 

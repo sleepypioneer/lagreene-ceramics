@@ -1,17 +1,22 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_content %}
-<div class="row" id="links">
-    {% for link in links %}
-    <div class="card link">
-        <h5 class="card-header">
-            {{ link.title }}
-        </h5>
-        <a href="{{ link.link }}" class="btn btn-primary">
-            {{ link.link }}
-        </a>
+<div class="row">
+    <div class="col-sm-12 col-md-7"  id="links">
+        {% for link in links %}
+        <div class="card link">
+            <h5 class="card-header">
+                {{ link.title }}
+            </h5>
+            <a href="{{ link.link }}" class="btn btn-primary">
+                {{ link.link }}
+            </a>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
+    <div class="col-sm-12 col-md-5 justify-content-center d-flex" id="link-images">
+        <img src="{% static 'images/northern_potters.jpg' %}" alt="Artist photo"> 
+    </div>
 </div>
 {% endblock %}
 {# EEE3AB #}
