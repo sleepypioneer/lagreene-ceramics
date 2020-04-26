@@ -11,9 +11,9 @@
 }
 
 .btn-primary:hover {
-    color: #66666E;
-    background-color: #EEE3AB;
-    border-color: #EEE3AB;
+    color: #efeeea;
+    background-color: #6c757d;
+    border-color: #6c757d;
 }
 
 /* Cards */
@@ -104,10 +104,6 @@
     padding: 15px;
 }
 
-.link {
-    margin-bottom: 20px;
-}
-
 .link h5 {
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
@@ -115,8 +111,12 @@
 
 
 .link a {
+    border-top-color: #87a0a8;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
+    text-align: left;
+    background: #efeeea;
+    color: #6c757d;
 }
 
 /* Contact */
