@@ -20,7 +20,7 @@ def stockists(request):
         'exhibition_years': sorted(
                 Stockist.objects.all().values_list(
                     'end_date__year',
-                    flat=True).distinct()),
+                    flat=True).distinct(), reverse=True),
     }
     return render(request, 'stockists.html', context)
 

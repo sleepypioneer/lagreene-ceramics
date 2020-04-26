@@ -1,0 +1,30 @@
+{% load static %}
+{% block filter_menu %}
+<div class="d-flex">
+    <h5> Sort by </h3>
+    <!-- dropdown navigation sort by Year-->
+    <div class="col-sm-12 col-md-1 dropdown" id="exhibited-year-dropdown">
+        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="exhibited-year" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+            Year
+        </button>
+        <div class="dropdown-menu" role="menu" aria-labelledby="exhibited-years">
+            {% for year in exhibition_years %}
+            <button class="dropdown-item" type="button" id="{{ year }}" onclick="call(this.id)">{{ year }}</button>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- dropdown navigation -->
+    <!-- dropdown navigation sort by Venue-->
+    <div class="col-sm-12 col-md-1 dropdown" id="exhibited-venue-dropdown">
+        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="exhibited-venue" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+            Venue
+        </button>
+        <div class="dropdown-menu" role="menu" aria-labelledby="exhibited-venues">
+            {% for venue in venues %}
+            <button class="dropdown-item" type="button" id="{{ venue.name.split|join:'_' }}" onclick="call(this.id)">{{ venue.name|capfirst }}</button>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- dropdown navigation -->
+</div>
+{% endblock %}
