@@ -119,6 +119,10 @@
     color: #6c757d;
 }
 
+div#link-images {
+    align-items: start;
+    padding-top: 15px;
+}
 /* Contact */
 
 #contact-page {
