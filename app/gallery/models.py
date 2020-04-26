@@ -24,7 +24,7 @@ class GalleryItem(models.Model):
     def class_string(self):
         class_string = ""
         for category in self.categories.all():
-            class_string += str(category.name) + " "
+            class_string += str(category.name).lower().replace(" ", "_") + " "
         if self.archive:
             class_string += ' archive'
         return class_string
