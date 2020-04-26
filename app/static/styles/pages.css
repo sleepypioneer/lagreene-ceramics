@@ -118,8 +118,6 @@
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
     min-height: 80vh;
-    flex-direction: column;
-    padding: 15px;
 }
 
 .link h5 {
@@ -139,7 +137,6 @@
 
 div#link-images {
     align-items: start;
-    padding-top: 15px;
 }
 /* Contact */
 
