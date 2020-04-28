@@ -7,13 +7,13 @@
 
     <!-- buttons navigation -->
     <div class="d-none d-sm-none d-md-flex col-md-12 justify-content-center mb-5" id="categories">
-        <button class="btn btn-default filter-button active" id="all" onclick="call(this.id)">All</button>
+        <button class="btn btn-default filter-button active" id="all" onclick="filterGallery(this.id)">All</button>
 
         {% for category in categories %}
-            <button class="btn btn-default filter-button" id="{{ category.name.split|join:'_'|lower }}" onclick="call(this.id)">{{ category.name|capfirst }}</button>
+            <button class="btn btn-default filter-button" id="{{ category.name.split|join:'_'|lower }}" onclick="filterGallery(this.id)">{{ category.name|capfirst }}</button>
         {% endfor %}
 
-        <button class="btn btn-default filter-button" id="archive" onclick="call(this.id)">Archive</button>
+        <button class="btn btn-default filter-button" id="archive" onclick="filterGallery(this.id)">Archive</button>
 
     </div>
     <!-- buttons navigation -->
@@ -24,12 +24,12 @@
             Categories
         </button>
         <div class="dropdown-menu" role="menu" aria-labelledby="gallery-categories">
-            <button class="dropdown-item" type="button" id="all" onclick="call(this.id)">All</button>
+            <button class="dropdown-item" type="button" id="all" onclick="filterGallery(this.id)">All</button>
             {% for category in categories %}
-            <button class="dropdown-item" type="button" id="{{ category.name.split|join:'_'|lower }}" onclick="call(this.id)">{{ category.name|capfirst }}</button>
+            <button class="dropdown-item" type="button" id="{{ category.name.split|join:'_'|lower }}" onclick="filterGallery(this.id)">{{ category.name|capfirst }}</button>
             {% endfor %}
             <div class="dropdown-divider"></div>
-            <button class="dropdown-item" type="button" id="archive" onclick="call(this.id)">Archive</button>
+            <button class="dropdown-item" type="button" id="archive" onclick="filterGallery(this.id)">Archive</button>
         </div>
     </div>
     <!-- dropdown navigation -->

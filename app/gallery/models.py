@@ -26,7 +26,7 @@ class GalleryItem(models.Model):
         for category in self.categories.all():
             class_string += str(category.name).lower().replace(" ", "_") + " "
         if self.archive:
-            class_string += ' archive'
+            class_string += ' archive d-none'
         return class_string
 
     def year_created(self):
