@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DJANGO_DEBUG', '') != 'False'
+DEBUG = os.getenv('DJANGO_DEBUG', '') != 'FALSE'
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
 ALLOWED_HOSTS = ['lagreene-ceramics.herokuapp.com', 'http://127.0.0.1:8000', 'localhost']

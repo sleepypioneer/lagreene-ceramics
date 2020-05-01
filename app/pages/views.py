@@ -40,3 +40,6 @@ def contact(request):
     context = {
     }
     return render(request, 'contact.html', context)
+
+def custom_page_not_found_view(request):
+    return render(request, 'error_pages/404.html')
