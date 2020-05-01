@@ -125,7 +125,6 @@
     border-bottom-right-radius: 0px;
 }
 
-
 .link a {
     border-top-color: #87a0a8;
     border-top-left-radius: 0px;
@@ -137,7 +136,14 @@
 
 div#link-images {
     align-items: start;
+    flex-direction: column;
 }
+
+#link-images img {
+    width: 90%;
+    margin-bottom: 40px;
+}
+
 /* Contact */
 
 #contact-page {

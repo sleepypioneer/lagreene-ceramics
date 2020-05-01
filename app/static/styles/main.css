@@ -9,7 +9,14 @@ a {
 }
 
 .potters-mark {
-    text-align: center;
+    margin-left: 50%;
+    margin-bottom: 1.5rem;
+}
+
+
+.potters-mark.line-break-right-side {
+    margin-left: -50%;
+    margin-bottom: 1.5rem;
 }
 
 img.potters-mark {
