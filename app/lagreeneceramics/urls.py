@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 handler404 = 'pages.views.custom_page_not_found_view'
+handler500 = 'pages.views.custom_server_error_view'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
