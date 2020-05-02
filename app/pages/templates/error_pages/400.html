@@ -1,0 +1,11 @@
+{% extends "./base_error_page.html" %}
+{% load static %}
+{% block error_content %}
+<h1>
+    Oops this request is invalid!
+</h1>
+<a href="{% url 'homepage' %}" target="_self">
+    Return to the homepage
+</a>
+<img src="{% static 'images/feelines.jpg' %}" alt="Feelines" /> 
+{% endblock %}
