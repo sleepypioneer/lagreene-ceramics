@@ -7,17 +7,15 @@
                Current stockists, exhibitions and shows
             </h2>
         </div>
-        <div id="current-stockists">
             {% if current_stockists %}
-                <div class="row row-flex">
-                    {% for stockist in current_stockists %}
-                        {% include './stockists/stockist.html' %}
-                    {% endfor %}
-                </div>
+            <div class="stockists">
+                {% for stockist in current_stockists %}
+                    {% include './stockists/stockist.html' %}
+                {% endfor %}
+            </div>
             {% else %}
                 <p>There are no current or upcoming events, please feel free to see past events where my work has been displayed or if you would like more information please <a href="{% url 'contact' %}"><b>contact me</b>.</a></p>
             {% endif %}
-        </div>
         <div class="title">
             <h2>
                 Past stockists, exhibitions and shows
@@ -34,5 +32,4 @@
             {% endblock %}
         </div>
     </div>
-
 {% endblock %}

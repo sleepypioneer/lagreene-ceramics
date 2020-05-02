@@ -2,9 +2,6 @@ from django.shortcuts import render
 from pages.models import Link, Stockist, Venue
 from django.utils import timezone
 
-def today():
-    return timezone.localtime(timezone.now()).date()
-
 def about(request):
     context = {
     }
@@ -18,16 +15,17 @@ def stockists(request):
             end_date__lt=timezone.now()).order_by('-end_date'),
         'venues': Venue.objects.all().order_by('name'),
         'exhibition_years': sorted(
-                Stockist.objects.all().values_list(
+            Stockist.objects.filter(end_date__lt=timezone.now())
+                .values_list(
                     'end_date__year',
-                    flat=True).distinct(), reverse=True),
+                    flat=True).distinct(),
+            reverse=True
+        ),
     }
     return render(request, 'stockists.html', context)
 
 def cv(request):
-    context = {
-    }
-    return render(request, 'cv.html', context)
+    return render(request, 'cv.html')
 
 def links(request):
     links = Link.objects.all()
@@ -37,9 +35,7 @@ def links(request):
     return render(request, 'links.html', context)
 
 def contact(request):
-    context = {
-    }
-    return render(request, 'contact.html', context)
+    return render(request, 'contact.html')
 
 def custom_page_not_found_view(request, exception):
     return render(request, 'error_pages/404.html', status=404)
