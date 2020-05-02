@@ -1,0 +1,11 @@
+{% extends "./base_error_page.html" %}
+{% load static %}
+{% block error_content %}
+<h1>
+    Oops this page was not found, would you like to return to the homepage?
+</h1>
+<a href="{% url 'homepage' %}" target="_self">
+    click here
+</a>
+<img src="{% static 'images/feelines.jpg' %}" alt="Feelines" /> 
+{% endblock %}
