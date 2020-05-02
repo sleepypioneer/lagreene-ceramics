@@ -19,8 +19,8 @@ def stockists(request):
                 .values_list(
                     'end_date__year',
                     flat=True).distinct(),
-                    reverse=True
-                ),
+            reverse=True
+        ),
     }
     return render(request, 'stockists.html', context)
 
