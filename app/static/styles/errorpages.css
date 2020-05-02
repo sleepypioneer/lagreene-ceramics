@@ -5,5 +5,50 @@ body {
 }
 
 a {
+    color: #6c757d;
+    border: solid 2px #6c757d;
+    border-radius: 5px;
+    padding: 0.5rem;
+    width: fit-content;
+    font-size: 1.75rem;
+    margin-top: 2.5vh;
+}
+
+h1 {
     color: #88A0A8;
 }
+
+.content {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 10vh;
+    border: solid 3px;
+    border-right: solid 3px;
+    border-color: #88A0A8;
+    padding-top: 10vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    width: 80vw;
+    max-width: 1200px;
+    min-height: 80vh;
+    border-top-right-radius: 3em;
+}
+
+img {
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+
+
+/* 
+@media screen and (min-width: 1200px)
+.content {
+    padding-left: 100px;
+    padding-right: 100px;
+    max-width: 1200px;
+} */
