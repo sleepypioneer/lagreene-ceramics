@@ -14,11 +14,28 @@ DROP USER name;
 
 ### PSQL
 
+```sh
+sudo -i -u postgres
+
+```
+
+```psql
+psql -d lagreeneceramicslocaldb
+
+```
+
 List users:
 
 ```psql
  \du
 ```
+
+list of relations
+
+```psql
+ \d
+```
+
 
 Make migrations for certain app (in example for `index` app):
 
