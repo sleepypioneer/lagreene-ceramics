@@ -9,9 +9,13 @@ class LinkAdmin(SortableAdminMixin, admin.ModelAdmin):
     list_per_page = 15
 
 class StockistAdmin(admin.ModelAdmin):
-    list_display = ['title']
+    list_display = ['title', 'stockist_venue', 'end_date']
     list_display_links = ['title']
+    list_filter = ['end_date', 'venue']
     search_fields = ['title']
+
+    def stockist_venue(self, obj):
+        return obj.venue.name
 
 class VenueAdmin(admin.ModelAdmin):
     list_display = ['name']

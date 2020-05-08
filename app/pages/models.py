@@ -17,6 +17,9 @@ class Venue(models.Model):
     city = models.CharField(max_length=50, null=True, blank=True)
     online = models.BooleanField(default=False)
 
+    class Meta(object):
+        ordering = ['name']
+
 class Stockist(models.Model):
     title = models.CharField(max_length=75)
     venue = models.ForeignKey(Venue, on_delete=models.CASCADE, blank=True, null=True)
@@ -25,3 +28,6 @@ class Stockist(models.Model):
     start_date = models.DateField(blank=True, null=True)
     end_date = models.DateField(blank=True, null=True)
     image = models.ImageField(upload_to="img/stockists", blank=True, null=True)
+
+    class Meta(object):
+        ordering = ['-end_date']
