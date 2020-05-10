@@ -6,10 +6,13 @@ for r in range(1980, (datetime.datetime.now().year+1)):
     YEAR_CHOICES.append((r, r))
 
 class Category(models.Model):
-    name = models.CharField(max_length=35, primary_key=True)
+    name = models.CharField(max_length=35)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
+
+    class Meta(object):
+        ordering = ['name']
 
 
 # Create your models here.
@@ -34,6 +37,9 @@ class GalleryItem(models.Model):
         for r in range(1980, (datetime.datetime.now().year+1)):
             YEAR_CHOICES.append((r, r))
         return YEAR_CHOICES
+
+    def __str__(self):
+        return self.title
 
     class Meta(object):
         ordering = ['my_order']

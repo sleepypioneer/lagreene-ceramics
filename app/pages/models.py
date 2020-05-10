@@ -6,6 +6,9 @@ class Link(models.Model):
     link = models.URLField(max_length=100)
     itemOrder = models.PositiveIntegerField(default=0, blank=False, null=False)
 
+    def __str__(self):
+        return self.title
+
     class Meta(object):
         ordering = ['itemOrder']
 
@@ -17,6 +20,12 @@ class Venue(models.Model):
     city = models.CharField(max_length=50, null=True, blank=True)
     online = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.name
+
+    class Meta(object):
+        ordering = ['name']
+
 class Stockist(models.Model):
     title = models.CharField(max_length=75)
     venue = models.ForeignKey(Venue, on_delete=models.CASCADE, blank=True, null=True)
@@ -25,3 +34,9 @@ class Stockist(models.Model):
     start_date = models.DateField(blank=True, null=True)
     end_date = models.DateField(blank=True, null=True)
     image = models.ImageField(upload_to="img/stockists", blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta(object):
+        ordering = ['-end_date']
