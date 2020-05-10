@@ -7,6 +7,7 @@ class Gallery(SortableAdminMixin, admin.ModelAdmin):
     list_display_links = ['title']
     search_fields = ['title']
     list_per_page = 25
+    list_filter = ['categories']
 
     def item_categories(self, obj):
         return ", ".join([p.name for p in obj.categories.all()])

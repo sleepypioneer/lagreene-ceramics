@@ -6,9 +6,9 @@ for r in range(1980, (datetime.datetime.now().year+1)):
     YEAR_CHOICES.append((r, r))
 
 class Category(models.Model):
-    name = models.CharField(max_length=35, primary_key=True)
+    name = models.CharField(max_length=35)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
     
     class Meta(object):
