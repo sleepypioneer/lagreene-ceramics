@@ -15,10 +15,16 @@ class StockistAdmin(admin.ModelAdmin):
     search_fields = ['title']
 
     def year(self, obj):
-        return obj.end_date.year
+        if obj.end_date:
+            return obj.end_date.year
+        else:
+            return ''
 
     def stockist_venue(self, obj):
-        return obj.venue.name
+        if obj.venue:
+            return obj.venue.name
+        else:
+            return ''
 
 class VenueAdmin(admin.ModelAdmin):
     list_display = ['name']
