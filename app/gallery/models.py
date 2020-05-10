@@ -38,5 +38,8 @@ class GalleryItem(models.Model):
             YEAR_CHOICES.append((r, r))
         return YEAR_CHOICES
 
+    def __str__(self):
+        return self.title
+
     class Meta(object):
         ordering = ['my_order']
