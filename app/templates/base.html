@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <!-- Glightbox gallery -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+    <link rel="stylesheet" href="{% static 'styles/glightbox.min.css' %}">
 
     <!-- Own CSS -->
     <link rel="stylesheet" type="text/css"  href="{% static 'styles/nav.css' %}">
@@ -69,15 +69,8 @@
     <!-- Bootstrap core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <!-- Glightbox gallery -->
-    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>    
+    <script type="text/javascript" src="{% static 'scripts/glightbox.min.js' %}"></script>
     <!-- gallery filtering -->
     <script type="text/javascript" src="{% static 'scripts/filtering_script.js' %}"></script>
-
-    <!-- gallery lightbox -->
-    <script>
-      var myLightbox = GLightbox({
-        'selector': 'glightbox'
-      });
-    </script>
   </body>
 </html>

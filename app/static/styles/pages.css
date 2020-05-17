@@ -94,6 +94,10 @@
     margin-bottom: 20px;
 }
 
+#stockists p {
+    padding: 15px;
+}
+
 .stockists {
     display: flex;
     flex-wrap: wrap;
