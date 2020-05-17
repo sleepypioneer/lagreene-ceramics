@@ -25,6 +25,9 @@ class StockistAdmin(admin.ModelAdmin):
             return obj.venue.name
         else:
             return ''
+    
+    year.admin_order_field = 'end_date'
+    stockist_venue.admin_order_field = 'venue'
 
 class VenueAdmin(admin.ModelAdmin):
     list_display = ['name']
