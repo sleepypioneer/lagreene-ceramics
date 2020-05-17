@@ -1,3 +1,11 @@
+const lightbox = GLightbox({
+    selector: 'glightbox',
+    touchNavigation: true,
+    onOpen: () => {
+      console.log('Lightbox opened')
+    },
+});
+
 const showItem = (item) => {
     item.classList.remove('d-none');
     item.classList.add('fadeIn','glightbox');
@@ -5,7 +13,7 @@ const showItem = (item) => {
 
 const hideItem = (item) => {
     item.classList.add('d-none');
-    item.classList.remove('fadeIn','glightbox', 'd-flex');
+    item.classList.remove('fadeIn','glightbox');
 }
 
 const clean = () => {
@@ -15,8 +23,6 @@ const clean = () => {
     })
 }
 
-  
-  
 function filterGallery(id, classes) {
     const items = Array.from(document.getElementsByClassName("filter"));
     items.map(function (item, index) {

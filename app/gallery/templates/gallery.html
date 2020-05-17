@@ -38,16 +38,16 @@
 <!-- Grid row -->
 <div id="gallery-container">
     <!-- Grid row -->
-    <div class="gallery mdb-lightbox" id="gallery">
+    <div class="gallery" id="gallery">
         {% for item in gallery %}
             <!-- Grid column -->
             <div class="mb-3 pics animation">
-                <a href="{{ item.image.url }}"
-                    class="glightbox gallery_product col-6 col-lg-4 col-md-4 col-sm-4 col-xs-6 filter all {{ item.class_string }}">
+                <a href="{{ item.image.url }}"  data-glightbox="{{ item.title }}" data-gallery="gallery"
+                    class="gallery_product col-6 col-lg-4 col-md-4 col-sm-4 col-xs-6 filter all {{ item.class_string }}">
                     <img alt="picture" src="{{ item.image.url }}" class="img-fluid" />
-                        <div class="glightbox-desc">
-                            <p>{{ item.title }}</p>
-                        </div>                        
+                    <div class="glightbox-desc">
+                        <p>{{ item.title }}</p>
+                    </div>                        
                 </a>
             </div>
             <!-- Grid column -->

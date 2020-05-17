@@ -29,7 +29,9 @@ class GalleryItem(models.Model):
         for category in self.categories.all():
             class_string += str(category.name).lower().replace(" ", "_") + " "
         if self.archive:
-            class_string += ' archive d-none'
+            class_string += ' archive'
+        if self.my_order > 25 or self.archive:
+            class_string += ' d-none'
         return class_string
 
     def year_created(self):
