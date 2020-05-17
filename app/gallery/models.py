@@ -30,8 +30,11 @@ class GalleryItem(models.Model):
             class_string += str(category.name).lower().replace(" ", "_") + " "
         if self.archive:
             class_string += ' archive'
-        if self.my_order > 25 or self.archive:
+        if self.my_order <= 25:
+            class_string += ' glightbox'
+        else:
             class_string += ' d-none'
+        
         return class_string
 
     def year_created(self):

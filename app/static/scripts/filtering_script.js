@@ -1,4 +1,4 @@
-const lightbox = GLightbox({
+let lightbox = GLightbox({
     selector: 'glightbox',
     touchNavigation: true,
     onOpen: () => {
@@ -51,6 +51,13 @@ function filterGallery(id, classes) {
                 }
         }
     })
+    lightbox = GLightbox({
+        selector: 'glightbox',
+        touchNavigation: true,
+        onOpen: () => {
+          console.log('Lightbox opened')
+        },
+    });
 }
 
 function filterStockists(id) {
