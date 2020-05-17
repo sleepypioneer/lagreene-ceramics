@@ -6,6 +6,8 @@ def archive_gallery_item(modeladmin, request, gallery_items):
     for gallery_item in gallery_items:
         gallery_item.archive = True
         gallery_item.save()
+
+
 archive_gallery_item.short_description = "Archive gallery item/s"
 
 class Gallery(SortableAdminMixin, admin.ModelAdmin):
@@ -14,7 +16,7 @@ class Gallery(SortableAdminMixin, admin.ModelAdmin):
     search_fields = ['title']
     list_per_page = 25
     list_filter = ['categories']
-    actions = [archive_gallery_item,]
+    actions = [archive_gallery_item, ]
 
     def item_categories(self, obj):
         return ", ".join([p.name for p in obj.categories.all()])

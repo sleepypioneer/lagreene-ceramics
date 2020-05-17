@@ -34,7 +34,7 @@ class GalleryItem(models.Model):
             class_string += ' glightbox'
         else:
             class_string += ' d-none'
-        
+
         return class_string
 
     def year_created(self):
