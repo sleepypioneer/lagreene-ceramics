@@ -16,9 +16,9 @@ def stockists(request):
         'venues': Venue.objects.all().order_by('name'),
         'exhibition_years': set(sorted(
             Stockist.objects.filter(end_date__lt=timezone.now())
-                .values_list(
-                    'end_date__year',
-                    flat=True),
+            .values_list(
+                'end_date__year',
+                flat=True),
             reverse=True
         )),
     }
