@@ -7,7 +7,7 @@
 
     <!-- buttons navigation -->
     <div class="d-none d-sm-none d-md-flex col-md-12 justify-content-center mb-5" id="categories">
-        <button class="btn btn-default filter-button active" id="all" onclick="filterGallery(this.id)">All</button>
+        <button class="btn btn-default filter-button active" id="artists_selection" onclick="filterGallery(this.id)">Artist's Selection</button>
 
         {% for category in categories %}
             <button class="btn btn-default filter-button" id="{{ category.name.split|join:'_'|lower }}" onclick="filterGallery(this.id)">{{ category.name|capfirst }}</button>
@@ -24,7 +24,7 @@
             Categories
         </button>
         <div class="dropdown-menu" role="menu" aria-labelledby="gallery-categories">
-            <button class="dropdown-item" type="button" id="all" onclick="filterGallery(this.id)">All</button>
+            <button class="dropdown-item" type="button" id="artists_selection" onclick="filterGallery(this.id)">Artists Selection</button>
             {% for category in categories %}
             <button class="dropdown-item" type="button" id="{{ category.name.split|join:'_'|lower }}" onclick="filterGallery(this.id)">{{ category.name|capfirst }}</button>
             {% endfor %}
@@ -43,7 +43,7 @@
             <!-- Grid column -->
             <div class="mb-3 pics animation">
                 <a href="{{ item.image.url }}"
-                    class="gallery_product col-6 col-lg-4 col-md-4 col-sm-4 col-xs-6 filter all {{ item.class_string }}">
+                    class="gallery_product col-6 col-lg-4 col-md-4 col-sm-4 col-xs-6 filter {{ item.class_string }}">
                     <img alt="picture" src="{{ item.image.url }}" class="img-fluid" />
                     <div class="glightbox-desc">
                         <p>{{ item.title }}</p>

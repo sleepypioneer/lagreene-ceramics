@@ -22,6 +22,7 @@ class GalleryItem(models.Model):
     description = models.CharField(max_length=150, blank=True, null=True)
     categories = models.ManyToManyField(Category, related_name='photos')
     archive = models.BooleanField()
+    artists_selection = models.BooleanField()
     my_order = models.PositiveIntegerField(default=0, blank=False, null=False)
 
     def class_string(self):
@@ -30,8 +31,8 @@ class GalleryItem(models.Model):
             class_string += str(category.name).lower().replace(" ", "_") + " "
         if self.archive:
             class_string += ' archive'
-        if self.my_order <= 25 and not self.archive:
-            class_string += ' glightbox'
+        if self.artists_selection:
+            class_string += 'artists_selection glightbox'
         else:
             class_string += ' d-none'
 
