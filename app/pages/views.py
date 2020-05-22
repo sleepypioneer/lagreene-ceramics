@@ -14,13 +14,13 @@ def stockists(request):
         'past_stockists': Stockist.objects.filter(
             end_date__lt=timezone.now()).order_by('-end_date'),
         'venues': Venue.objects.all().order_by('name'),
-        'exhibition_years': sorted(
+        'exhibition_years': set(sorted(
             Stockist.objects.filter(end_date__lt=timezone.now())
-                .values_list(
-                    'end_date__year',
-                    flat=True).distinct(),
+            .values_list(
+                'end_date__year',
+                flat=True),
             reverse=True
-        ),
+        )),
     }
     return render(request, 'stockists.html', context)
 
