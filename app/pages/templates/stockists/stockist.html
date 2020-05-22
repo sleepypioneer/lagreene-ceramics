@@ -12,9 +12,10 @@
     </h5>
     <div class="card-body">
         {% if stockist.venue %}
-            <h6>{{ stockist.venue.name|capfirst }}</h6>
+            <h5>{{ stockist.venue.name|capfirst }}</h5>
         {% endif %}
-        <p>
+        <br>
+        <h6>
             {% if stockist.start_date|date:"d M" == "01 Jan" %}
                 {{ stockist.end_date|date:"Y"}}
             {% elif stockist.start_date|date:"M" == stockist.end_date|date:"M" %}
@@ -24,12 +25,27 @@
             {% else %}
                 {{stockist.start_date|date:"d M y"}} to {{ stockist.end_date|date:"d M y"}}
             {% endif %}
-        </p>
+        </h6>
         {% if stockist.description %}
             <p class="card-text">
             {{ stockist.description }}
             </p>
         {% endif %}
+        {% if stockist.venue.address_line1 %}
+        <br>
+        <h6>Address:</h6>
+            {{ stockist.venue.address_line1 }}
+            {% if stockist.venue.address_line2 %}
+                {{ stockist.venue.address_line2 }}
+            {% endif %}
+            {% if stockist.venue.city %}
+                {{ stockist.venue.city }}
+            {% endif %}
+            {% if stockist.venue.postal_code %}
+                {{ stockist.venue.postal_code }}
+            {% endif %}
+        {% endif %}
+        
     </div>
     {% if stockist.link %}
         <div class="card-footer">
