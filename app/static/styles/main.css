@@ -1,7 +1,10 @@
 body {
     background-color: #EFEEEA;
-    /* font-family: "Roboto",sans-serifbody; */
+    font-family: 'Roboto', sans-serif;
+}
 
+h1 {
+    font-family: 'Open Sans', sans-serif;
 }
 
 a {
@@ -9,6 +12,7 @@ a {
 }
 
 .potters-mark {
+    margin-top: 20px;
     margin-left: 50%;
     margin-bottom: 1.5rem;
 }
