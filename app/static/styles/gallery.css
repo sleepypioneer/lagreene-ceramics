@@ -46,6 +46,12 @@ button.dropdown-item:hover {
     background: #87a0a8;
 }
 
+.scrollable-menu {
+    height: auto;
+    max-height: 40vh;
+    overflow-x: hidden;
+    margin-left: 15px;
+}
 
 .img-fluid {
     margin-left: -15px;
