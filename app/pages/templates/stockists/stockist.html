@@ -11,10 +11,6 @@
         {{ stockist.title }}
     </h5>
     <div class="card-body">
-        {% if stockist.venue %}
-            <h5>{{ stockist.venue.name|capfirst }}</h5>
-        {% endif %}
-        <br>
         <h6>
             {% if stockist.start_date|date:"d M" == "01 Jan" %}
                 {{ stockist.end_date|date:"Y"}}
@@ -31,10 +27,11 @@
             {{ stockist.description }}
             </p>
         {% endif %}
-        {% if stockist.venue.address_line1 %}
-        <br>
-        <h6>Address:</h6>
-            {{ stockist.venue.address_line1 }}
+        {% if stockist.venue %}
+            <h5>{{ stockist.venue.name|capfirst }}</h5>
+            {% if stockist.venue.address_line1 %}
+                {{ stockist.venue.address_line1 }}
+            {% endif %}
             {% if stockist.venue.address_line2 %}
                 {{ stockist.venue.address_line2 }}
             {% endif %}
