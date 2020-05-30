@@ -80,7 +80,10 @@
     flex-direction: column;
 }
 
-
+div#stockists > p {
+    padding-left: 15px;
+    padding-right: 15px
+}
 
 #curent-stockists {
     display: flex;
@@ -94,8 +97,12 @@
     margin-bottom: 20px;
 }
 
-#stockists p {
-    padding: 15px;
+.card-body h6 {
+    font-weight: bold;
+}
+
+.card-body h5 {
+    font-weight: 800;
 }
 
 .stockists {
