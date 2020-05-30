@@ -80,7 +80,10 @@
     flex-direction: column;
 }
 
-
+div#stockists > p {
+    padding-left: 15px;
+    padding-right: 15px
+}
 
 #curent-stockists {
     display: flex;
