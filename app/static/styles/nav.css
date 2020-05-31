@@ -21,6 +21,13 @@ body {
     color: white;
 }
 
+.navbar-nav .nav-link {
+    height: 56px;
+    padding: 10px;
+    padding-right: 0px;
+    padding-left: 0;
+}
+
 div#navbarSupportedContent {
     margin-top: 5px;
     margin-bottom: 5px;
@@ -30,7 +37,7 @@ div#navbarSupportedContent {
     height: 30px;
     width: 30px;
     text-align: center;
-    margin: 0% 2%;
+    margin: 13px 2%;
 }
 
 .sticky-top {
