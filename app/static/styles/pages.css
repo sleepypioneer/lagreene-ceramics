@@ -16,6 +16,20 @@
     border-color: #6c757d;
 }
 
+.btn-primary:not(:disabled):not(.disabled):active {
+    color: #efeeea;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-primary:focus {
+    box-shadow: none;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus {
+    box-shadow: none;
+}
+
 /* Cards */
 
 .card {

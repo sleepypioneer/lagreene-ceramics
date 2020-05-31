@@ -60,5 +60,9 @@ div#navbarSupportedContent {
     #main-nav {
         padding-left: 15px;
     }
+
+    .navbar-nav .nav-link {
+        height: inherit;
+    }
 }
 
