@@ -80,10 +80,18 @@ img.potters-mark {
 
 #slideshow {
     order: -1;
+    margin-bottom: 1.5rem;
 }
 
 #main-text p {
     margin: 20px;
+    margin-left: 0px;
+}
+
+#main-text .potters-mark {
+    margin-top: 20px;
+    margin-left: 25%;
+    margin-bottom: 1.5rem;
 }
 
 #main-text blockquote {
