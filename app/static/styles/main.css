@@ -13,13 +13,12 @@ a {
 
 .potters-mark {
     margin-top: 20px;
-    margin-left: 50%;
+    margin-left: 25%;
     margin-bottom: 1.5rem;
 }
 
 
 .potters-mark.line-break-right-side {
-    margin-left: -50%;
     margin-bottom: 1.5rem;
 }
 
@@ -240,6 +239,15 @@ h1 {
         text-align: right;
     }
     
+
+    .potters-mark {
+        margin-left: 50%;
+    }
+    
+    
+    .potters-mark.line-break-right-side {
+        margin-left: -55%;
+    }
 }
 
 /* Desktop */
