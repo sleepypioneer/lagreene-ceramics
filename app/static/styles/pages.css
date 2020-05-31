@@ -72,6 +72,20 @@
     min-width: min-content;
 }
 
+div#stockist-filtering {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div#exhibited-year-dropdown {
+    margin-bottom: 20px;
+    padding-left: 0px;
+}
+
+div#exhibited-venue-dropdown {
+    padding-left: 0px;
+}
+
 #stockists {
     border-bottom: solid 3px;
     border-color: #88A0A8;
