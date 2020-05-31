@@ -32,6 +32,15 @@ div#categories {
     color: white;
 }
 
+#categories button:focus {
+    box-shadow: none;
+}
+
+.selected {
+    background-color: #87a0a8;
+    color: white;
+}
+
 div#categories-dropdown {
     width: 100%;
     padding-left: 15px;

@@ -23,7 +23,23 @@ const clean = () => {
     })
 }
 
+const removeSelection = () => {
+    selected = document.getElementsByClassName('selected')
+    if(selected.length > 0) {
+        for (i=0; i < selected.length; i++) {
+            selected[i].classList.remove('selected');
+        }
+    }
+}
+
+const setSelected = (id) => {
+    removeSelection();
+    const selector = document.getElementById(id);
+    selector.classList.add('selected')
+}
+
 function filterGallery(id, classes) {
+    setSelected(id)
     const items = Array.from(document.getElementsByClassName("filter"));
     items.map(function (item, index) {
         const itemContainsClass = item.classList.contains(id);
