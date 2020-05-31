@@ -53,13 +53,14 @@
     font-weight: bold;
 }
 
-#portrait {
+#about .about-image img {
     margin-bottom: 30px;
-}
-
-#portrait img {
     width: 100%;
     border-radius: 5px;
+}
+
+#portrait {
+    order: -1;
 }
 
 
@@ -150,8 +151,13 @@ div#link-images {
     flex-direction: column;
 }
 
+#link-images div {
+    display: flex;
+}
+
 #link-images img {
     width: 90%;
+    margin: auto;
     margin-bottom: 40px;
 }
 
@@ -241,4 +247,8 @@ h4.align-left.mbr-fonts-style.display-2 {
 }
 
 @media screen and (min-width: 767px) {
+    #portrait {
+        order: 0;
+    }
 }
+
