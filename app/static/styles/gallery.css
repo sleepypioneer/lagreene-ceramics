@@ -79,6 +79,23 @@ button.dropdown-item:hover {
     background: #495057;
 }
 
+.glightbox-mobile .glightbox-container .gslide-description {
+    bottom: 0px;
+}
+
+.glightbox-clean .gdesc-inner, .glightbox-modern .gdesc-inner {
+    padding: 0px 20px;
+}
+
+.gslide-image img {
+    max-height: 70vh;
+}
+
+@media (min-height: 750px){
+    .gslide-image img {
+        max-height: 80vh;
+    }
+}
     
 @media (max-width: 450px) {
     .gallery {
