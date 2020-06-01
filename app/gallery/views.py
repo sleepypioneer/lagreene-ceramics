@@ -3,7 +3,7 @@ from .models import GalleryItem, Category
 
 # Create your views here.
 def gallery(request):
-    gallery = GalleryItem.objects.all()
+    gallery = GalleryItem.objects.all().order_by('-year_created')
     categories = Category.objects.all().order_by('name')
     context = {
         'gallery': gallery,
