@@ -23,7 +23,7 @@
         <button class="btn btn-secondary dropdown-toggle" type="button" id="gallery-categories" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
             Categories
         </button>
-        <div class="dropdown-menu" role="menu" aria-labelledby="gallery-categories">
+        <div class="dropdown-menu scrollable-menu" role="menu" aria-labelledby="gallery-categories">
             <button class="dropdown-item" type="button" id="artists_selection" onclick="filterGallery(this.id)">Artists Selection</button>
             {% for category in categories %}
             <button class="dropdown-item" type="button" id="{{ category.name.split|join:'_'|lower }}" onclick="filterGallery(this.id)">{{ category.name|capfirst }}</button>

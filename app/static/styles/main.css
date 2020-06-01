@@ -80,10 +80,18 @@ img.potters-mark {
 
 #slideshow {
     order: -1;
+    margin-bottom: 1.5rem;
 }
 
 #main-text p {
     margin: 20px;
+    margin-left: 0px;
+}
+
+#main-text .potters-mark {
+    margin-top: 20px;
+    margin-left: 25%;
+    margin-bottom: 1.5rem;
 }
 
 #main-text blockquote {
@@ -140,6 +148,9 @@ h1 {
     height: auto;
     max-height: 40vh;
     overflow-x: hidden;
+}
+
+#categories-dropdown .scrollable-menu {
     margin-left: 15px;
 }
 
@@ -264,24 +275,24 @@ h1 {
     #instagram {
         order: 1;
     }
-
+    
     #social-media-links {
         flex-direction: column;
     }
-
+    
     #social-media-links span {
         margin-bottom: 10px;
     }
-
+    
     #django_recent_media_wall a img {
         margin-right: 6px;
         margin-left: 6px;
     }
-
+    
     #newsfeed {
         justify-content: space-evenly;
     }
-
+    
 }
 
 
@@ -292,5 +303,9 @@ h1 {
         padding-right: 100px;
         max-width: 1200px;
     }
-
+    
+    .scrollable-menu {
+        margin-left: 15px;
+    }
+    
 }

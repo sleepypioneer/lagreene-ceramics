@@ -16,6 +16,20 @@
     border-color: #6c757d;
 }
 
+.btn-primary:not(:disabled):not(.disabled):active {
+    color: #efeeea;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-primary:focus {
+    box-shadow: none;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus {
+    box-shadow: none;
+}
+
 /* Cards */
 
 .card {
@@ -53,13 +67,14 @@
     font-weight: bold;
 }
 
-#portrait {
+#about .about-image img {
     margin-bottom: 30px;
-}
-
-#portrait img {
     width: 100%;
     border-radius: 5px;
+}
+
+#portrait {
+    order: -1;
 }
 
 
@@ -69,6 +84,20 @@
     margin-top: 20px;
     margin: 20px 15px 20px 15px;
     min-width: min-content;
+}
+
+div#stockist-filtering {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div#exhibited-year-dropdown {
+    margin-bottom: 20px;
+    padding-left: 0px;
+}
+
+div#exhibited-venue-dropdown {
+    padding-left: 0px;
 }
 
 #stockists {
@@ -150,8 +179,13 @@ div#link-images {
     flex-direction: column;
 }
 
+#link-images div {
+    display: flex;
+}
+
 #link-images img {
     width: 90%;
+    margin: auto;
     margin-bottom: 40px;
 }
 
@@ -241,4 +275,8 @@ h4.align-left.mbr-fonts-style.display-2 {
 }
 
 @media screen and (min-width: 767px) {
+    #portrait {
+        order: 0;
+    }
 }
+
