@@ -11,7 +11,12 @@ def archive_gallery_item(modeladmin, request, gallery_items):
 archive_gallery_item.short_description = "Archive gallery item/s"
 
 class Gallery(SortableAdminMixin, admin.ModelAdmin):
-    list_display = ['title', 'item_categories', 'year_created', 'item_archived', 'in_artists_selection']
+    list_display = [
+        'title',
+        'item_categories',
+        'year_created',
+        'item_archived',
+        'in_artists_selection']
     list_display_links = ['title']
     search_fields = ['title']
     list_per_page = 25

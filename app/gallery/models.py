@@ -24,7 +24,10 @@ class GalleryItem(models.Model):
     archive = models.BooleanField()
     artists_selection = models.BooleanField()
     my_order = models.PositiveIntegerField(default=0, blank=False, null=False)
-    year_created = models.IntegerField(('year'), choices=YEAR_CHOICES, default=datetime.datetime.now().year)
+    year_created = models.IntegerField(
+        ('year'),
+        choices=YEAR_CHOICES,
+        default=datetime.datetime.now().year)
 
     def class_string(self):
         class_string = ""
