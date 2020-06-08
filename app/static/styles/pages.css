@@ -98,6 +98,7 @@ div#exhibited-year-dropdown {
 
 div#exhibited-venue-dropdown {
     padding-left: 0px;
+    height: min-content;
 }
 
 #stockists {
@@ -280,3 +281,9 @@ h4.align-left.mbr-fonts-style.display-2 {
     }
 }
 
+
+@media screen and (min-width: 1000px) {
+    #exhibited-year-dropdown{
+        margin-left: 15px;
+    }
+}
