@@ -29,4 +29,28 @@
     <img src="{% static 'images/meharistes.jpg' %}" alt="Meharistes, camel with rider"> 
   </div>
 </div>
+    <div class="row" id="social-media">
+      <div class="col-sm-12 col-md-4 col-lg-2" id="social-media-links">
+          <span>
+              <a href="https://www.instagram.com/lesleyannegreene/" target="blank">
+                  <img src="{% static 'images/icons/instagram-32.png' %}" alt="Instagram icon"/>
+              </a>
+          </span>
+          <span>
+              <a href="https://twitter.com/lagreene54" tagret="blank">
+                  <img src="{% static 'images/icons/twitter-32.png' %}" alt="Twitter icon"/>
+              </a>
+          </span>
+          <span>
+              <a href="https://www.facebook.com/tellingtalesinclay/" target="blank">
+                  <img src="{% static 'images/icons/facebook-32.png' %}" alt="Facebook icon"/>
+              </a>
+          </span>
+      </div>
+      <div class="col-sm-12 col-md-8 col-lg-10" id="instagram">
+          {% block instagram %}
+              {% include './instagram.html' %}
+          {% endblock %}
+      </div>
+  </div>
 {% endblock %}

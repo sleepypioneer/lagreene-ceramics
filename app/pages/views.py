@@ -38,7 +38,10 @@ def links(request):
     return render(request, 'links.html', context)
 
 def contact(request):
-    return render(request, 'contact.html')
+    context = {
+        'instagram_profile_name': 'lesleyannegreene',
+    }
+    return render(request, 'contact.html', context)
 
 def custom_page_not_found_view(request, exception):
     return render(request, 'error_pages/404.html', status=404)
