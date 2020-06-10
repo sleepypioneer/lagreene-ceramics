@@ -195,8 +195,6 @@ div#link-images {
 #contact-page {
     border-bottom: solid 3px;
     border-color: #88A0A8;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
     /* min-height: 80vh; */
     padding-bottom: 20px;
 }

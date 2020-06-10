@@ -141,7 +141,7 @@ if USE_S3:
     AWS_DEFAULT_ACL = None
     AWS_S3_REGION_NAME = os.getenv('AWS_S3_REGION_NAME')
     STATIC_DISTRIBUTION_ID = os.getenv('STATIC_DISTRIBUTION_ID')
-    AWS_S3_CDN_DOMAIN =  '{}.cloudfront.net'.format(STATIC_DISTRIBUTION_ID)
+    AWS_S3_CDN_DOMAIN = '{}.cloudfront.net'.format(STATIC_DISTRIBUTION_ID)
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
     # s3 static settings
