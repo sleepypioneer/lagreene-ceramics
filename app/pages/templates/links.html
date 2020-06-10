@@ -2,7 +2,7 @@
 {% load static %}
 {% block page_content %}
 <div class="row" id="links">
-    <div class="col-sm-12 col-md-7">
+    <div class="col-sm-12 col-md-8">
         {% for link in links %}
         <div class="card link">
             <h5 class="card-header">
@@ -14,15 +14,21 @@
         </div>
         {% endfor %}
     </div>
-    <div class="col-sm-12 col-md-5 justify-content-center d-flex" id="link-images">
+    <div class="col-sm-12 col-md-4 justify-content-center d-flex" id="link-images">
         <div>
-            <img src="{% static 'images/links/BCTF-logo-square.jpg' %}" alt="Artist photo">
+            <a href="https://bctf.co.uk/" target="blank">
+                <img src="{% static 'images/links/BCTF-logo-square.jpg' %}" alt="Logo for BCTF">
+            </a>
         </div>
         <div>
-            <img src="{% static 'images/links/Era-Logo.jpg' %}" alt="Artist photo"> 
+            <a href="http://www.eastridingartists.co.uk/" target="blank">
+                <img src="{% static 'images/links/Era-Logo.jpg' %}" alt="Logo for era"> 
+            </a>
         </div>
         <div>
-            <img src="{% static 'images/links/northern_potters_association_logo.jpg' %}" alt="Artist photo"> 
+            <a href="http://www.northern-potters.com/" target="blank">
+                <img src="{% static 'images/links/northern_potters_association_logo.jpg' %}" alt="Logo for npa"> 
+            </a>
         </div>
     </div>
 </div>
