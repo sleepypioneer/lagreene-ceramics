@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load static_cdn %}
 {% block page_content %}
 
 <div class="row" id="about">
@@ -28,10 +29,10 @@
         </div>
     </div>
     <div class="col-md-4 about-image" id="portrait">
-        <img src="{% static 'images/portrait-with-work.jpeg' %}" alt="Artist photo"> 
+        <img src="{% static_cdn 'images/portrait-with-work_sm.jpeg' %}" alt="Artist photo"> 
     </div>
     <div class="col-md-4 about-image">
-        <img src="{% static 'images/work_in_progress_sealife.jpeg' %}" alt="Artist photo">
+        <img src="{% static_cdn 'images/work_in_progress_sealife_sm.jpeg' %}" alt="Artist photo">
     </div>
     <div class="col-md-8">
         <div>
@@ -78,7 +79,7 @@
         </div>
     </div>
     <div class="col-md-4 about-image">
-        <img src="{% static 'images/work_in_kiln_sealife.jpeg' %}" alt="Artist photo"> 
+        <img src="{% static_cdn 'images/work_in_kiln_sealife_sm.jpeg' %}" alt="Artist photo"> 
     </div>
 </div>
 
