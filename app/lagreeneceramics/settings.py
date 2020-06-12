@@ -33,7 +33,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1:8000',
     'exhibit.lagreeneceramics.co.uk',
-    'lagreeneceramics.co.uk']
+    'www.lagreeneceramics.co.uk']
 
 
 # Application definition
