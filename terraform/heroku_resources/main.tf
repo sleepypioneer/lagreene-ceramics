@@ -2,11 +2,11 @@ provider "heroku" {
   version = "~> 2.2.1"
 }
 
-# terraform {
-#   backend "pg" {
-#     conn_str = ""
-#   }
-# }
+terraform {
+  backend "pg" {
+    conn_str = "postgres://wbeegdkczwjymt:14afcc6e31326f89873f960674c8ff1a6c2508f4c1f6fa97ddbaaf8d2d3489a2@ec2-176-34-97-213.eu-west-1.compute.amazonaws.com:5432/d6lsia9obl2gcr"
+  }
+}
 
 variable "portfolio_app_name" {
   description = "Name of the Heroku app provisioned as an example"
