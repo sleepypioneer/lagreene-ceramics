@@ -52,6 +52,10 @@
     width: 100%;
 }
 
+.card-image {
+    display: none;
+}
+
 /* About page */
 
 #about {
@@ -283,5 +287,11 @@ h4.align-left.mbr-fonts-style.display-2 {
 @media screen and (min-width: 1000px) {
     #exhibited-year-dropdown{
         margin-left: 15px;
+    }
+
+    .card-image {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 20px;
     }
 }

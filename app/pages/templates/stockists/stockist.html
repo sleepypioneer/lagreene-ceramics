@@ -1,7 +1,7 @@
 {% load static %}
 {% block stockist %}
 {% if stockist.end_date|date:"Y" > exhibition_years|first|stringformat:"s" %}
-    <div class="col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch card {{ stockist.end_date|date:'Y' }} {{ stockist.venue.name.split|join:'_'|lower }}">
+    <div class="d-flex align-items-stretch card {{ stockist.end_date|date:'Y' }} {{ stockist.venue.name.split|join:'_'|lower }}" style="max-width: 800px;">
 {% elif stockist.end_date|date:"Y" == exhibition_years|first|stringformat:"s" %}
     <div class="col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch filter card {{ stockist.end_date|date:'Y' }} {{ stockist.venue.name.split|join:'_'|lower }}">
 {% else %}
@@ -44,6 +44,11 @@
         {% endif %}
         
     </div>
+    {% if stockist.image %}
+        <div class="card-image">
+            <img src="{{ stockist.image.url }}" />
+        </div>
+    {% endif %}
     {% if stockist.link %}
         <div class="card-footer">
             {{ stockist.link }}
