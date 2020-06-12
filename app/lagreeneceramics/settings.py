@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DJANGO_DEBUG', '') != 'FALSE'
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
-ALLOWED_HOSTS = ['lagreene-ceramics.herokuapp.com', 'localhost', '127.0.0.1:8000']
+ALLOWED_HOSTS = ['lagreene-ceramics.herokuapp.com', 'localhost', '127.0.0.1:8000', 'exhibit.lagreeneceramics.co.uk', 'lagreeneceramics.co.uk']
 
 
 # Application definition
