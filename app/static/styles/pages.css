@@ -92,6 +92,13 @@
 
 /* Stockists */
 
+div#bctf-video {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 0px 20px 20px 20px;
+}
+
 .news-item {
     margin-top: 20px;
     margin: 20px 15px 20px 15px;
