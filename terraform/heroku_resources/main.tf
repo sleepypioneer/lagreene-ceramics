@@ -15,6 +15,7 @@ variable "portfolio_app_name" {
 resource "heroku_app" "portfolio_app" {
   name   = "${var.portfolio_app_name}"
   region = "eu"
+  acm = true
 }
 
 resource "heroku_config" "portfolio_app" {
@@ -43,7 +44,7 @@ resource "heroku_formation" "portfolio_app" {
   app        = "${heroku_app.portfolio_app.name}"
   type       = "web"
   quantity   = 1
-  size       = "free"
+  size       = "hobby"
   depends_on = ["heroku_build.portfolio_app"]
 }
 
