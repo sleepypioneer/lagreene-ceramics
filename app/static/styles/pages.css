@@ -56,6 +56,14 @@
     display: none;
 }
 
+/* Home page */
+
+.news p {
+    padding: 1rem;
+    border: solid #88A0A8 2px;
+    margin: 1rem 0rem 4rem 0rem;
+}
+
 /* About page */
 
 #about {
@@ -83,6 +91,13 @@
 
 
 /* Stockists */
+
+div#bctf-video {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 0px 20px 20px 20px;
+}
 
 .news-item {
     margin-top: 20px;
