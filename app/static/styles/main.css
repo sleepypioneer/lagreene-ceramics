@@ -154,6 +154,10 @@ h1 {
     margin-left: 15px;
 }
 
+.show-on-larger-screens {
+    display: none;
+}
+
 @media screen and (min-width: 425px) {
     #django_recent_media_wall a img {
         margin-right: 30px;
@@ -259,6 +263,15 @@ h1 {
     .potters-mark.line-break-right-side {
         margin-left: -55%;
     }
+
+    .show-on-mobile {
+        display: none;
+    }
+
+    .show-on-larger-screens {
+        display: block;
+    }
+
 }
 
 /* Desktop */
