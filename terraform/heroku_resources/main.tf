@@ -13,7 +13,7 @@ variable "portfolio_app_name" {
 }
 
 resource "heroku_app" "portfolio_app" {
-  name   = "${var.portfolio_app_name}"
+  name   = "var.portfolio_app_name"
   region = "eu"
   acm = true
 }
@@ -30,7 +30,7 @@ resource "heroku_config" "portfolio_app" {
 
 # Build code & release to the app
 resource "heroku_build" "portfolio_app" {
-  app = "${heroku_app.portfolio_app.name}"
+  app = "heroku_app.portfolio_app.name}"
 
   source = {
     # A local directory, changing its contents will
@@ -41,16 +41,16 @@ resource "heroku_build" "portfolio_app" {
 
 # Launch the app's web process by scaling-up
 resource "heroku_formation" "portfolio_app" {
-  app        = "${heroku_app.portfolio_app.name}"
+  app        = "heroku_app.portfolio_app.name}"
   type       = "web"
   quantity   = 1
   size       = "hobby"
-  depends_on = ["heroku_build.portfolio_app"]
+  depends_on = [heroku_build.portfolio_app]
 }
 
 # Create a database, and configure the app to use it
 resource "heroku_addon" "portfolio_app_database" {
-  app  = "${heroku_app.portfolio_app.name}"
+  app  = "heroku_app.portfolio_app.name}"
   plan = "heroku-postgresql:hobby-dev"
 }
 
