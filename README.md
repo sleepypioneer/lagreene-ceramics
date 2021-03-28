@@ -49,6 +49,9 @@ python manage.py migrate
 #Collect Static files - if $USE_S3 is set to TRUE then files will be saved to S3 Bucket
 python manage.py collectstatic
 
+#Run the tests
+python manage.py test
+
 #Run the server default port is 8000
 python manage.py runserver
 ```
