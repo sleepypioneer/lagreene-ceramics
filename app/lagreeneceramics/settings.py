@@ -33,7 +33,7 @@ DEBUG_PROPAGATE_EXCEPTIONS = True
 ALLOWED_HOSTS = [
     'lagreene-ceramics.herokuapp.com',
     'localhost',
-    '127.0.0.1:8000',
+    '127.0.0.1',
     'exhibit.lagreeneceramics.co.uk',
     'www.lagreeneceramics.co.uk',
     'lagreeneceramics.co.uk']
