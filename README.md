@@ -7,8 +7,8 @@ This is the portfolio site for Lesley Anne Greene a ceramic artists based in Eas
 
 This project uses the following technologies
 
-* Python 3.8
-* Django 3
+* Python 3.9
+* Django 4
 * pytest
 * Javascript, Jquery
 * HTML & CSS

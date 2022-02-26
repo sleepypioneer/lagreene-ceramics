@@ -49,4 +49,5 @@ dev:
 	poetry run python app/manage.py runserver
 
 create-requirements-file: 
-	poetry export --format requirements.txt --without-hashes
+	poetry export --format requirements.txt --without-hashes -o requirements.txt
+	poetry export --format requirements.txt --without-hashes -o app/requirements.txt
