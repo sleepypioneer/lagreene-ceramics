@@ -47,3 +47,6 @@ collectstatic:
 
 dev:
 	poetry run python app/manage.py runserver
+
+create-requirements-file: 
+	poetry export --output app/requirements.txt

@@ -28,9 +28,11 @@ This project uses poetry for package management for local development. To instal
 make deps
 ```
 
+Dependencies can also be outputted as a requirements file (required for Heroku deployment) by running `make create-requirements-file`.
+
 ##### Setting environment variables
 
-The postgresql Database requires a password, you can save this in a `.env` file. Copy the `.template_env`, fill in the values and rename it.
+The postgresql Database requires a password, you can save this in a `.env` file. Copy the `app/.template_env`, keeping it inside the `app/` directory and fill in the values and rename it.
 
 #### Running the App locally
 
