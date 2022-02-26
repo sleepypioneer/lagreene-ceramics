@@ -11,8 +11,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-
+from dotenv import load_dotenv
 import dj_database_url
+
+load_dotenv()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,7 +33,7 @@ DEBUG_PROPAGATE_EXCEPTIONS = True
 ALLOWED_HOSTS = [
     'lagreene-ceramics.herokuapp.com',
     'localhost',
-    '127.0.0.1:8000',
+    '127.0.0.1',
     'exhibit.lagreeneceramics.co.uk',
     'www.lagreeneceramics.co.uk',
     'lagreeneceramics.co.uk']

@@ -31,3 +31,23 @@ docker-clean:
 create-super-user:
 	docker exec -it $(DOCKER_NAME) python manage.py createsuperuser
 
+
+.PHONY: deps migrations migrate collectstatic dev
+deps:
+	poetry install
+
+migrations:
+	poetry run python app/manage.py makemigrations
+
+migrate:
+	poetry run python app/manage.py migrate
+
+collectstatic:
+	poetry run python app/manage.py collectstatic
+
+dev:
+	poetry run python app/manage.py runserver
+
+create-requirements-file: 
+	poetry export --format requirements.txt --without-hashes -o requirements.txt
+	poetry export --format requirements.txt --without-hashes -o app/requirements.txt

@@ -1,14 +1,14 @@
 # Portfolio Site for Lesley Anne Greene Ceramics <img src="docs/images/PottersMark_cyan.png" width="30" alt-text="potters mark of Lesley Anne Greene">
 
-This is the portfolio site for Lesley Anne Greene a ceramic artists based in East Yorkshire, United Kingdom.
+This is the portfolio site for Lesley Anne Greene a ceramic artists based in East Yorkshire, in the United Kingdom.
 
 
 ## Development 🐍🖥️
 
 This project uses the following technologies
 
-* Python 3.8
-* Django 3
+* Python 3.9
+* Django 4
 * pytest
 * Javascript, Jquery
 * HTML & CSS
@@ -20,40 +20,39 @@ This project uses the following technologies
 
 ### Getting started ⚙️
 
-There is a pipenv virtual environment set up for this repo. To install all the packages and enter it's shell use the following commands:
+#### Virtual environment
+
+This project uses poetry for package management for local development. To install dependencies run (from root):
 
 ``` sh 
-# in the root directory
-pipenv install
-pipenv shell
+make deps
 ```
 
-ℹ️ If you want to create an app and resources from this code you can do so with terraform, more information on how to do so can be found [here](../terraform/READMe.md)
+Dependencies can also be outputted as a requirements file (required for Heroku deployment) by running `make create-requirements-file`.
 
-The postgresql Database requires a password, you can save this in a `.env` file. Copy the `.template_env`, fill in the values and rename it.
+##### Setting environment variables
 
-To run the following Django commands you must be inside the pipenv shell and `cd` into the `/app` directory:
+The postgresql Database requires a password, you can save this in a `.env` file. Copy the `app/.template_env`, keeping it inside the `app/` directory and fill in the values and rename it.
+
+#### Running the App locally
 
 ``` sh
 # Make migrations
-python manage.py makemigrations
-
-# See migrations as SQL:
-python manage.py sqlmigrate index 0001
+make migrations
 
 # Implement migrations
-python manage.py migrate
+make migrate
 
 # You can also add the app name at the end to apply migrations only from that app.
 
 #Collect Static files - if $USE_S3 is set to TRUE then files will be saved to S3 Bucket
-python manage.py collectstatic
+make collectstatic
 
 #Run the tests
 python manage.py test
 
 #Run the server default port is 8000
-python manage.py runserver
+make dev
 ```
 
 #### Creating a local database for local development
@@ -63,10 +62,12 @@ For development you may want to have your own local database and save static fil
 A local copy of the Heroku postgres can be made with the following command:
 
 ``` sh
-PGUSER=postgres PGPASSWORD=password heroku pg:pull DATABASE_URL nameforlocaldb
+PGUSER=postgres PGPASSWORD=password heroku pg:pull DATABASE_URL nameforlocaldb --app lagreene-ceramics
 ```
 
 *Note that PGUSER and PGPASSWORD set the authentication credentials for the local db, and the Django app has the database URL saved as an environment variable.*
+
+*If the above doesn't work it may be necessary
 
 [DJ-Database-URL](https://github.com/kennethreitz/dj-database-url) utility is used to configure the enbironment variable of the database so all that is now needed is to update the `$DATABASE_URL` value to the new local database:
 
@@ -76,8 +77,11 @@ DATABASE_URL=postgres://postgres:password@localhost:5432/nameforlocaldb
 You will have to run the migrations on the local database and also create a super user `python3 manage.py createsuperuser`.
 
 
-To stop using S3 for static and media files set the environment variable `$USE_S3` to `FALSE`. 
+To stop using S3 for static and media files set the environment variable `$USE_S3` to `FALSE`.
 
+#### Creating infrastructure with Terraform
+
+ℹ️ If you want to create an app and resources from this code you can do so with terraform, more information on how to do so can be found [here](../terraform/READMe.md)
 
 #### Starting the app with Gunicorn 🦄
 
