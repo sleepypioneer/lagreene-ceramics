@@ -1,6 +1,6 @@
 # Portfolio Site for Lesley Anne Greene Ceramics <img src="docs/images/PottersMark_cyan.png" width="30" alt-text="potters mark of Lesley Anne Greene">
 
-This is the portfolio site for Lesley Anne Greene a ceramic artists based in East Yorkshire, United Kingdom.
+This is the portfolio site for Lesley Anne Greene a ceramic artists based in East Yorkshire, in the United Kingdom.
 
 
 ## Development 🐍🖥️
@@ -57,10 +57,12 @@ For development you may want to have your own local database and save static fil
 A local copy of the Heroku postgres can be made with the following command:
 
 ``` sh
-PGUSER=postgres PGPASSWORD=password heroku pg:pull DATABASE_URL nameforlocaldb
+PGUSER=postgres PGPASSWORD=password heroku pg:pull DATABASE_URL nameforlocaldb --app lagreene-ceramics
 ```
 
 *Note that PGUSER and PGPASSWORD set the authentication credentials for the local db, and the Django app has the database URL saved as an environment variable.*
+
+*If the above doesn't work it may be necessary
 
 [DJ-Database-URL](https://github.com/kennethreitz/dj-database-url) utility is used to configure the enbironment variable of the database so all that is now needed is to update the `$DATABASE_URL` value to the new local database:
 
