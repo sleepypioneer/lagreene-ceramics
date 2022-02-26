@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.9
 
 # WORKDIR sets the working directory for docker instructions
 WORKDIR /app
