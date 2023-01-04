@@ -147,9 +147,9 @@ terraform apply "current.tfplan"
 
 This will deploy the changes in the app to heroku. 
 
-#### Addning new requirement
+#### Adding new requirement
 
-If you have added new packages do not forget to update the `requirements.txt` there is a make target to do this inside `./app` (you will still have to remove `pkg-resources==0.0.0` manually after running this command)
+If you have added new packages do not forget to update the `requirements.txt` using the make target `create-requirements-file` (you will still have to remove `pkg-resources==0.0.0` manually after running this command)
 
 #### Adding a super user **Important for the first time**
 

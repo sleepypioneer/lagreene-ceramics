@@ -1,6 +1,6 @@
 FROM python:3.11-buster
 
-RUN apt update && apt install -y gcc
+RUN apt update && apt install -y gcc libc-dev libffi-dev
 
 # WORKDIR sets the working directory for docker instructions
 WORKDIR /app
@@ -25,9 +25,6 @@ ENV DATABASE_PORT=$DATABASE_PORT
 ENV DJANGO_DEBUG=$DJANGO_DEBUG
 
 EXPOSE 8000
-
-# Install Django
-RUN pip install "django==3.0.2"
 
 # Install other requirements
 COPY app/requirements.txt .
