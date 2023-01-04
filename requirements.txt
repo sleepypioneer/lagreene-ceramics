@@ -13,7 +13,7 @@ idna==3.3; python_version >= "3.5" and python_full_version < "3.0.0" or python_f
 jmespath==0.10.0; python_version >= "3.6" and python_full_version < "3.0.0" or python_full_version >= "3.3.0" and python_version >= "3.6"
 lxml==4.8.0; python_version >= "2.7" and python_full_version < "3.0.0" or python_full_version >= "3.5.0"
 pillow-pil==0.1dev
-pillow==9.0.1; python_version >= "3.7"
+pillow==9.3.0; python_version >= "3.7"
 psycopg2-binary==2.9.3; python_version >= "3.6"
 python-dateutil==2.8.2; python_version >= "3.6" and python_full_version < "3.0.0" or python_full_version >= "3.3.0" and python_version >= "3.6"
 python-dotenv==0.19.2; python_version >= "3.5"
