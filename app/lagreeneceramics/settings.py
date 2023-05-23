@@ -39,6 +39,10 @@ ALLOWED_HOSTS = [
     'www.lagreeneceramics.co.uk',
     'lagreeneceramics.co.uk']
 
+CSRF_COOKIE_DOMAIN = ['.lagreeneceramics.co.uk']
+
+CSRF_TRUSTED_ORIGINS = ['https://*.lagreeneceramics.co.uk']
+
 
 # Application definition
 
