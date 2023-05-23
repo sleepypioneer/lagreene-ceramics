@@ -39,14 +39,9 @@ ALLOWED_HOSTS = [
     'www.lagreeneceramics.co.uk',
     'lagreeneceramics.co.uk']
 
-CSRF_COOKIE_DOMAIN = [
-    '.lagreeneceramics.co.uk',
-    'lagreene-cer-python-3-1-x1gazl.herokuapp.com/'
-]
-CSRF_TRUSTED_ORIGINS = [
-    'https://*.lagreeneceramics.co.uk',
-    'https://lagreene-cer-python-3-1-x1gazl.herokuapp.com/'
-]
+CSRF_COOKIE_DOMAIN = ['.lagreeneceramics.co.uk']
+
+CSRF_TRUSTED_ORIGINS = ['https://*.lagreeneceramics.co.uk']
 
 
 # Application definition
