@@ -7,86 +7,90 @@
             Welcome
         </h3>
         <p>
-            I make stylised, expressive, figurative sculptures in clay and have exhibited and sold my collectable works throughout the UK since 1994.
+            I make stylised, expressive, figurative sculptures in clay and have exhibited and sold my collectable works
+            throughout the UK since 1994.
         </p>
         <p>
             I find it enriching to discuss my work at public events and I sometimes use anecdotes to inspire new works.
         </p>
         <p>
-            There is a tale behind the creation of every piece, conceived and  brought into being in my Yorkshire workshop and I enjoy creating something a bit different every time.
+            There is a tale behind the creation of every piece, conceived and brought into being in my Yorkshire
+            workshop and I enjoy creating something a bit different every time.
         </p>
         <p>
-            Working from personal observations I research my ideas further in books and on the internet for detail and background material. I then draw rough sketches and begin hand building each piece individually in clay.
+            Working from personal observations I research my ideas further in books and on the internet for detail and
+            background material. I then draw rough sketches and begin hand building each piece individually in clay.
         </p>
         <p>
-            Please browse the <a href="{% url 'gallery' %}"><b>gallery</b></a> to enjoy images from the full range of my work.
+            Please browse the <a href="{% url 'gallery' %}"><b>gallery</b></a> to enjoy images from the full range of my
+            work.
         </p>
         <p class="potters-mark">
-            <img src="{% static 'images/icons/PottersMark_white.png' %}" alt="potters mark" class="potters-mark"/>
+            <img src="{% static 'images/icons/PottersMark_white.png' %}" alt="potters mark" class="potters-mark" />
         </p>
     </div>
     <div class="col-sm-12 col-md-6 col-lg-5" id="slideshow">
         {% block slideshow %}
-            {% include './slideshow.html' %}
+        {% include './slideshow.html' %}
         {% endblock %}
     </div>
 </div>
 <div class="row">
     <div class="col-12 news">
         <div class="show-on-larger-screens">
-            <h5>Staithes Festival - Arts and Heritage Festival on the Yorkshire Coast</h5>
+            <img src="{% static 'images/TOASTED.jpg' %}" alt="TOASTED Ceramic Fair"
+                style=" width: 60%; margin-left: auto;">
+            <br><br>
+            <h5>TOASTED Ceramic Fair</h5>
             <p>
-                Delighted to invite you to come and visit me exhibiting along with other artists at Staithes Village Hall as part of Staithes Arts Festival 2023.
-                Staithes is a picturesque fishing village on the Yorkshire coast steeped in history and home to the festival since 2012.
+                Delighted to invite you to come and visit me exhibiting along with other workers in clay at the Wardwick
+                -Derby
+                Museum and Art Gallery as part of TOASTED ceramic fair.
                 <br><br>
-                Opening times are: 
-                <br>Friday 15 September 7pm-8.30pm
-                <br>Saturday 16 September 10 am-5.30pm
-                <br>Sunday 17 September 10 am-5.30pm
-                <br><br>
-                <a href="https://www.staithesfestival.com" target="blank">https://www.staithesfestival.com/</a>
+                Saturday 23rd and Sunday 24th March 2024 10am-4pm
+                <a href="https://toastedceramicfair.uk/" target="blank">https://toastedceramicfair.uk/</a>
             </p>
         </div>
         <div class="show-on-mobile">
-            <h5>Staithes Festival - Arts and Heritage Festival on the Yorkshire Coast</h5>
+            <img src="{% static 'images/TOASTED.jpg' %}" alt="TOASTED Ceramic Fair"
+                style=" width: 100%; margin-left: auto;">
+            <br><br>
+            <h5>TOASTED Ceramic Fair</h5>
             <p>
-                Delighted to invite you to come and visit me exhibiting along with other artists at Staithes Village Hall as part of Staithes Arts Festival 2023.
-                Staithes is a picturesque fishing village on the Yorkshire coast steeped in history and home to the festival since 2012.
+                Delighted to invite you to come and visit me exhibiting along with other workers in clay at the Wardwick
+                -Derby
+                Museum and Art Gallery as part of TOASTED ceramic fair.
                 <br><br>
-                Opening times are: 
-                <br>Friday 15 September 7pm-8.30pm
-                <br>Saturday 16 September 10 am-5.30pm
-                <br>Sunday 17 September 10 am-5.30pm
-                <br><br>
-                <a href="https://www.staithesfestival.com" target="blank">https://www.staithesfestival.com/</a>
+                Saturday 23rd and Sunday 24th March 2024 10am-4pm
+                <a href="https://toastedceramicfair.uk/" target="blank">https://toastedceramicfair.uk/</a>
             </p>
         </div>
     </div>
     {% block newsfeed %}
-        {% include './newsfeed.html' %}
+    {% include './newsfeed.html' %}
     {% endblock %}
 </div>
 <div class="row" id="social-media">
     <div class="col-sm-12 col-md-4 col-lg-2" id="social-media-links">
         <span>
             <a href="https://www.instagram.com/lesleyannegreene/" target="blank">
-                <img src="{% static 'images/icons/instagram-32.png' %}" alt="Instagram icon"/>
+                <img src="{% static 'images/icons/instagram-32.png' %}" alt="Instagram icon" />
             </a>
         </span>
         <span>
             <a href="https://twitter.com/lagreene54" tagret="blank">
-                <img src="{% static 'images/icons/twitter-32.png' %}" alt="Twitter icon"/>
+                <img src="{% static 'images/icons/twitter-32.png' %}" alt="Twitter icon" />
             </a>
         </span>
         <span>
             <a href="https://www.facebook.com/tellingtalesinclay/" target="blank">
-                <img src="{% static 'images/icons/facebook-32.png' %}" alt="Facebook icon"/>
+                <img src="{% static 'images/icons/facebook-32.png' %}" alt="Facebook icon" />
             </a>
         </span>
     </div>
     <div class="col-sm-12 col-md-8 col-lg-10" id="instagram">
         {% block instagram %}
-            {% include './instagram.html' %}
+        {% include './instagram.html' %}
         {% endblock %}
     </div>
 </div>
