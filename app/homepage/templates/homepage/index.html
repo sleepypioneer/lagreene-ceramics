@@ -39,93 +39,82 @@
     <div class="col-12 news">
         <h4>Save the date! Look forward to seeing you in 2025 at :- </h4>
         <div class="show-on-larger-screens">
-            <h5>Toasted Ceramic Fair</h5>
-            <p>
-                Derby Museum and Art Gallery on the Wardwick.
-                <br><br>
-                Saturday 29th and Sunday 30th March 10am- 4pm.
-                <br>
-                <a href="https://toastedceramicfair.uk/" target=" blank">https://toastedceramicfair.uk/</a>
-            </p>
-
-        </div>
-        <div class="show-on-larger-screens">
-            <h5>Ceramics in Charnwood</h5>
-            <p>
-                Loughborough Market Place.
-                <br><br>
-                Sunday 11th May 10am-4pm.
-                <br>
-                <a href="https://www.facebook.com/events/947627113722807" target=" blank">Facebook Event Page</a>
-            </p>
-        </div>
-        <div class="show-on-larger-screens">
             <h5>Rutland Flower Show</h5>
             <p>
-                Rutland Showground, Oakham.
+                Visit me in the Grand Marquee:-
+                Stand no 45,Rutland Showground, Oakham.
                 <br><br>
                 Friday - Sunday 15th -17th August.
                 <br>
                 <a href="https://www.rutlandflowershow.co.uk" target=" blank">www.rutlandflowershow.co.uk</a>
             </p>
+            <img src="{% static 'images/rutland_logo.png' %}" alt="Rutland Flower Show"
+                class="show-on-larger-screens" />
+            < </div>
+                <div class="show-on-larger-screens">
+                    <h5>Staithes Arts and Heritage Festival 2025</h5>
+                    <p>
+                        Find me at :-
+                        St Peters Centre, Festival Gallery,Church Street ,Staithes.TS135DB
+                        <br><br>
+                        Saturday 13th and Sunday 14th September 10a.m.- 5.30p.m. with local preview night 6-9pm on
+                        Friday 12th.
+                        <br>
+                        <a href="www.staithesfestival.com" target=" blank">www.staithesfestival.com</a>
+                    </p>
+                </div>
+                <div class="show-on-mobile">
+                    <h5>Rutland Flower Show</h5>
+                    <p>
+                        Visit me in the Grand Marquee:-
+                        Stand no 45,Rutland Showground, Oakham.
+                        <br><br>
+                        Friday - Sunday 15th -17th August.
+                        <br>
+                        <a href="https://www.rutlandflowershow.co.uk" target=" blank">www.rutlandflowershow.co.uk</a>
+                    </p>
+                    <img src="{% static 'images/rutland_logo.png' %}" alt="Rutland Flower Show"
+                        class="show-on-mobile" />
+                </div>
+                <div class="show-on-mobile">
+                    <h5>Staithes Arts and Heritage Festival 2025</h5>
+                    <p>
+                        Find me at :-
+                        St Peters Centre, Festival Gallery,Church Street ,Staithes.TS135DB
+                        <br><br>
+                        Saturday 13th and Sunday 14th September 10a.m.- 5.30p.m. with local preview night 6-9pm on
+                        Friday 12th.
+                        <br>
+                        <a href="https://www.staithesfestival.com" target=" blank">www.staithesfestival.com</a>
+                    </p>
+                </div>
         </div>
-        <div class="show-on-mobile">
-            <h5>Toasted Ceramic Fair</h5>
-            <p>
-                Derby Museum and Art Gallery on the Wardwick.
-                <br><br>
-                Saturday 29th and Sunday 30th March 10am- 4pm.
-                <br>
-                <a href="https://toastedceramicfair.uk/" target=" blank">https://toastedceramicfair.uk/</a>
-            </p>
-        </div>
-        <div class="show-on-mobile">
-            <h5>Ceramics in Charnwood</h5>
-            <p>
-                Loughborough Market Place.
-                <br><br>
-                Sunday 11th May 10am-4pm.
-                <br>
-                <a href="https://www.facebook.com/events/947627113722807" target=" blank">Facebook Event Page</a>
-            </p>
-        </div>
-        <div class="show-on-mobile">
-            <h5>Rutland Flower Show</h5>
-            <p>
-                Rutland Showground, Oakham.
-                <br><br>
-                Friday - Sunday 15th -17th August.
-                <br>
-                <a href="https://www.rutlandflowershow.co.uk" target=" blank">www.rutlandflowershow.co.uk</a>
-            </p>
-        </div>
-    </div>
-    {% block newsfeed %}
-    {% include './newsfeed.html' %}
-    {% endblock %}
-</div>
-<div class="row" id="social-media">
-    <div class="col-sm-12 col-md-4 col-lg-2" id="social-media-links">
-        <span>
-            <a href="https://www.instagram.com/lesleyannegreene/" target="blank">
-                <img src="{% static 'images/icons/instagram-32.png' %}" alt="Instagram icon" />
-            </a>
-        </span>
-        <span>
-            <a href="https://twitter.com/lagreene54" tagret="blank">
-                <img src="{% static 'images/icons/twitter-32.png' %}" alt="Twitter icon" />
-            </a>
-        </span>
-        <span>
-            <a href="https://www.facebook.com/tellingtalesinclay/" target="blank">
-                <img src="{% static 'images/icons/facebook-32.png' %}" alt="Facebook icon" />
-            </a>
-        </span>
-    </div>
-    <div class="col-sm-12 col-md-8 col-lg-10" id="instagram">
-        {% block instagram %}
-        {% include './instagram.html' %}
+        {% block newsfeed %}
+        {% include './newsfeed.html' %}
         {% endblock %}
     </div>
-</div>
-{% endblock %}
+    <div class="row" id="social-media">
+        <div class="col-sm-12 col-md-4 col-lg-2" id="social-media-links">
+            <span>
+                <a href="https://www.instagram.com/lesleyannegreene/" target="blank">
+                    <img src="{% static 'images/icons/instagram-32.png' %}" alt="Instagram icon" />
+                </a>
+            </span>
+            <span>
+                <a href="https://twitter.com/lagreene54" tagret="blank">
+                    <img src="{% static 'images/icons/twitter-32.png' %}" alt="Twitter icon" />
+                </a>
+            </span>
+            <span>
+                <a href="https://www.facebook.com/tellingtalesinclay/" target="blank">
+                    <img src="{% static 'images/icons/facebook-32.png' %}" alt="Facebook icon" />
+                </a>
+            </span>
+        </div>
+        <div class="col-sm-12 col-md-8 col-lg-10" id="instagram">
+            {% block instagram %}
+            {% include './instagram.html' %}
+            {% endblock %}
+        </div>
+    </div>
+    {% endblock %}
