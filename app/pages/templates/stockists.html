@@ -1,44 +1,49 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_content %}
-    <div class="row" id="stockists">
-        <div class="title">
-            <h2>
-               Current stockists, exhibitions and shows
-            </h2>
-        </div>
-        {% if current_stockists %}
-        <div class="stockists">
-            {% for stockist in current_stockists %}
-                {% include './stockists/stockist.html' %}
-            {% endfor %}
-        </div>
-        {% else %}
-            <p>There are no current or upcoming events, please feel free to see past events where my work has been displayed or if you would like more information please <a href="{% url 'contact' %}"><b>contact me</b>.</a></p>
-        {% endif %}
-        <div id="bctf-video" class="show-on-larger-screens">
-            <h5>Virtual stand for British Craft Trade Show 2020</h5>
-            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/pihZVf4FNew" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="col-12 news">
-            <p class="show-on-mobile">
-                Due to the Covid19 pandemic restrictions the <b>British Craft Trade</b> fair 2020 in Harrogate was represented online by two events for registered buyers  during June (14th - 15th) and September (20th - 22nd) <b><a href="https://www.youtube.com/watch?v=pihZVf4FNew" target="_blank">here is the video</a></b> created to showcase my current and newest works. 
-            </p>
-        </div>
-        <div class="title">
-            <h2>
-                Past stockists, exhibitions and shows
-            </h2>
-            {% block filter_menu %}
-                {% include './stockists/filterMenu.html' %}
-            {% endblock %}
-        </div>
-        <div class="stockists">
-            {% block past_stockists %}
-                {% for stockist in past_stockists %}
-                    {% include './stockists/stockist.html' %}
-                {% endfor %}
-            {% endblock %}
-        </div>
+<div class="row" id="stockists">
+    <div class="title">
+        <h2>
+            Current stockists, exhibitions and shows
+        </h2>
     </div>
+    {% if current_stockists %}
+    <div class="stockists">
+        {% for stockist in current_stockists %}
+        {% include './stockists/stockist.html' %}
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>If there are no current or upcoming events, please feel free to see past events where my work has been displayed
+        or if you would like more information please <a href="{% url 'contact' %}"><b>contact me</b>.</a></p>
+    {% endif %}
+    <div id="bctf-video" class="show-on-larger-screens">
+        <h5>Virtual stand for British Craft Trade Show 2020</h5>
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/pihZVf4FNew" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="col-12 news">
+        <p class="show-on-mobile">
+            Due to the Covid19 pandemic restrictions the <b>British Craft Trade</b> fair 2020 in Harrogate was
+            represented online by two events for registered buyers during June (14th - 15th) and September (20th - 22nd)
+            <b><a href="https://www.youtube.com/watch?v=pihZVf4FNew" target="_blank">here is the video</a></b> created
+            to showcase my current and newest works.
+        </p>
+    </div>
+    <div class="title">
+        <h2>
+            Past stockists, exhibitions and shows
+        </h2>
+        {% block filter_menu %}
+        {% include './stockists/filterMenu.html' %}
+        {% endblock %}
+    </div>
+    <div class="stockists">
+        {% block past_stockists %}
+        {% for stockist in past_stockists %}
+        {% include './stockists/stockist.html' %}
+        {% endfor %}
+        {% endblock %}
+    </div>
+</div>
 {% endblock %}
