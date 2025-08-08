@@ -158,6 +158,10 @@ h1 {
     display: none;
 }
 
+.rutlandflowershow {
+    display: none;
+}
+
 @media screen and (min-width: 425px) {
     #django_recent_media_wall a img {
         margin-right: 30px;
@@ -270,6 +274,10 @@ h1 {
 
     .show-on-larger-screens {
         display: block;
+    }
+
+    .rutlandflowershow {
+        display: flex;
     }
 
 }
