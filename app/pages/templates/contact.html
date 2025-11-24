@@ -2,14 +2,15 @@
 {% load static %}
 {% block page_content %}
 <div class="row" id="contact-page">
-  <div class="col-sm-12 col-md-7 col-lg-7" id="form-container">
-      <h4 class="align-left mbr-fonts-style display-2">
-          Get in touch
-      </h4>
-      <p class="align-left mbr-fonts-style display-7">
-        If you would like any further information about any of the pieces on this site or more of my work, please send an email to <b><a href="mailto:lesleyannegreene@gmail.com">lesleyannegreene@gmail.com</a></b>
-       </p>
-      <!-- <form action="/action_page.php">
+    <div class="col-sm-12 col-md-7 col-lg-7" id="form-container">
+        <h4 class="align-left mbr-fonts-style display-2">
+            Get in touch
+        </h4>
+        <p class="align-left mbr-fonts-style display-7">
+            If you would like further information about any of the pieces on this site and current availability , please
+            send an email to <b><a href="mailto:lesleyannegreene@gmail.com">lesleyannegreene@gmail.com</a></b>
+        </p>
+        <!-- <form action="/action_page.php">
         <label for="fname">Name</label>
         <input type="text" id="fname" class="form-control input" name="firstname" placeholder="Your name..">
 
@@ -24,33 +25,33 @@
 
         <input type="submit" value="Send">
       </form> -->
-  </div>
-  <div class="col-sm-12 col-md-5 col-lg-5" id="contact-page-picture">
-    <img src="{% static 'images/meharistes.jpg' %}" alt="Meharistes, camel with rider"> 
-  </div>
+    </div>
+    <div class="col-sm-12 col-md-5 col-lg-5" id="contact-page-picture">
+        <img src="{% static 'images/meharistes.jpg' %}" alt="Meharistes, camel with rider">
+    </div>
 </div>
-    <div class="row" id="social-media">
-      <div class="col-sm-12 col-md-4 col-lg-2" id="social-media-links">
-          <span>
-              <a href="https://www.instagram.com/lesleyannegreene/" target="blank">
-                  <img src="{% static 'images/icons/instagram-32.png' %}" alt="Instagram icon"/>
-              </a>
-          </span>
-          <span>
-              <a href="https://twitter.com/lagreene54" tagret="blank">
-                  <img src="{% static 'images/icons/twitter-32.png' %}" alt="Twitter icon"/>
-              </a>
-          </span>
-          <span>
-              <a href="https://www.facebook.com/tellingtalesinclay/" target="blank">
-                  <img src="{% static 'images/icons/facebook-32.png' %}" alt="Facebook icon"/>
-              </a>
-          </span>
-      </div>
-      <div class="col-sm-12 col-md-8 col-lg-10" id="instagram">
-          {% block instagram %}
-              {% include './instagram.html' %}
-          {% endblock %}
-      </div>
-  </div>
+<div class="row" id="social-media">
+    <div class="col-sm-12 col-md-4 col-lg-2" id="social-media-links">
+        <span>
+            <a href="https://www.instagram.com/lesleyannegreene/" target="blank">
+                <img src="{% static 'images/icons/instagram-32.png' %}" alt="Instagram icon" />
+            </a>
+        </span>
+        <span>
+            <a href="https://twitter.com/lagreene54" tagret="blank">
+                <img src="{% static 'images/icons/twitter-32.png' %}" alt="Twitter icon" />
+            </a>
+        </span>
+        <span>
+            <a href="https://www.facebook.com/tellingtalesinclay/" target="blank">
+                <img src="{% static 'images/icons/facebook-32.png' %}" alt="Facebook icon" />
+            </a>
+        </span>
+    </div>
+    <div class="col-sm-12 col-md-8 col-lg-10" id="instagram">
+        {% block instagram %}
+        {% include './instagram.html' %}
+        {% endblock %}
+    </div>
+</div>
 {% endblock %}
