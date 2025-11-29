@@ -1,32 +1,39 @@
-[tool.poetry]
+[project]
 name = "lagreene-ceramics"
 version = "0.1.0"
 description = ""
-authors = ["Jessica Greene <jessica0greene@gmail.com>"]
+authors = [
+    {name = "Jessica Greene", email = "jessica0greene@gmail.com"}
+]
+requires-python = ">=3.11"
+dependencies = [
+    "gunicorn>=20.1.0",
+    "Pillow-PIL>=0.1dev",
+    "pytz>=2021.3",
+    "django-instagram>=0.3.2",
+    "sorl-thumbnail>=12.8.0",
+    "boto3>=1.21.8",
+    "django-storages>=1.12.3",
+    "psycopg2-binary>=2.9.3",
+    "dj-database-url>=0.5.0",
+    "django-admin-sortable2>=2.1.5",
+    "whitenoise>=6.0.0",
+    "Django>=4.2.1",
+    "python-dotenv>=0.19.2",
+]
 
-[tool.poetry.dependencies]
-python = "^3.11"
-gunicorn = "^20.1.0"
-Pillow-PIL = "^0.1dev"
-pytz = "^2021.3"
-django-instagram = "^0.3.2"
-sorl-thumbnail = "^12.8.0"
-boto3 = "^1.21.8"
-django-storages = "^1.12.3"
-psycopg2-binary = "^2.9.3"
-dj-database-url = "^0.5.0"
-django-admin-sortable2 = "^2.1.5"
-whitenoise = "^6.0.0"
-Django = "^4.2.1"
-python-dotenv = "^0.19.2"
+[project.optional-dependencies]
+dev = [
+    "pycodestyle>=2.8.0",
+    "pytest>=7.0.1",
+    "autopep8>=1.6.0",
+    "pylint>=2.12.2",
+    "black>=24.3.0",
+]
 
-[tool.poetry.dev-dependencies]
-pycodestyle = "^2.8.0"
-pytest = "^7.0.1"
-autopep8 = "^1.6.0"
-pylint = "^2.12.2"
-black = "^24.3.0"
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"

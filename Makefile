@@ -32,21 +32,24 @@ create-super-user:
 	docker exec -it $(DOCKER_NAME) python manage.py createsuperuser
 
 
-.PHONY: deps migrations migrate collectstatic dev
+.PHONY: deps migrations migrate collectstatic dev test
 deps:
-	poetry install
+	uv sync
 
 migrations:
-	poetry run python app/manage.py makemigrations
+	uv run python app/manage.py makemigrations
 
 migrate:
-	poetry run python app/manage.py migrate
+	uv run python app/manage.py migrate
 
 collectstatic:
-	poetry run python app/manage.py collectstatic
+	uv run python app/manage.py collectstatic
 
 dev:
-	poetry run python app/manage.py runserver
+	uv run python app/manage.py runserver
 
-create-requirements-file: 
-	poetry export --format requirements.txt --without-hashes -o requirements.txt
+test:
+	uv run python app/manage.py test
+
+create-requirements-file:
+	uv pip compile pyproject.toml -o requirements.txt
