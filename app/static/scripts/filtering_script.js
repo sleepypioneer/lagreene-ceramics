@@ -1,19 +1,13 @@
-let lightbox = GLightbox({
-    selector: 'glightbox',
-    touchNavigation: true,
-    onOpen: () => {
-      console.log('Lightbox opened')
-    },
-});
+
 
 const showItem = (item) => {
     item.classList.remove('d-none');
-    item.classList.add('fadeIn','glightbox');
-  }
+    item.classList.add('fadeIn', 'glightbox');
+}
 
 const hideItem = (item) => {
     item.classList.add('d-none');
-    item.classList.remove('fadeIn','glightbox');
+    item.classList.remove('fadeIn', 'glightbox');
 }
 
 const clean = () => {
@@ -25,8 +19,8 @@ const clean = () => {
 
 const removeSelection = () => {
     selected = document.getElementsByClassName('selected')
-    if(selected.length > 0) {
-        for (i=0; i < selected.length; i++) {
+    if (selected.length > 0) {
+        for (i = 0; i < selected.length; i++) {
             selected[i].classList.remove('selected');
         }
     }
@@ -41,16 +35,26 @@ const setSelected = (id) => {
 function filterGallery(id, classes) {
     setSelected(id)
     const items = Array.from(document.getElementsByClassName("filter"));
+    const videoSection = document.getElementById("gallery-videos");
+
+    // Handle videos filter
+    if (id === "video_section") {
+        videoSection.classList.remove('d-none');
+        return;
+    } else {
+        videoSection.classList.add('d-none');
+    }
+
     items.map(function (item, index) {
         const itemContainsClass = item.classList.contains(id);
-        switch(id) {
+        switch (id) {
             case "all":
-                if (item.classList.contains('archive')){
+                if (item.classList.contains('archive')) {
                     hideItem(item);
                 } else {
                     showItem(item);
                 }
-                setTimeout(clean,500);
+                setTimeout(clean, 500);
                 break;
             case "archive":
                 if (itemContainsClass) {
@@ -67,13 +71,6 @@ function filterGallery(id, classes) {
                 }
         }
     })
-    lightbox = GLightbox({
-        selector: 'glightbox',
-        touchNavigation: true,
-        onOpen: () => {
-          console.log('Lightbox opened')
-        },
-    });
 }
 
 function filterStockists(id) {

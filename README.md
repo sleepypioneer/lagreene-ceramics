@@ -7,8 +7,8 @@ This is the portfolio site for Lesley Anne Greene a ceramic artists based in Eas
 
 This project uses the following technologies
 
-* Python 3.9
-* Django 4
+* Python 3.11
+* Django 5
 * pytest
 * Javascript, Jquery
 * HTML & CSS
@@ -22,17 +22,32 @@ This project uses the following technologies
 
 #### Virtual environment
 
-This project uses poetry for package management for local development. To install dependencies run (from root):
+This project uses [uv](https://docs.astral.sh/uv/) for package management. To install dependencies run:
 
-``` sh 
+``` sh
 make deps
 ```
 
-Dependencies can also be outputted as a requirements file (required for Heroku deployment) by running `make create-requirements-file`.
-
 ##### Setting environment variables
 
-The postgresql Database requires a password, you can save this in a `.env` file. Copy the `app/.template_env`, keeping it inside the `app/` directory and fill in the values and rename it.
+Copy `app/.template_env` to `app/.env` and fill in the required values.
+
+For local development, you need:
+
+``` sh
+SECRET_KEY=your-secret-key-here
+DATABASE_URL=postgres://jessica-g@localhost:5432/nameforlocaldb
+DJANGO_DEBUG=True
+USE_S3=False
+```
+
+Generate a Django secret key with:
+
+``` sh
+uv run python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+```
+
+**Note:** The other variables in the template (DATABASE_NAME, DATABASE_USER, etc.) aren't needed since `DATABASE_URL` is used by `dj-database-url`. AWS variables are only required if `USE_S3=True`. Heroku variables are only for deployment.
 
 #### Running the App locally
 
@@ -49,7 +64,7 @@ make migrate
 make collectstatic
 
 #Run the tests
-python manage.py test
+make test
 
 #Run the server default port is 8000
 make dev
@@ -62,6 +77,16 @@ For development you may want to have your own local database and save static fil
 A local copy of the Heroku postgres can be made with the following command:
 
 ``` sh
+# Install Heroku CLI
+# macOS/Linux (script):
+curl https://cli-assets.heroku.com/install.sh | sh
+# macOS (Homebrew):
+brew tap heroku/brew && brew install heroku
+# Windows (Winget):
+winget install --id HerokuCLI
+# Authenticate:
+heroku login
+# Pull remote Heroku Postgres to local:
 PGUSER=postgres PGPASSWORD=password heroku pg:pull DATABASE_URL nameforlocaldb --app lagreene-ceramics
 ```
 
@@ -69,12 +94,12 @@ PGUSER=postgres PGPASSWORD=password heroku pg:pull DATABASE_URL nameforlocaldb -
 
 *If the above doesn't work it may be necessary
 
-[DJ-Database-URL](https://github.com/kennethreitz/dj-database-url) utility is used to configure the enbironment variable of the database so all that is now needed is to update the `$DATABASE_URL` value to the new local database:
+[DJ-Database-URL](https://github.com/kennethreitz/dj-database-url) utility is used to configure the environment variable of the database so all that is now needed is to update the `$DATABASE_URL` value to the new local database:
 
 ``` sh
 DATABASE_URL=postgres://postgres:password@localhost:5432/nameforlocaldb
 ```
-You will have to run the migrations on the local database and also create a super user `python3 manage.py createsuperuser`.
+You will have to run the migrations on the local database with `make migrate` and also create a super user `uv run python app/manage.py createsuperuser`.
 
 
 To stop using S3 for static and media files set the environment variable `$USE_S3` to `FALSE`.
