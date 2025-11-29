@@ -1,4 +1,4 @@
-.PHONY: docker-build run-in-docker createsuperuser
+.PHONY: docker-build run-in-docker createsuperuser docker-clean deps migrations migrate collectstatic dev test create-requirements-file lint
 
 DOCKER_BUILD_CONTEXT='./'
 DOCKER_NAME='lagreeneceramics'
@@ -49,7 +49,10 @@ dev:
 	uv run python app/manage.py runserver
 
 test:
-	uv run python app/manage.py test
+	uv run python app/manage.py test homepage pages gallery
 
 create-requirements-file:
 	uv pip compile pyproject.toml -o requirements.txt
+
+lint:
+	uv run flake8 app tests
