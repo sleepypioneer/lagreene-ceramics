@@ -1,6 +1,6 @@
-from datetime import datetime
 from django.test import TestCase
 from django.core.files.uploadedfile import SimpleUploadedFile
+from django.utils import timezone
 
 from .models import SlideShowItem, Announcement
 
@@ -10,12 +10,15 @@ small_image = (
     b'\x02\x02\x44\x01\x00\x3b'
 )
 
+
 class SlideShowItemTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         cls.slideShowItem = SlideShowItem.objects.create(
             title="Test slide show item",
-            image=SimpleUploadedFile('small.gif', small_image, content_type='image/gif')
+            image=SimpleUploadedFile(
+                'small.gif', small_image, content_type='image/gif'
+            )
         )
 
     def test_it_has_information_fields(self):
@@ -25,13 +28,16 @@ class SlideShowItemTest(TestCase):
 class AnnouncementTest(TestCase):
     @classmethod
     def setUpTestData(cls):
+        test_date = timezone.make_aware(timezone.datetime(2010, 1, 1))
         cls.announcement = Announcement.objects.create(
             subject="Test subject",
             body="Test body",
-            image=SimpleUploadedFile('small.gif', small_image, content_type='image/gif'),
+            image=SimpleUploadedFile(
+                'small.gif', small_image, content_type='image/gif'
+            ),
             link="www.testurl.org",
-            publish_date=datetime(2010, 1, 1),
-            end_date=datetime(2010, 1, 1)
+            publish_date=test_date,
+            end_date=test_date
         )
 
     def test_it_has_information_fields(self):
