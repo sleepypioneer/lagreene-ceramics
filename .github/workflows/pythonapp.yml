@@ -24,5 +24,10 @@ jobs:
       run: |
         uv run pycodestyle .
     - name: Test Django Files
+      env:
+        SECRET_KEY: test-secret-key-for-ci
+        DATABASE_URL: sqlite:///test.db
+        DJANGO_DEBUG: True
+        USE_S3: False
       run: |
         uv run python app/manage.py test homepage pages gallery
