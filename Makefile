@@ -55,4 +55,4 @@ create-requirements-file:
 	uv pip compile pyproject.toml -o requirements.txt
 
 lint:
-	uv run flake8 app tests
+	uv run pycodestyle app
