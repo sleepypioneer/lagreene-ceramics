@@ -43,13 +43,16 @@ function filterGallery(id, classes) {
     setSelected(id)
     const items = Array.from(document.getElementsByClassName("filter"));
     const videoSection = document.getElementById("gallery-videos");
+    const galleryContainer = document.getElementById("gallery-container");
 
     // Handle videos filter
     if (id === "video_section") {
         videoSection.classList.remove('d-none');
+        galleryContainer.classList.add('d-none');
         return;
     } else {
         videoSection.classList.add('d-none');
+        galleryContainer.classList.remove('d-none');
     }
 
     items.map(function (item, index) {
