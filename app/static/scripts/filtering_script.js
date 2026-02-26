@@ -3,36 +3,36 @@ let lightbox = GLightbox({
     selector: '.glightbox'
 });
 
-const showItem = (item) => {
+function showItem(item) {
     item.classList.remove('d-none');
     item.classList.add('fadeIn', 'glightbox');
 }
 
-const hideItem = (item) => {
+function hideItem(item) {
     item.classList.add('d-none');
     item.classList.remove('fadeIn', 'glightbox');
 }
 
-const clean = () => {
+function clean() {
     const items = Array.from(document.getElementsByClassName("filter"));
     items.map(function (item, index) {
         item.classList.remove('fadeIn');
-    })
+    });
 }
 
-const removeSelection = () => {
-    selected = document.getElementsByClassName('selected')
+function removeSelection() {
+    const selected = document.getElementsByClassName('selected');
     if (selected.length > 0) {
-        for (i = 0; i < selected.length; i++) {
+        for (let i = 0; i < selected.length; i++) {
             selected[i].classList.remove('selected');
         }
     }
 }
 
-const setSelected = (id) => {
+function setSelected(id) {
     removeSelection();
     const selector = document.getElementById(id);
-    selector.classList.add('selected')
+    selector.classList.add('selected');
 }
 
 function filterGallery(id, classes) {
