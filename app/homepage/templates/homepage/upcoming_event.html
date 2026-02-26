@@ -1,0 +1,44 @@
+{% load static %}
+<div class="col-12" id="upcoming-event">
+    <h3>
+        <a href="{% url 'stockists' %}">Upcoming Events</a>
+    </h3>
+    {% if upcoming_stockist %}
+    <div class="card upcoming-stockist-card">
+        <h5 class="card-header">
+            {{ upcoming_stockist.title }}
+        </h5>
+        <div class="card-body">
+            <h6>
+                {% if upcoming_stockist.start_date|date:"d M" == "01 Jan" %}
+                    {{ upcoming_stockist.end_date|date:"Y"}}
+                {% elif upcoming_stockist.start_date|date:"M" == upcoming_stockist.end_date|date:"M" %}
+                    {{ upcoming_stockist.start_date|date:"d"}} to {{ upcoming_stockist.end_date|date:"d M Y"}}
+                {% elif upcoming_stockist.start_date|date:"Y" == upcoming_stockist.end_date|date:"Y" %}
+                    {{ upcoming_stockist.start_date|date:"d M"}} to {{ upcoming_stockist.end_date|date:"d M Y"}}
+                {% else %}
+                    {{ upcoming_stockist.start_date|date:"d M Y"}} to {{ upcoming_stockist.end_date|date:"d M Y"}}
+                {% endif %}
+            </h6>
+            {% if upcoming_stockist.description %}
+            <p class="card-text">
+                {{ upcoming_stockist.description }}
+            </p>
+            {% endif %}
+            {% if upcoming_stockist.venue %}
+            <p class="card-text">
+                <strong>{{ upcoming_stockist.venue.name|capfirst }}</strong>
+                {% if upcoming_stockist.venue.city %}
+                    - {{ upcoming_stockist.venue.city }}
+                {% endif %}
+            </p>
+            {% endif %}
+        </div>
+        {% if upcoming_stockist.link %}
+        <div class="card-footer">
+            <a href="{{ upcoming_stockist.link }}" target="_blank">More info</a>
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
