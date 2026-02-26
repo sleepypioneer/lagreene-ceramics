@@ -1,4 +1,4 @@
-.PHONY: docker-build run-in-docker createsuperuser
+.PHONY: docker-build run-in-docker createsuperuser docker-clean deps migrations migrate collectstatic dev test create-requirements-file lint
 
 DOCKER_BUILD_CONTEXT='./'
 DOCKER_NAME='lagreeneceramics'
@@ -32,21 +32,27 @@ create-super-user:
 	docker exec -it $(DOCKER_NAME) python manage.py createsuperuser
 
 
-.PHONY: deps migrations migrate collectstatic dev
+.PHONY: deps migrations migrate collectstatic dev test
 deps:
-	poetry install
+	uv sync
 
 migrations:
-	poetry run python app/manage.py makemigrations
+	uv run python app/manage.py makemigrations
 
 migrate:
-	poetry run python app/manage.py migrate
+	uv run python app/manage.py migrate
 
 collectstatic:
-	poetry run python app/manage.py collectstatic
+	uv run python app/manage.py collectstatic
 
 dev:
-	poetry run python app/manage.py runserver
+	uv run python app/manage.py runserver
 
-create-requirements-file: 
-	poetry export --format requirements.txt --without-hashes -o requirements.txt
+test:
+	uv run python app/manage.py test homepage pages gallery
+
+create-requirements-file:
+	uv pip compile pyproject.toml -o requirements.txt
+
+lint:
+	uv run pycodestyle app
