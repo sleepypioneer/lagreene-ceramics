@@ -1,6 +1,10 @@
-// Initialize GLightbox
-let lightbox = GLightbox({
-    selector: '.glightbox'
+// Initialize GLightbox when DOM is ready
+var lightbox = null;
+
+document.addEventListener('DOMContentLoaded', function() {
+    lightbox = GLightbox({
+        selector: '.glightbox'
+    });
 });
 
 function showItem(item) {
