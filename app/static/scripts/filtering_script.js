@@ -1,4 +1,7 @@
-
+// Initialize GLightbox
+let lightbox = GLightbox({
+    selector: '.glightbox'
+});
 
 const showItem = (item) => {
     item.classList.remove('d-none');
@@ -71,6 +74,14 @@ function filterGallery(id, classes) {
                 }
         }
     })
+
+    // Reinitialize GLightbox after filtering to pick up DOM changes
+    if (lightbox) {
+        lightbox.destroy();
+    }
+    lightbox = GLightbox({
+        selector: '.glightbox'
+    });
 }
 
 function filterStockists(id) {
