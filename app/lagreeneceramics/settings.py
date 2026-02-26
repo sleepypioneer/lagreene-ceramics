@@ -169,20 +169,36 @@ if USE_S3:
     STATIC_LOCATION = "static"
     STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
     STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_LOCATION}/"
-    STATICFILES_STORAGE = "lagreeneceramics.storage_backends.StaticStorage"
     # s3 public media settings
     PUBLIC_MEDIA_LOCATION = "media"
     MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/"
-    DEFAULT_FILE_STORAGE = "lagreeneceramics.storage_backends.PublicMediaStorage"
+    # Django 5+ STORAGES configuration (replaces deprecated DEFAULT_FILE_STORAGE
+    # and STATICFILES_STORAGE)
+    STORAGES = {
+        "default": {
+            "BACKEND": "lagreeneceramics.storage_backends.PublicMediaStorage",
+        },
+        "staticfiles": {
+            "BACKEND": "lagreeneceramics.storage_backends.StaticStorage",
+        },
+    }
     # sorl-thumbnail S3 configuration
     THUMBNAIL_STORAGE = "lagreeneceramics.storage_backends.PublicMediaStorage"
     THUMBNAIL_KVSTORE = "sorl.thumbnail.kvstores.cached_db_kvstore.KVStore"
 else:
-    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
     STATIC_URL = "/staticfiles/"
     STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
     MEDIA_URL = "/mediafiles/"
     MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
+    # Django 5+ STORAGES configuration
+    STORAGES = {
+        "default": {
+            "BACKEND": "django.core.files.storage.FileSystemStorage",
+        },
+        "staticfiles": {
+            "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        },
+    }
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
