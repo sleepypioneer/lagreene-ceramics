@@ -173,6 +173,8 @@ if USE_S3:
     PUBLIC_MEDIA_LOCATION = "media"
     MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/"
     DEFAULT_FILE_STORAGE = "lagreeneceramics.storage_backends.PublicMediaStorage"
+    # sorl-thumbnail S3 configuration
+    THUMBNAIL_DEFAULT_STORAGE = "lagreeneceramics.storage_backends.PublicMediaStorage"
 else:
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
     STATIC_URL = "/staticfiles/"
