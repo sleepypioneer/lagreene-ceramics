@@ -40,7 +40,7 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
     "pycodestyle>=2.8.0",
-    "pytest>=7.0.1",
+    "pytest>=9.0.3",
     "autopep8>=1.6.0",
     "pylint>=2.12.2",
     "black>=24.3.0",
