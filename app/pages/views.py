@@ -1,6 +1,8 @@
+from django.db.models import F
 from django.shortcuts import render
-from pages.models import Link, Stockist, Venue
 from django.utils import timezone
+
+from pages.models import Link, Stockist, Venue
 
 def about(request):
     context = {
@@ -10,7 +12,7 @@ def about(request):
 def stockists(request):
     context = {
         'current_stockists': Stockist.objects.filter(
-            end_date__gte=timezone.now()).order_by('start_date'),
+            end_date__gte=timezone.now()).order_by(F('start_date').asc(nulls_last=True)),
         'past_stockists': Stockist.objects.filter(
             end_date__lt=timezone.now()).order_by('-end_date'),
         'venues': Venue.objects.all().order_by('name'),
