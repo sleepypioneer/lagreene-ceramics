@@ -26,17 +26,16 @@ class GalleryItem(models.Model):
     my_order = models.PositiveIntegerField(default=0, blank=False, null=False)
 
     def class_string(self):
-        class_string = ""
+        classes = []
         for category in self.categories.all():
-            class_string += str(category.name).lower().replace(" ", "_") + " "
+            classes.append(str(category.name).lower().replace(" ", "_"))
         if self.archive:
-            class_string += ' archive'
+            classes.append('archive')
         if self.artists_selection:
-            class_string += 'artists_selection glightbox'
+            classes.append('artists_selection')
         else:
-            class_string += ' d-none'
-
-        return class_string
+            classes.append('d-none')
+        return ' '.join(classes)
 
     def year_created(self):
         YEAR_CHOICES = []

@@ -1,20 +1,42 @@
 // Initialize GLightbox when DOM is ready
 var lightbox = null;
 
-document.addEventListener('DOMContentLoaded', function() {
-    lightbox = GLightbox({
-        selector: '.glightbox'
+function initLightbox() {
+    // Get only visible gallery items (not hidden with d-none)
+    var visibleItems = document.querySelectorAll('.gallery-item:not(.d-none)');
+    var elements = [];
+    visibleItems.forEach(function(item) {
+        elements.push({
+            href: item.getAttribute('href'),
+            title: item.getAttribute('data-title') || ''
+        });
     });
+
+    if (lightbox) {
+        lightbox.destroy();
+    }
+
+    if (elements.length > 0) {
+        lightbox = GLightbox({
+            selector: '.gallery-item:not(.d-none)',
+            touchNavigation: true,
+            loop: true
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    initLightbox();
 });
 
 function showItem(item) {
     item.classList.remove('d-none');
-    item.classList.add('fadeIn', 'glightbox');
+    item.classList.add('fadeIn');
 }
 
 function hideItem(item) {
     item.classList.add('d-none');
-    item.classList.remove('fadeIn', 'glightbox');
+    item.classList.remove('fadeIn');
 }
 
 function clean() {
@@ -82,13 +104,8 @@ function filterGallery(id, classes) {
         }
     })
 
-    // Reinitialize GLightbox after filtering to pick up DOM changes
-    if (lightbox) {
-        lightbox.destroy();
-    }
-    lightbox = GLightbox({
-        selector: '.glightbox'
-    });
+    // Reinitialize GLightbox after filtering to only include visible items
+    initLightbox();
 }
 
 function filterStockists(id) {
