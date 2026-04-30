@@ -6,7 +6,7 @@ from django.test import SimpleTestCase, TestCase, override_settings
 from django.urls import path, reverse
 from django.utils import timezone
 
-from pages.models import Stockist
+from pages.models import Stockist, Venue
 
 
 def response_error_handler(request, exception=None):
@@ -39,6 +39,9 @@ class CustomErrorHandlerTests(SimpleTestCase):
     "staticfiles": {"BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"},
 })
 class StockistsViewTests(TestCase):
+    def setUp(self):
+        self.venue = Venue.objects.create(name='Test Venue')
+
     def test_current_stockists_ordered_by_start_date(self):
         """Current stockists should be ordered by start_date ascending."""
         now = timezone.now().date()
@@ -47,16 +50,19 @@ class StockistsViewTests(TestCase):
         # Create stockists with future end_dates and varying start_dates
         stockist_late = Stockist.objects.create(
             title='Late Start',
+            venue=self.venue,
             start_date=now + timedelta(days=10),
             end_date=future,
         )
         stockist_early = Stockist.objects.create(
             title='Early Start',
+            venue=self.venue,
             start_date=now + timedelta(days=2),
             end_date=future,
         )
         stockist_mid = Stockist.objects.create(
             title='Mid Start',
+            venue=self.venue,
             start_date=now + timedelta(days=5),
             end_date=future,
         )
@@ -73,11 +79,13 @@ class StockistsViewTests(TestCase):
 
         stockist_with_date = Stockist.objects.create(
             title='Has Start Date',
+            venue=self.venue,
             start_date=now + timedelta(days=5),
             end_date=future,
         )
         stockist_null = Stockist.objects.create(
             title='No Start Date',
+            venue=self.venue,
             start_date=None,
             end_date=future,
         )
@@ -93,16 +101,19 @@ class StockistsViewTests(TestCase):
 
         stockist_oldest = Stockist.objects.create(
             title='Oldest',
+            venue=self.venue,
             start_date=now - timedelta(days=60),
             end_date=now - timedelta(days=30),
         )
         stockist_newest = Stockist.objects.create(
             title='Newest',
+            venue=self.venue,
             start_date=now - timedelta(days=10),
             end_date=now - timedelta(days=1),
         )
         stockist_middle = Stockist.objects.create(
             title='Middle',
+            venue=self.venue,
             start_date=now - timedelta(days=30),
             end_date=now - timedelta(days=15),
         )

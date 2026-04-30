@@ -10,16 +10,17 @@ def about(request):
     return render(request, 'about.html', context)
 
 def stockists(request):
+    today = timezone.localdate()
     context = {
         'current_stockists': Stockist.objects.filter(
-            end_date__gte=timezone.now()).order_by(
+            end_date__gte=today).order_by(
                 F('start_date').asc(nulls_last=True), 'pk'),
         'past_stockists': Stockist.objects.filter(
-            end_date__lt=timezone.now()).order_by('-end_date'),
+            end_date__lt=today).order_by('-end_date'),
         'venues': Venue.objects.all().order_by('name'),
         'exhibition_years': sorted(
             set(
-                Stockist.objects.filter(end_date__lt=timezone.now())
+                Stockist.objects.filter(end_date__lt=today)
                 .values_list(
                     'end_date__year',
                     flat=True
