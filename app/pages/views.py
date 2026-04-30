@@ -12,7 +12,8 @@ def about(request):
 def stockists(request):
     context = {
         'current_stockists': Stockist.objects.filter(
-            end_date__gte=timezone.now()).order_by(F('start_date').asc(nulls_last=True)),
+            end_date__gte=timezone.now()).order_by(
+                F('start_date').asc(nulls_last=True), 'pk'),
         'past_stockists': Stockist.objects.filter(
             end_date__lt=timezone.now()).order_by('-end_date'),
         'venues': Venue.objects.all().order_by('name'),
