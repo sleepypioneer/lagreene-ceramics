@@ -1,9 +1,9 @@
 {% load static %}
+{% if upcoming_stockist %}
 <div class="col-12" id="upcoming-event">
     <h3>
         <a href="{% url 'stockists' %}">Upcoming Events</a>
     </h3>
-    {% if upcoming_stockist %}
     <div class="card upcoming-stockist-card">
         <h5 class="card-header">
             {{ upcoming_stockist.title }}
@@ -40,5 +40,5 @@
         </div>
         {% endif %}
     </div>
-    {% endif %}
 </div>
+{% endif %}
