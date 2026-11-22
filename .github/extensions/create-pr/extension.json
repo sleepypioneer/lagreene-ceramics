@@ -1,0 +1,38 @@
+{
+	"version": 1,
+	"initialization": "module",
+	"canvases": [{
+		"id": "lagreene-create-pr",
+		"displayName": "Create Pull Request",
+		"description": "Create a pull request on the lagreene-ceramics repository",
+		"actions": [
+			{
+				"name": "create_pr",
+				"description": "Creates a new pull request with the given details",
+				"inputSchema": {
+					"type": "object",
+					"properties": {
+						"head": {
+							"type": "string",
+							"description": "The source branch name (e.g., 'feature/my-feature')"
+						},
+						"title": {
+							"type": "string",
+							"description": "The title of the pull request"
+						},
+						"body": {
+							"type": "string",
+							"description": "The body/description of the pull request (optional)"
+						},
+						"base": {
+							"type": "string",
+							"description": "The target branch (default: 'main')",
+							"default": "main"
+						}
+					},
+					"required": ["head", "title"]
+				}
+			}
+		]
+	}]
+}
