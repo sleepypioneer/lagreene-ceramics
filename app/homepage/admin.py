@@ -27,6 +27,7 @@ class NewsItemAdmin(SortableAdminMixin, admin.ModelAdmin):
         }),
     )
 
+
 # Register your models here.
 admin.site.register(SlideShowItem, SlideShowAdmin)
 admin.site.register(NewsItem, NewsItemAdmin)
