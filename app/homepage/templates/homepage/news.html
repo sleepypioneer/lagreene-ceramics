@@ -1,4 +1,5 @@
 {% load static %}
+{% load thumbnail %}
 {% if news_items %}
 <div class="col-12" id="news-items">
     <h3>News</h3>
@@ -6,7 +7,9 @@
     <div class="card news-item-card mb-4">
         {% if item.image %}
         <div class="news-item-image-container">
-            <img src="{{ item.image.url }}" alt="{{ item.title }}" class="card-img-top news-item-image" />
+            {% thumbnail item.image "600x400" crop="center" as im %}
+                <img src="{{ im.url }}" alt="{{ item.title }}" class="card-img-top news-item-image" width="{{ im.width }}" height="{{ im.height }}" />
+            {% endthumbnail %}
         </div>
         {% endif %}
         <div class="card-body">
