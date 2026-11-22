@@ -22,9 +22,6 @@ class NewsItemAdmin(SortableAdminMixin, admin.ModelAdmin):
             'classes': ('collapse',),
             'description': 'Image and link are optional'
         }),
-        ('Ordering', {
-            'fields': ('itemOrder',)
-        }),
     )
 
 

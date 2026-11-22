@@ -1,7 +1,9 @@
 from unittest.mock import patch
 
+from django.contrib import admin
+from django.contrib.auth import get_user_model
 from django.core.files.uploadedfile import SimpleUploadedFile
-from django.test import TestCase, override_settings
+from django.test import RequestFactory, TestCase, override_settings
 from django.urls import reverse
 from django.utils import timezone
 
@@ -47,6 +49,22 @@ class AnnouncementTest(TestCase):
         self.assertIsInstance(self.announcement.subject, str)
         self.assertIsInstance(self.announcement.body, str)
         self.assertIsInstance(self.announcement.link, str)
+
+
+class NewsItemAdminTests(TestCase):
+    def test_order_is_not_editable_in_add_or_change_form(self):
+        request = RequestFactory().get('/')
+        request.user = get_user_model()(is_staff=True, is_superuser=True)
+        news_admin = admin.site._registry[NewsItem]
+        item = NewsItem.objects.create(title='News', main_text='Text')
+
+        for obj in (None, item):
+            with self.subTest(obj=obj):
+                form = news_admin.get_form(request, obj)
+                self.assertNotIn('itemOrder', form.base_fields)
+                self.assertEqual(
+                    set(form.base_fields), {'title', 'main_text', 'image', 'link'}
+                )
 
 
 @override_settings(STORAGES={
