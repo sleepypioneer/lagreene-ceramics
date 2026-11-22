@@ -1,0 +1,22 @@
+{% load static %}
+{% if news_items %}
+<div class="col-12" id="news-items">
+    <h3>News</h3>
+    {% for item in news_items %}
+    <div class="card news-item-card mb-4">
+        {% if item.image %}
+        <div class="news-item-image-container">
+            <img src="{{ item.image.url }}" alt="{{ item.title }}" class="card-img-top news-item-image" />
+        </div>
+        {% endif %}
+        <div class="card-body">
+            <h5 class="card-title">{{ item.title }}</h5>
+            <p class="card-text">{{ item.main_text }}</p>
+            {% if item.link %}
+            <a href="{{ item.link }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Read more</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
