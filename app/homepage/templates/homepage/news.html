@@ -8,7 +8,7 @@
         {% if item.image %}
         <div class="news-item-image-container">
             {% thumbnail item.image "600x400" crop="center" as im %}
-                <img src="{{ im.url }}" alt="{{ item.title }}" class="card-img-top news-item-image" width="{{ im.width }}" height="{{ im.height }}" />
+                <img src="{{ im.url }}" alt="{{ item.title }}" class="card-img-top news-item-image h-auto" width="{{ im.width }}" height="{{ im.height }}" />
             {% endthumbnail %}
         </div>
         {% endif %}
