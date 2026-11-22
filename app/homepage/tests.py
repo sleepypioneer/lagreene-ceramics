@@ -1,3 +1,5 @@
+from io import BytesIO
+from tempfile import TemporaryDirectory
 from unittest.mock import patch
 
 from django.contrib import admin
@@ -6,6 +8,8 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import RequestFactory, TestCase, override_settings
 from django.urls import reverse
 from django.utils import timezone
+from PIL import Image
+from sorl.thumbnail import get_thumbnail
 
 from .models import SlideShowItem, Announcement, NewsItem
 
@@ -98,16 +102,22 @@ class HomepageNewsTests(TestCase):
         )
 
     def test_news_item_renders_optional_image_and_link(self):
-        item = NewsItem.objects.create(
-            title='News with extras',
-            main_text='News text',
-            image='img/news/example.jpg',
-            link='https://example.com/news',
-        )
+        with TemporaryDirectory() as media_root, self.settings(MEDIA_ROOT=media_root):
+            image = BytesIO()
+            Image.new('RGB', (800, 600)).save(image, format='JPEG')
+            item = NewsItem.objects.create(
+                title='News with extras',
+                main_text='News text',
+                image=SimpleUploadedFile('example.jpg', image.getvalue()),
+                link='https://example.com/news',
+            )
 
-        response = self.client.get(reverse('homepage'))
-        self.assertContains(response, f'src="{item.image.url}"')
-        self.assertContains(response, 'href="https://example.com/news"')
+            response = self.client.get(reverse('homepage'))
+            thumbnail = get_thumbnail(item.image, '600x400', crop='center')
+            self.assertContains(response, f'src="{thumbnail.url}"')
+            self.assertNotContains(response, f'src="{item.image.url}"')
+            self.assertContains(response, 'width="600" height="400"')
+            self.assertContains(response, 'href="https://example.com/news"')
 
     def test_news_item_without_optional_fields(self):
         NewsItem.objects.create(title='Simple news', main_text='News text')
