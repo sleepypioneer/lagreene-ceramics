@@ -1,12 +1,17 @@
-from datetime import timedelta
+from io import BytesIO
+from tempfile import TemporaryDirectory
+from unittest.mock import patch
 
+from django.contrib import admin
+from django.contrib.auth import get_user_model
 from django.core.files.uploadedfile import SimpleUploadedFile
-from django.test import TestCase, override_settings
+from django.test import RequestFactory, TestCase, override_settings
 from django.urls import reverse
 from django.utils import timezone
+from PIL import Image
+from sorl.thumbnail import get_thumbnail
 
-from .models import SlideShowItem, Announcement
-from pages.models import Stockist, Venue
+from .models import SlideShowItem, Announcement, NewsItem
 
 small_image = (
     b'\x47\x49\x46\x38\x39\x61\x01\x00\x01\x00\x80\x00\x00\x05'
@@ -50,69 +55,82 @@ class AnnouncementTest(TestCase):
         self.assertIsInstance(self.announcement.link, str)
 
 
+class NewsItemAdminTests(TestCase):
+    def test_order_is_not_editable_in_add_or_change_form(self):
+        request = RequestFactory().get('/')
+        request.user = get_user_model()(is_staff=True, is_superuser=True)
+        news_admin = admin.site._registry[NewsItem]
+        item = NewsItem.objects.create(title='News', main_text='Text')
+
+        for obj in (None, item):
+            with self.subTest(obj=obj):
+                form = news_admin.get_form(request, obj)
+                self.assertNotIn('itemOrder', form.base_fields)
+                self.assertEqual(
+                    set(form.base_fields), {'title', 'main_text', 'image', 'link'}
+                )
+
+
 @override_settings(STORAGES={
     "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
     "staticfiles": {"BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"},
 })
-class HomepageUpcomingStockistTests(TestCase):
+class HomepageNewsTests(TestCase):
     def setUp(self):
-        self.venue = Venue.objects.create(name='Test Venue')
-
-    def test_upcoming_stockist_shows_earliest_by_start_date(self):
-        """Homepage should show the stockist with the earliest start_date."""
-        today = timezone.localdate()
-        future = today + timedelta(days=30)
-
-        Stockist.objects.create(
-            title='Later Event',
-            venue=self.venue,
-            start_date=today + timedelta(days=10),
-            end_date=future,
+        instagram = patch(
+            'django_instagram.templatetags.instagram_client.instagram_profile_obj',
+            return_value=None,
         )
-        early_stockist = Stockist.objects.create(
-            title='Earlier Event',
-            venue=self.venue,
-            start_date=today + timedelta(days=2),
-            end_date=future,
+        instagram.start()
+        self.addCleanup(instagram.stop)
+
+    def test_news_items_are_displayed_in_order(self):
+        later = NewsItem.objects.create(
+            title='Later News', main_text='Later text', itemOrder=1
+        )
+        earlier = NewsItem.objects.create(
+            title='Earlier News', main_text='Earlier text', itemOrder=2
         )
 
         response = self.client.get(reverse('homepage'))
-        self.assertEqual(response.context['upcoming_stockist'], early_stockist)
-
-    def test_upcoming_stockist_with_null_start_date_comes_last(self):
-        """Stockist with null start_date should not be selected over one with a date."""
-        today = timezone.localdate()
-        future = today + timedelta(days=30)
-
-        stockist_with_date = Stockist.objects.create(
-            title='Has Start Date',
-            venue=self.venue,
-            start_date=today + timedelta(days=5),
-            end_date=future,
+        self.assertQuerySetEqual(response.context['news_items'], [earlier, later])
+        self.assertContains(response, 'Earlier text')
+        self.assertContains(response, 'Later text')
+        self.assertLess(
+            response.content.index(b'Earlier News'),
+            response.content.index(b'Later News'),
         )
-        Stockist.objects.create(
-            title='No Start Date',
-            venue=self.venue,
-            start_date=None,
-            end_date=future,
-        )
+
+    def test_news_item_renders_optional_image_and_link(self):
+        with TemporaryDirectory() as media_root, self.settings(MEDIA_ROOT=media_root):
+            image = BytesIO()
+            Image.new('RGB', (800, 600)).save(image, format='JPEG')
+            item = NewsItem.objects.create(
+                title='News with extras',
+                main_text='News text',
+                image=SimpleUploadedFile('example.jpg', image.getvalue()),
+                link='https://example.com/news',
+            )
+
+            response = self.client.get(reverse('homepage'))
+            thumbnail = get_thumbnail(item.image, '600x400', crop='center')
+            self.assertContains(response, f'src="{thumbnail.url}"')
+            self.assertNotContains(response, f'src="{item.image.url}"')
+            self.assertContains(response, 'width="600" height="400"')
+            self.assertContains(response, 'href="https://example.com/news"')
+
+    def test_news_item_without_optional_fields(self):
+        NewsItem.objects.create(title='Simple news', main_text='News text')
 
         response = self.client.get(reverse('homepage'))
-        self.assertEqual(response.context['upcoming_stockist'], stockist_with_date)
+        self.assertContains(response, 'Simple news')
+        self.assertNotContains(response, 'news-item-image-container')
+        self.assertNotContains(response, 'Read more')
 
-    def test_no_upcoming_stockist_when_all_past(self):
-        """Homepage should have no upcoming_stockist when all events are in the past."""
-        today = timezone.localdate()
-
-        Stockist.objects.create(
-            title='Past Event',
-            venue=self.venue,
-            start_date=today - timedelta(days=30),
-            end_date=today - timedelta(days=1),
-        )
-
+    def test_news_section_hidden_when_empty(self):
         response = self.client.get(reverse('homepage'))
-        self.assertIsNone(response.context['upcoming_stockist'])
+        self.assertQuerySetEqual(response.context['news_items'], [])
+        self.assertNotContains(response, 'id="news-items"')
 
     def test_upcoming_stockist_section_hidden_when_none(self):
         """The upcoming events section should not render when there are no events."""
